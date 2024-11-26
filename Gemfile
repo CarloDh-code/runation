@@ -29,6 +29,8 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 gem 'strava-ruby-client'
+
+gem "fast-polylines", "~> 2.0.0"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
