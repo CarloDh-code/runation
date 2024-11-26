@@ -3,6 +3,7 @@ class Player < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :comments
   has_many :game_players
+  has_many :games, through: :game_players
   has_many :runs
 
 
