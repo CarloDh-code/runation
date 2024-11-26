@@ -1,0 +1,40 @@
+<h1> Créer un nouveau jeu</h1>
+
+  <%= form_with model: @game local: true do |form| %>
+  <% if @game.errors.any? %>
+    <div class="alert alert-danger">
+      <h2>Il y a des erreurs dans le formulaire :</h2>
+      <ul>
+        <% @game.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name, "Nom du jeu" %>
+    <%= form.text_field :name, placeholder: "Entrez le nom du jeu", required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nb_of_players, "Nombre de joueurs" %>
+    <%= form.number_field :nb_of_players, min: 1, placeholder: "Entrez le nombre de joueurs", required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_date, "Date de début" %>
+    <%= form.date_field :start_date, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_date, "Date de fin" %>
+    <%= form.date_field :end_date, required: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Créer le jeu", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<%= link_to "Retour à la liste des jeux", games_path, class: "btn btn-secondary" %>
