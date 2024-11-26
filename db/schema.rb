@@ -10,9 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_25_165111) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_26_101733) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "player_id", null: false
+    t.bigint "game_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_comments_on_game_id"
+    t.index ["player_id"], name: "index_comments_on_player_id"
+  end
+
+  create_table "game_player_runs", force: :cascade do |t|
+    t.bigint "game_player_id", null: false
+    t.bigint "run_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_player_id"], name: "index_game_player_runs_on_game_player_id"
+    t.index ["run_id"], name: "index_game_player_runs_on_run_id"
+  end
+
+  create_table "game_players", force: :cascade do |t|
+    t.bigint "game_id", null: false
+    t.bigint "player_id", null: false
+    t.integer "ranking"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_game_players_on_game_id"
+    t.index ["player_id"], name: "index_game_players_on_player_id"
+  end
 
   create_table "games", force: :cascade do |t|
     t.string "name"
@@ -35,8 +64,32 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_25_165111) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "nickname"
     t.index ["email"], name: "index_players_on_email", unique: true
     t.index ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true
   end
 
+  create_table "runs", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.float "start_lat"
+    t.float "end_lat"
+    t.float "start_long"
+    t.float "end_long"
+    t.text "polyline"
+    t.integer "strava_activity_id"
+    t.bigint "player_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["player_id"], name: "index_runs_on_player_id"
+  end
+
+  add_foreign_key "comments", "games"
+  add_foreign_key "comments", "players"
+  add_foreign_key "game_player_runs", "game_players"
+  add_foreign_key "game_player_runs", "runs"
+  add_foreign_key "game_players", "games"
+  add_foreign_key "game_players", "players"
+  add_foreign_key "runs", "players"
 end

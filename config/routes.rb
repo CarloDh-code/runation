@@ -1,6 +1,21 @@
 Rails.application.routes.draw do
   devise_for :players
   root to: "pages#home"
+  resources :games, only: [:index, :show, :new, :create] do
+    collection do
+      get :mine
+    end
+    resources :game_players, only: [:create]
+  end
+
+  resources :runs, only: [] do
+    collection do
+      patch :refresh
+    end
+  end
+
+  resource :profile, only: [:show]
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
