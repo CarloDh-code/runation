@@ -138,6 +138,7 @@ GEM
       multipart-post (~> 2)
     faraday-net_http (3.4.0)
       net-http (>= 0.5.0)
+    fast-polylines (2.0.1)
     ffi (1.17.0-aarch64-linux-gnu)
     ffi (1.17.0-aarch64-linux-musl)
     ffi (1.17.0-arm-linux-gnu)
@@ -342,6 +343,7 @@ DEPENDENCIES
   debug
   devise
   dotenv-rails
+  fast-polylines (~> 2.0.0)
   font-awesome-sass (~> 6.1)
   importmap-rails
   jbuilder
