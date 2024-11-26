@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_26_142506) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_26_162839) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -74,14 +74,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_26_142506) do
   end
 
   create_table "runs", force: :cascade do |t|
-    t.date "start_date"
-    t.date "end_date"
+    t.datetime "start_datetime"
+    t.datetime "end_datetime"
     t.float "start_lat"
     t.float "end_lat"
     t.float "start_long"
     t.float "end_long"
     t.text "polyline"
-    t.integer "strava_activity_id"
+    t.bigint "strava_activity_id"
     t.bigint "player_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
