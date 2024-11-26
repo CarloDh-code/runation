@@ -60,10 +60,10 @@ carlos = Player.create!(
     name: "Gustave",
     nickname: "Third1",
   )
-  lucile = Player.create!(
+  geogette = Player.create!(
     email: "player4@gmail.com",
     password: "444444",
-    name: "Lucile",
+    name: "geogette",
     nickname: "Fourth1",
   )
 
@@ -88,6 +88,29 @@ city_marathon = Game.create!(
   start_date: Date.today - 1.week,
   end_date: Date.today + 1.week,
   status: 'ongoing',
+  latitude: 40.7128,
+  longitude: -74.0060
+)
+
+running_for_all = Game.create!(
+  name: 'running for all ',
+  map_polyline: 'encoded_polyline_for_city_arathon',
+  nb_of_players: 5,
+  start_date: Date.today - 1.week,
+  end_date: Date.today + 6.week,
+  status: 'pending',
+  latitude: 40.7128,
+  longitude: -74.0060
+)
+
+
+running_district_paris = Game.create!(
+  name: '14eme running',
+  map_polyline: 'encoded_polyline_for_city_arathon',
+  nb_of_players: 3,
+  start_date: Date.today - 1.week,
+  end_date: Date.today + 4.week,
+  status: 'pending',
   latitude: 40.7128,
   longitude: -74.0060
 )
@@ -231,7 +254,7 @@ GamePlayer.create!(
 
 GamePlayer.create!(
   game: beach_running,
-  player: lucile,
+  player: geogette,
   ranking: 3
 )
 

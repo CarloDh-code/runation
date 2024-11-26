@@ -1,6 +1,13 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show]
 
+
+  def show
+       unless @game.status == 'pending' || @game.players.include?(current_user)
+        redirect_to games_path, alert: 'You can not access this game, sorry ! '
+       end
+  end
+  
   def index
     @games = Game.where(status: 'pending')
   end
