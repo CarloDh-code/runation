@@ -1,0 +1,45 @@
+<h1>My games</h1>
+
+<% if @games.any? %>
+  <div class="tabs">
+    <ul class="tab-titles">
+      <li><%= link_to "En attente", "#", data: { turbo: false, target: "#tab-pending" }, class: "tab-link" %></li>
+      <li><%= link_to "En cours", "#", data: { turbo: false, target: "#tab-ongoing" }, class: "tab-link" %></li>
+      <li><%= link_to "Terminées", "#", data: { turbo: false, target: "#tab-finished" }, class: "tab-link" %></li>
+
+    </ul>
+
+    <div id="tab-pending" class="tab-content hidden">
+      <h2>En attente</h2>
+      <% @games.select { |game| game.status == "pending" }.each do |game| %>
+        <div class="game-item">
+          <h3><%= link_to game.name, game_path(game) %></h3>
+          <p>Joueurs: <%= game.players.count %> / <%= game.nb_of_players %></p>
+        </div>
+      <% end %>
+    </div>
+
+    <div id="tab-ongoing" class="tab-content hidden">
+      <h2>En cours</h2>
+      <% @games.select { |game| game.status == "ongoing" }.each do |game| %>
+        <div class="game-item">
+          <h3><%= link_to game.name, game_path(game) %></h3>
+          <p>Joueurs: <%= game.players.count %> / <%= game.nb_of_players %></p>
+          <p>Fin prévue le: <%= game.end_date.strftime('%d %B %Y') if game.end_date.present? %></p>
+        </div>
+      <% end %>
+    </div>
+
+    <div id="tab-finished" class="tab-content hidden">
+      <h2>Terminées</h2>
+      <% @games.select { |game| game.status == "finished" }.each do |game| %>
+        <div class="game-item">
+          <h3><%= link_to game.name, game_path(game) %></h3>
+          <p>Finie le: <%= game.end_date.strftime('%d %B %Y') if game.end_date.present? %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <p>Vous n'êtes inscrit à aucune partie.</p>
+<% end %>
