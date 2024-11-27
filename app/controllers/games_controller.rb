@@ -7,9 +7,19 @@ class GamesController < ApplicationController
         redirect_to games_path, alert: 'You can not access this game, sorry ! '
        end
   end
-  
+
   def index
     @games = Game.where(status: 'pending')
+    game_player_ids = GamePlayer.where(game_id: @games.pluck(:id)).pluck(:id)
+    @runs = Run.joins(:game_player_runs).where(game_player_runs: { game_player_id: game_player_ids })
+
+    @markers = @runs.map do |run|
+      decoded_path = run.decoded_path
+      if decoded_path.present?
+        { lat: decoded_path.first[0], lng: decoded_path.first[1] }
+      end
+    end.compact
+
   end
 
   def new
