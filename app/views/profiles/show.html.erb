@@ -1,0 +1,80 @@
+<div class="container py-5">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-light bg-light shadow-sm fixed-top">
+    <div class="container-fluid">
+      <button class="btn btn-outline-secondary" type="button">
+        <i class="fa-solid fa-gear"></i>
+      </button>
+      <a class="navbar-brand" href="#">
+        <img src="logo_rn.svg" alt="Logo" width="40" height="40">
+      </a>
+      <button class="btn btn-outline-secondary" type="button">
+        <i class="fa-regular fa-bell"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Profile Section -->
+  <div class="text-center mt-3 pt-4">
+    <div class="position-relative d-inline-block">
+      <div class="rounded-circle bg-primary" style="width: 89px; height: 89px;">
+        <i class="fa-solid fa-user text-white fs-1 d-flex justify-content-center align-items-center" style="height: 100%;"></i>
+      </div>
+      <button class="btn btn-light position-absolute top-0 start-100 translate-middle p-0 rounded-circle border" style="width: 25px; height: 25px;">
+        <i class="fa-regular fa-pen-to-square"></i>
+      </button>
+    </div>
+    <h1 class="mt-3 fs-2 fw-bold">
+    <%= @username %>
+    </h1>
+    <p class="text-muted"> <%= @usermail %> <br> <% @user_real_name %> </p>
+    <p>
+      <i class="fa-solid fa-map-pin text-primary"></i> localisation
+    </p>
+  </div>
+
+  <!-- Stats Section -->
+  <div class="row text-center mt-5 align-items-center">
+    <div class="d-flex align-items-center justify-content-center">
+      <div class="text-center m-2">
+        <div class="rounded-circle bg-info mx-auto" style="width: 132px; height: 132px;">
+          <div class="d-flex flex-column justify-content-center align-items-center h-100 text-white">
+            <p class="mb-0 fw-bold">Games played</p>
+            <p class="display-4"><%= @games_played_count %></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center m-2">
+        <div class="rounded-circle bg-warning mx-auto" style="width: 132px; height: 132px;">
+          <div class="d-flex flex-column justify-content-center align-items-center h-100 text-dark">
+            <p class="mb-0 fw-bold">Games won</p>
+            <p class="display-4"><%= @games_won_count %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="d-flex align-items-center justify-content-center">
+      <div class="text-center m-2">
+        <div class="rounded-circle bg-dark mx-auto" style="width: 132px; height: 132px;">
+          <div class="d-flex flex-column justify-content-center align-items-center h-100 text-white">
+            <p class="mb-0 fw-bold">Km2 Covered</p>
+            <p class="display-4">100</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center m-2">
+        <div class="rounded-circle bg-light mx-auto" style="width: 132px; height: 132px;">
+          <div class="d-flex flex-column justify-content-center align-items-center h-100 text-dark">
+            <p class="mb-0 fw-bold">Games coming</p>
+            <p class="display-4"><%= @upcoming_games_count %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
