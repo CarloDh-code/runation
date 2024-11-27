@@ -32,6 +32,8 @@ gem "geocoder"
 
 gem 'strava-ruby-client'
 
+gem 'rgeo-geojson'
+
 gem "fast-polylines", "~> 2.0.0"
 
 gem "rgeo"
