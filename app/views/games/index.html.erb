@@ -1,6 +1,6 @@
 <h1> See all games </h1>
 <ul>
   <% @games.each do |game| %>
-    <li><%= link_to game.name, game_path(game) %></li>
+    <p><%= link_to game.name, game_path(game) %></p>
   <% end %>
 </ul>
