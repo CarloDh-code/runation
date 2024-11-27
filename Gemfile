@@ -33,6 +33,12 @@ gem "geocoder"
 gem 'strava-ruby-client'
 
 gem "fast-polylines", "~> 2.0.0"
+
+gem "rgeo"
+
+
+
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
