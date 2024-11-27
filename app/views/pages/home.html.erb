@@ -1,3 +1,83 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 <%= link_to 'Connect to strava', auth_strava_path, class:'btn btn-primary' %>
+
+<%# Antoinetestcard %>
+<div class="card">
+    <h2>Battle day</h2>
+    <div class="info">
+      <p>Created by Carlo</p>
+      <p>📍 Paris</p>
+    </div>
+    <div class="mapy">
+      <img src="/images/mapparis.png" alt="Map of Paris">
+    </div>
+    <div class="status">
+      <div class="infos">👤 7/9</div>
+      <div class="infos">⌛ 3 days left</div>
+      <div class="infos">🗺️ 30% covered</div>
+    </div>
+</div>
+
+
+<button class="btn-join">JOIN GAME</button>
+
+
+<div class="battle-container">
+  <div class="header">
+    <h2 class="namecard">Battle day</h2>
+  </div>
+  <div class="map">
+    <img src="/images/mapparis.png" alt="Paris Map">
+  </div>
+  <div class="details">
+    <div class="infox">
+      <span>👥 7 Players</span>
+      <span>⏳ 3 days left</span>
+      <span>📍 Paris</span>
+      <span>🗺️30% covered</span>
+    </div>
+
+
+  </div>
+  <div class="leaderboard">
+    <div class="player-icons">
+      <div class="player">
+        <img src="images/avatar1.svg" alt="ava" class="playerimgsecond">
+        <span>Antoine</span>
+      </div>
+      <div class="player first">
+        <img src="images/avatar1.svg" alt="ava" class="playerimgfirst">
+        <span>Iman</span>
+      </div>
+      <div class="player" >
+        <img src="images/avatar1.svg" alt="ava" class="playerimgthird">
+        <span>John</span>
+      </div>
+    </div>
+    <div class="rankings">
+      <div class="rank first">
+        <span>1</span>
+        <span>Iman</span>
+        <span>5 runs</span>
+        <span>22%</span>
+      </div>
+      <div class="rank">
+        <span>2</span>
+        <span>Antoine</span>
+        <span>5 runs</span>
+        <span>22%</span>
+      </div>
+      <div class="rank">
+        <span>3</span>
+        <span>Joe</span>
+        <span>5 runs</span>
+        <span>22%</span>
+      </div>
+    </div>
+  </div>
+      <div  class="btncard">
+        <button class="join-game-card">Join Game</button>
+      </div>
+</div>
+

@@ -1,1 +1,223 @@
 // Specific CSS for your home-page
+
+
+body {
+  background-color: #f9f9f9;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.card {
+  width: 375px;
+  height: 450px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 16px;
+  margin-top: 20px;
+}
+
+.card h2 {
+  font-size: 30px;
+  font-weight: 900;
+  margin: 0;
+  color: #4a90e2;
+}
+
+.info {
+  margin-bottom: 1px;
+}
+
+.infos {
+  font-weight: bold;
+}
+.card .info {
+  display: flex;
+  justify-content: space-between;
+  height: 20px;
+}
+
+.map {
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+
+.mapy img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  text-align: center;
+}
+
+.status div {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.status img {
+  width: 16px;
+}
+
+.btn-join {
+  background-color: $orangy;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 8px 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+.battle-container {
+  width: 350px;
+  margin: auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.header {
+  text-align: center;
+  padding: 10px;
+}
+
+.map img {
+  width: 100%;
+  height: auto;
+}
+
+.details {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.infox span {
+  display: block;
+  font-size: 0.9em;
+  color: #000000;
+  margin: 3px 0;
+}
+
+
+
+.leaderboard {
+  padding: 10px;
+}
+
+.player-icons {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.player {
+  text-align: center;
+  font-size: 0.8em;
+  position: relative;
+  color: #333;
+}
+
+
+.playerimgfirst{
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 0 auto 5px;
+  background-color: #ddd;
+  border: rgb(251, 255, 0) solid;
+}
+
+.playerimgsecond{
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0 auto 5px;
+  background-color: #ddd;
+  border: rgb(165, 165, 165) solid;
+}
+
+.playerimgthird{
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0 auto 5px;
+  background-color: #ddd;
+  border: rgb(255, 192, 120) solid;
+}
+
+
+.rankings {
+  margin-top: 10px;
+}
+
+.rank {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  background: #f9f9f9;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.rank.first {
+  background: #ffdd99;
+}
+
+.rank span {
+  flex: 1;
+  text-align: center;
+}
+
+.btncard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button.join-game-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  padding: 10px;
+  background: #ff5e5e;
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+
+}
+
+.join-game:hover {
+  background: #ff4040;
+}
+
+.namecard {
+  font-size: 30px;
+  font-weight: 900;
+  margin: 0;
+  color: #4a90e2;
+}

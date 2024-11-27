@@ -1,11 +1,24 @@
 <div class='game-card-show'>
   <h1> <%= @game.name %> </h1>
-  <p> <%= (@game.end_date - Date.today).to_i %> days left</p>
+  <p>Status: <%= @game.status.capitalize %></p>
+  <p>Joueurs: <%= @game.players.count %> / <%= @game.nb_of_players %></p>
 
-    <div id="map" style="width: 100%; height: 400px;"
-      data-controller="map"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-      data-map-polylines-value="<%= @polylines.to_json %>">
-    </div>
 
+  <% if @game.end_date.present? %>
+    <p> <%= (@game.end_date - Date.today).to_i %> days left</p>
+  <% else %>
+    <p>Date de fin non définie</p>
+  <% end %>
+
+  <div id="map" style="width: 100%; height: 400px;"
+       data-controller="map"
+       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
+  <% if !@game.players.include?(current_player) %>
+   <%= button_to "Rejoindre cette partie", game_game_players_path(@game), method: :post, class: "btn btn-primary" %>
+
+  <% else %>
+    <p>Vous êtes déjà inscrit à cette partie.</p>
+  <% end %>
 </div>

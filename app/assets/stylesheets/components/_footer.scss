@@ -1,0 +1,28 @@
+
+.footer {
+  display: flex  !important;
+  justify-content: space-around; /* Space out items evenly */
+  align-items: center; /* Align items vertically */
+  background-color: white; /* Example footer background color */
+  padding: 10px 0;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 2px -1px 5px 1px rgba(0, 0, 0, .2);
+
+}
+
+.footer-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items within each section */
+  text-align: center;
+}
+
+.footer-item img {
+  margin-bottom: 5px; /* Add space between icon and text */
+}
+
+span {
+  text-align: center;
+}
