@@ -3,12 +3,13 @@
   display: flex  !important;
   justify-content: space-around; /* Space out items evenly */
   align-items: center; /* Align items vertically */
-  background-color: #f1f1f1; /* Example footer background color */
+  background-color: white; /* Example footer background color */
   padding: 10px 0;
-  position: absolute;
+  position: sticky;
   bottom: 0;
   width: 100%;
   box-shadow: 2px -1px 5px 1px rgba(0, 0, 0, .2);
+
 }
 
 .footer-item {
