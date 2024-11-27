@@ -6,20 +6,11 @@ class GamesController < ApplicationController
        unless @game.status == 'pending' || @game.players.include?(current_user)
         redirect_to games_path, alert: 'You can not access this game, sorry ! '
        end
+       @polylines = @game.runs.pluck(:polyline)
   end
 
   def index
     @games = Game.where(status: 'pending')
-    game_player_ids = GamePlayer.where(game_id: @games.pluck(:id)).pluck(:id)
-    @runs = Run.joins(:game_player_runs).where(game_player_runs: { game_player_id: game_player_ids })
-
-    @markers = @runs.map do |run|
-      decoded_path = run.decoded_path
-      if decoded_path.present?
-        { lat: decoded_path.first[0], lng: decoded_path.first[1] }
-      end
-    end.compact
-
   end
 
   def new
