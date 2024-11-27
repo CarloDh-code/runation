@@ -1,1 +1,8 @@
 // Specific CSS for your home-page
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the body takes the full viewport height */
+  margin: 0;
+  background-color: rgb(255, 250, 245);
+}
