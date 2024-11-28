@@ -1,39 +1,26 @@
-document.addEventListener("DOMContentLoaded", () => {
+import { Controller } from "@hotwired/stimulus";
 
-  console.log("JavaScript chargé et prêt !");
+export default class extends Controller {
+  static targets = ["tab", "content"];
 
-  const tabLinks = document.querySelectorAll(".tab-link");
-  const tabContents = document.querySelectorAll(".tab-content");
-
-  // Activer le premier onglet par défaut
-  if (tabLinks.length > 0) {
-    tabLinks[0].classList.add("active");
-    const firstTabContent = document.querySelector(tabLinks[0].getAttribute("data-target"));
-    if (firstTabContent) {
-      firstTabContent.classList.add("active");
-      firstTabContent.style.display = "block";
-    }
+  connect() {
+    this.showTab(0); // Active le premier onglet au chargement
   }
 
-  tabLinks.forEach((link) => {
-    link.addEventListener("click", (event) => {
-      event.preventDefault(); // Empêche la navigation par défaut
+  selectTab(event) { // Renommé pour éviter le conflit avec "switch"
+    event.preventDefault();
 
-      // Réinitialise tous les onglets
-      tabLinks.forEach((l) => l.classList.remove("active"));
-      tabContents.forEach((content) => {
-        content.classList.remove("active");
-        content.style.display = "none";
-      });
+    const tabIndex = this.tabTargets.indexOf(event.currentTarget);
+    this.showTab(tabIndex);
+  }
 
-      // Active l'onglet cliqué
-      link.classList.add("active");
-      const target = document.querySelector(link.getAttribute("data-target"));
-      if (target) {
-        target.classList.add("active");
-        target.style.display = "block";
-      }
+  showTab(index) {
+    this.tabTargets.forEach((tab, i) => {
+      tab.classList.toggle("active", i === index);
     });
-  });
-});
 
+    this.contentTargets.forEach((content, i) => {
+      content.classList.toggle("hidden", i !== index);
+    });
+  }
+}
