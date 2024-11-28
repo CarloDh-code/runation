@@ -19,9 +19,13 @@ class Game < ApplicationRecord
     end
   end
 
-  def surface
+  def coordinate
     decoded_polyline = self.decoded_path
-    simplified_polyline = downsample_polyline(decoded_polyline)
+    downsample_polyline(decoded_polyline)
+  end
+
+  def surface
+    simplified_polyline = coordinate
     polygon = polyline_to_polygon(simplified_polyline).area
   end
 
@@ -65,7 +69,7 @@ class Game < ApplicationRecord
 
   def polyline_to_polygon(polyline_decoded)
     factory = RGeo::Geos.factory
-    points = polyline_decoded.map { |lat, lon| factory.point(lon, lat) }
+    points = polyline_decoded.map { |lat, lon| factory.point(lat, lon) }
     polygon = factory.polygon(factory.linear_ring(points))
     if polygon.valid?
       polygon
