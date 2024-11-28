@@ -1,7 +1,23 @@
-<h1> See all games </h1>
-<ul>
-  <% @games.each do |game| %>
-    <p><%= link_to game.name, game_path(game) %></p>
-  <% end %>
-</ul>
 
+
+
+  <% @games.each do |game| %>
+<div class="card">
+    <h2><%= game.name %></h2>
+    <div class="info">
+      <p>Created by <%= game.players.first.nickname %> </p>
+      <p>📍 Paris</p>
+    </div>
+    <div class="mapy">
+  <div id="map" style="width: 100%; height: 300px;"
+       data-controller="map"
+       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
+    <div class="status">
+      <div class="infos">👤 7/9</div>
+      <div class="infos">⌛ 3 days left</div>
+      <div class="infos">🗺️ 30% covered</div>
+    </div>
+</div>
+<% end %>

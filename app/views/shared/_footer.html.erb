@@ -1,4 +1,12 @@
 <footer class="footer">
+
+<div class="footer-item">
+      <%= link_to new_game_path, class: "nav-link" do %>
+       <%= image_tag("new_run.svg", alt: "Notif Icon", size: "30x30") %>
+        <br>
+        <span>NEW GAME</span>
+      <% end %>
+    </div>
     <div class="footer-item">
         <%= link_to new_game_path, class: "nav-link" do %>
             <%= image_tag("home.svg", alt: "Notif Icon", size: "30x30") %>
@@ -15,12 +23,4 @@
        <% end %>
     </div>
 
-    <div class="footer-item">
-      <%= link_to new_game_path, class: "nav-link" do %>
-       <%= image_tag("new_run.svg", alt: "Notif Icon", size: "30x30") %>
-        <br>
-        <span>NEW GAME</span>
-      <% end %>
-    </div>
-    </div>
 </footer>

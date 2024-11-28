@@ -1,30 +1,46 @@
-
 .footer {
-  display: flex  !important;
-  justify-content: space-around; /* Space out items evenly */
-  align-items: center; /* Align items vertically */
-  background-color: white; /* Example footer background color */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
   padding: 10px 0;
   position: sticky;
   margin-top: 10px;
   bottom: 0;
   width: 100%;
-  box-shadow: 2px -1px 5px 1px rgba(0, 0, 0, .2);
-
+  box-shadow: 2px -1px 5px 1px rgba(0, 0, 0, 0.2);
+  gap: 15px; /* Optional */
 }
 
 .footer-item {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center items within each section */
+  align-items: center;
   text-align: center;
   font-size: 10px;
 }
 
 .footer-item img {
-  margin-bottom: 5px; /* Add space between icon and text */
+  margin-bottom: 5px;
+  transition: transform 0.3s ease;
+}
+
+.footer-item img:hover {
+  transform: scale(1.1);
 }
 
 span {
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer-item {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .footer-item {
+    font-size: 14px;
+  }
 }
