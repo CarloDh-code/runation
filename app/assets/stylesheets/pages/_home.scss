@@ -10,13 +10,14 @@ body {
 
 .card {
   width: 375px;
-  height: 450px;
+  height: 480px;
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  padding: 16px;
-  margin-top: 20px;
+  margin: auto;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .card h2 {
@@ -24,6 +25,7 @@ body {
   font-weight: 900;
   margin: 0;
   color: #4a90e2;
+  padding: 12px 12px;
 }
 
 .info {
@@ -36,19 +38,15 @@ body {
 .card .info {
   display: flex;
   justify-content: space-between;
-  height: 20px;
+  height: 25px;
+  padding: 0 12px;
 }
 
-.map {
-  border-radius: 8px;
+.map1 {
   overflow: hidden;
   margin: 12px 0;
 }
 
-.mapy img {
-  width: 100%;
-  border-radius: 8px;
-}
 
 .status {
   display: flex;
@@ -56,6 +54,7 @@ body {
   align-items: center;
   font-size: 14px;
   text-align: center;
+  margin: 12px 12px;
 }
 
 .status div {
@@ -185,6 +184,10 @@ body {
   background: #ffdd99;
 }
 
+.rank.player {
+  background: $blou;
+  color: white;
+}
 .rank span {
   flex: 1;
   text-align: center;
@@ -208,6 +211,7 @@ button.join-game-card {
   font-weight: bold;
   border: none;
   border-radius: 50px;
+  margin-bottom: 8px;
 
 }
 
