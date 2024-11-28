@@ -14,10 +14,11 @@
   <body><%= render "shared/navbar" %>
   <%= render "shared/flashes" %>
 
-
+  <div class="fullcontainer">
     <%= yield %>
+  </div>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
-
   <%= render "shared/footer" %>
+
   </body>
 </html>

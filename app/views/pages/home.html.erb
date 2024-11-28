@@ -3,21 +3,7 @@
 <%= link_to 'Connect to strava', auth_strava_path, class:'btn btn-primary' %>
 
 <%# Antoinetestcard %>
-<div class="card">
-    <h2>Battle day</h2>
-    <div class="info">
-      <p>Created by Carlo</p>
-      <p>📍 Paris</p>
-    </div>
-    <div class="mapy">
-      <img src="/images/mapparis.png" alt="Map of Paris">
-    </div>
-    <div class="status">
-      <div class="infos">👤 7/9</div>
-      <div class="infos">⌛ 3 days left</div>
-      <div class="infos">🗺️ 30% covered</div>
-    </div>
-</div>
+
 
 
 <button class="btn-join">JOIN GAME</button>
@@ -27,9 +13,12 @@
   <div class="header">
     <h2 class="namecard">Battle day</h2>
   </div>
-  <div class="map">
-    <img src="/images/notstartedmap.png" alt="Paris Map">
+  <div class="map1">
+  <div id="map" style="width: 100%; height: 400px;"
+       data-controller="map"
+       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+</div>
   <div class="details">
     <div class="infox">
       <span>👥 3/7 Players</span>
@@ -62,7 +51,7 @@
         <span>0 runs</span>
         <span>0%</span>
       </div>
-      <div class="rank">
+      <div class="rank player">
         <span>2</span>
         <span>Antoine</span>
         <span>0 runs</span>
