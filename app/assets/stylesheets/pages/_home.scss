@@ -109,18 +109,33 @@ body {
 }
 
 .details {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
+  padding: 4px;
 }
 
-.infox span {
-  display: block;
-  font-size: 14px;
-  color: #000000;
-  margin: 3px 0;
+.infox {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping of items to form multiple rows */
+  gap: 10px; /* Adds space between items */
+  justify-content: center; /* Centers items horizontally */
+  margin-top: 5px; /* Optional: Adjust spacing around the container */
 }
 
+.infox .truc {
+  flex: 0 1 calc(50% - 10px); /* Ensures each item takes up 50% of the width minus the gap */
+  text-align: center; /* Centers the text */
+}
 
+.nami {
+  font-size: 12px;
+  margin: 0px;
+  color: rgb(88, 88, 88);
+}
+
+.namip {
+  margin: 0px;
+  font-size: 16px;
+  font-weight: bold;
+}
 
 .leaderboard {
   padding: 10px;
@@ -186,6 +201,18 @@ body {
   border-radius: 5px;
   font-size: 0.9em;
   color: #555;
+}
+
+.rankempty {
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+  padding: 5px 10px;
+  background: #f9f9f9;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  color: #919191;
 }
 
 .rank.first {
