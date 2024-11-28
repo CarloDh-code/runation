@@ -140,6 +140,7 @@ run_inclus.decoded_path[-1] = run_inclus.decoded_path[0]
 
 def polyline_to_polygon(factory, polyline_decoded)
   points = polyline_decoded.map { |lat, lon| factory.point(lon, lat) }
+  p points
   factory.polygon(factory.linear_ring(points))
 end
 
