@@ -1,3 +1,7 @@
+require 'rgeo'
+require 'fast_polylines'
+require 'rgeo/geo_json'
+
 class Game < ApplicationRecord
   has_many :game_players, inverse_of: :game
   has_many :players, through: :game_players
@@ -7,6 +11,13 @@ class Game < ApplicationRecord
 
   validates :status, presence: true, inclusion: { in: ["ongoing", "pending", "finish"] }
 
+
+
+  def check_and_update_status!
+    if status == "pending" && players.size == nb_of_players
+      update!(status: "ongoing", start_date: Date.today, end_date: Date.today + duration.days)
+    end
+  end
 
   def surface
     decoded_polyline = self.decoded_path

@@ -14,4 +14,9 @@ class GamePlayer < ApplicationRecord
     game.check_and_update_status!
   end
 
+  def check_and_update_status!
+    if status == "pending" && players.size == nb_of_players
+      update!(status: "ongoing", start_date: Date.today, end_date: Date.today + duration.days)
+    end
+  end
 end
