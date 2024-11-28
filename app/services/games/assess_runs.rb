@@ -31,7 +31,7 @@ module Games
     #   outer_points
     # end
 
-    factory = RGeo::Cartesian.factory
+    factory = RGeo::Geos.factory
 
     def downsample_polyline(polyline, step)
       return polyline if polyline.length <= 2 # Pas besoin de réduire s'il y a 2 points ou moins
