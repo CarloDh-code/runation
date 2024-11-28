@@ -6,7 +6,8 @@ class GamesController < ApplicationController
        unless @game.status == 'pending' || @game.players.include?(current_player)
         redirect_to games_path, alert: 'You can not access this game, sorry ! '
        end
-       @polylines = @game.runs.includes(:polyline)
+
+       # @polylines = @game.runs.includes(:polyline)
   end
 
   def index
