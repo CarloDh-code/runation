@@ -14,4 +14,6 @@ class GamePlayer < ApplicationRecord
     game.check_and_update_status!
   end
 
+  
+
 end

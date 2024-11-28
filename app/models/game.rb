@@ -1,3 +1,7 @@
+require 'rgeo'
+require 'fast_polylines'
+require 'rgeo/geo_json'
+
 class Game < ApplicationRecord
   has_many :game_players, inverse_of: :game
   has_many :players, through: :game_players
