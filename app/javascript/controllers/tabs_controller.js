@@ -4,10 +4,10 @@ export default class extends Controller {
   static targets = ["tab", "content"];
 
   connect() {
-    this.showTab(0); // Active le premier onglet au chargement
+    this.showTab(0);
   }
 
-  selectTab(event) { // Renommé pour éviter le conflit avec "switch"
+  selectTab(event) {
     event.preventDefault();
 
     const tabIndex = this.tabTargets.indexOf(event.currentTarget);
