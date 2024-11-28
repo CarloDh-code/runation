@@ -72,48 +72,6 @@ export default class extends Controller {
             'line-width': 3
         }
       });
-    //   console.log('test')
-    //   // Ajout d'une source contenant des données GeoJSON pour le polygone
-    //   this.map.addSource('paris', {
-    //     'type': 'geojson',
-    //     'data': {
-    //       'type': 'Feature',
-    //       'geometry': {
-    //         'type': 'Polygon',
-    //         'coordinates': [
-    //           [
-    //             [48.84959, 2.25991],
-    //             [48.85184, 2.26114],
-    //             [48.87603, 2.28239],
-    //             [48.89292, 2.30975],
-    //             [48.89802, 2.34692],
-    //             [48.89895, 2.38371],
-    //             [48.88232, 2.40032],
-    //             [48.8481, 2.41125],
-    //             [48.8296, 2.39054],
-    //             [48.81924, 2.36199],
-    //             [48.82251, 2.32841],
-    //             [48.82941, 2.29815],
-    //             [48.84959, 2.25991]
-    //           ]
-    //         ]
-    //       }
-    //     }
-    //   });
-
-    //   // Ajout de la couche pour afficher le polygone
-    //   this.map.addLayer({
-    //     id: 'paris',  // ID unique pour la couche
-    //     type: 'fill',
-    //     source: 'paris',
-    //     layout: {},
-    //     paint: {
-    //       'fill-color': '#0080ff', // Couleur du polygone
-    //       'fill-opacity': 0.5,      // Transparence du polygone
-    //     }
-    //   });
-
-      // Ajouter des outils de zoom si nécessaire
       map.addControl(new mapboxgl.NavigationControl());
     });
   }
