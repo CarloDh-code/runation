@@ -21,7 +21,7 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     @game.status = "pending"
-    @game.game_players.create(player: current_player)
+    @game.game_players.new(player: current_player)
     if @game.save
       redirect_to @game, notice: "Game successfully created"
     else

@@ -12,6 +12,13 @@ class Game < ApplicationRecord
   validates :status, presence: true, inclusion: { in: ["ongoing", "pending", "finish"] }
 
 
+
+  def check_and_update_status!
+    if status == "pending" && players.size == nb_of_players
+      update!(status: "ongoing", start_date: Date.today, end_date: Date.today + duration.days)
+    end
+  end
+
   def surface
     decoded_polyline = self.decoded_path
     simplified_polyline = downsample_polyline(decoded_polyline)
