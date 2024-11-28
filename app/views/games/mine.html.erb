@@ -1,44 +1,129 @@
-<div data-controller="tabs">
-  <ul class="tab-titles">
-    <li>
-      <a href="#" data-action="tabs#selectTab" data-tabs-target="tab">Ongoing</a>
-    </li>
-    <li>
-      <a href="#" data-action="tabs#selectTab" data-tabs-target="tab">Pending</a>
-    </li>
-    <li>
-      <a href="#" data-action="tabs#selectTab" data-tabs-target="tab">Finished</a>
-    </li>
-  </ul>
+<div class="main-content">
+  <div data-controller="tabs">
+    <ul class="tab-titles">
+      <li>
+        <a href="#" data-action="tabs#selectTab" data-tabs-target="tab">Ongoing</a>
+      </li>
+      <li>
+        <a href="#" data-action="tabs#selectTab" data-tabs-target="tab">Pending</a>
+      </li>
+      <li>
+        <a href="#" data-action="tabs#selectTab" data-tabs-target="tab">Finished</a>
+      </li>
+    </ul>
 
+    <div id="tab-ongoing" data-tabs-target="content" class="tab-content hidden">
+      <h2>Ongoing games</h2>
+      <% @games.select { |game| game.status == "ongoing" }.each do |game| %>
+        <div class="card">
+          <h2><%= link_to game.name, game_path(game), class: "card-title" %></h2>
 
-  <div id="tab-ongoing" data-tabs-target="content" class="tab-content hidden">
-    <h2>Ongoing games</h2>
-    <% @games.select { |game| game.status == "ongoing" }.each do |game| %>
-      <div class="game-item">
-        <h3><%= link_to game.name, game_path(game) %></h3>
-        <p>Joueurs: <%= game.players.count %> / <%= game.nb_of_players %></p>
-        <p>Fin prévue le: <%= game.end_date.strftime('%d %B %Y') if game.end_date.present? %></p>
-      </div>
-    <% end %>
-  </div>
+          <div class="info">
+            <span>Created by <%= game.players.first.nickname %></span>
+            <p>📍Paris</p>
+          </div>
 
-  <div id="tab-pending" data-tabs-target="content" class="tab-content hidden">
-    <h2>Pending games</h2>
-    <% @games.select { |game| game.status == "pending" }.each do |game| %>
-      <div class="game-item">
-        <h3><%= link_to game.name, game_path(game) %></h3>
-        <p>Joueurs: <%= game.players.count %> / <%= game.nb_of_players %></p>
-      </div>
-    <% end %>
-  </div>
-  <div id="tab-finished" data-tabs-target="content" class="tab-content hidden">
-    <h2>Finished games</h2>
-    <% @games.select { |game| game.status == "finished" }.each do |game| %>
-      <div class="game-item">
-        <h3><%= link_to game.name, game_path(game) %></h3>
-        <p>Finie le: <%= game.end_date.strftime('%d %B %Y') if game.end_date.present? %></p>
-      </div>
-    <% end %>
+          <div class="mapy">
+            <div id="map" style="width: 100%; height: 300px;"
+                 data-controller="map"
+                 data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+                 data-map-latitude-value="<%= game.latitude %>"
+                 data-map-longitude-value="<%= game.longitude %>">
+            </div>
+          </div>
+
+          <div class="status">
+            <div>
+              👤 <span><%= game.players.count %></span>
+            </div>
+            <% if game.duration.present? %>
+              <div>
+                ⏳ <span><%= game.duration %> days</span>
+              </div>
+            <% else %>
+              <div>
+                ⏳ <span>Duration unknown</span>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div id="tab-pending" data-tabs-target="content" class="tab-content hidden">
+      <h2>Pending games</h2>
+      <% @games.select { |game| game.status == "pending" }.each do |game| %>
+        <div class="card">
+          <h2><%= link_to game.name, game_path(game), class: "card-title" %></h2>
+
+          <div class="info">
+            <span>Created by <%= game.players.first.nickname %></span>
+            <p>📍Paris</p>
+          </div>
+
+          <div class="mapy">
+            <div id="map" style="width: 100%; height: 300px;"
+                 data-controller="map"
+                 data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+                 data-map-latitude-value="<%= game.latitude %>"
+                 data-map-longitude-value="<%= game.longitude %>">
+            </div>
+          </div>
+
+          <div class="status">
+            <div>
+              👤 <span><%= game.players.count %> / <%= game.nb_of_players %></span>
+            </div>
+            <% if game.duration.present? %>
+              <div>
+                ⏳ <span><%= game.duration %> days</span>
+              </div>
+            <% else %>
+              <div>
+                ⏳ <span>Duration unknown</span>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div id="tab-finished" data-tabs-target="content" class="tab-content hidden">
+      <h2>Finished games</h2>
+      <% @games.select { |game| game.status == "finished" }.each do |game| %>
+        <div class="card">
+          <h2><%= link_to game.name, game_path(game), class: "card-title" %></h2>
+
+          <div class="info">
+            <span>Created by <%= game.players.first.nickname %></span>
+            <p>📍Paris</p>
+          </div>
+
+          <div class="mapy">
+            <div id="map" style="width: 100%; height: 300px;"
+                 data-controller="map"
+                 data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+                 data-map-latitude-value="<%= game.latitude %>"
+                 data-map-longitude-value="<%= game.longitude %>">
+            </div>
+          </div>
+
+          <div class="status">
+            <div>
+              🎮 <span><%= game.players.count %> / <%= game.nb_of_players %> players</span>
+            </div>
+            <% if game.duration.present? %>
+              <div>
+                ⏳ <span><%= game.duration %> days</span>
+              </div>
+            <% else %>
+              <div>
+                ⏳ <span>Duration unknown</span>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
