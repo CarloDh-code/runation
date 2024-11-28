@@ -1,0 +1,62 @@
+/* General styles for form container */
+form {
+  max-width: 90%;
+  margin: 20px auto; /* Center the form and add some top/bottom spacing */
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px; /* Smooth rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for a polished look */
+}
+
+/* Style for form fields */
+.field {
+  margin-bottom: 15px; /* Spacing between fields */
+  display: flex;
+  flex-direction: column; /* Stack label and input vertically */
+}
+
+/* Labels */
+.field label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: $blou;
+}
+
+/* Text and number input fields */
+.field input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  transition: border-color 0.3s ease;
+  margin-bottom: 15px;
+}
+
+/* Change border color on focus */
+.field input:focus {
+  border-color: $blou; /* Bootstrap primary color */
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 4px rgba(0, 45, 128, 0.5); /* Subtle glow effect */
+  background-color: rgb(199, 248, 255)
+}
+
+/* Buttons */
+.actions input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: $orangy;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+// h1.create {
+//   margin-bottom: 15px;
+//   text-align: center;
+//   color: $blou
+// }

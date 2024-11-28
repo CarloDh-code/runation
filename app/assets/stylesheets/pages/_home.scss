@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 
-
+//card
 body {
   background-color: #f9f9f9;
   align-items: center;
@@ -9,8 +9,8 @@ body {
 }
 
 .card {
-  width: 375px;
-  height: 480px;
+  width: 90%;
+  height: auto;
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -40,6 +40,7 @@ body {
   justify-content: space-between;
   height: 25px;
   padding: 0 12px;
+  margin-bottom: 8px;
 }
 
 .map1 {
@@ -82,14 +83,19 @@ body {
   font-weight: bold;
 }
 
+// battlecontainer
+
 
 .battle-container {
-  width: 350px;
+  width: 90%;
+  height: auto;
   margin: auto;
   background: white;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .header {
@@ -109,7 +115,7 @@ body {
 
 .infox span {
   display: block;
-  font-size: 0.9em;
+  font-size: 14px;
   color: #000000;
   margin: 3px 0;
 }
@@ -118,6 +124,8 @@ body {
 
 .leaderboard {
   padding: 10px;
+
+
 }
 
 .player-icons {
