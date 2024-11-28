@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 
-
+//card
 body {
   background-color: #f9f9f9;
   align-items: center;
@@ -40,6 +40,7 @@ body {
   justify-content: space-between;
   height: 25px;
   padding: 0 12px;
+  margin-bottom: 8px;
 }
 
 .map1 {
@@ -81,6 +82,8 @@ body {
   cursor: pointer;
   font-weight: bold;
 }
+
+// battlecontainer
 
 
 .battle-container {
