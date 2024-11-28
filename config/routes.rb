@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get :mine
     end
     resources :game_players, only: [:create]
+    
   end
 
   resources :runs, only: [] do
