@@ -1,21 +1,25 @@
 <footer class="footer">
     <div class="footer-item">
-        <a class="navbar-logo" href="#">
-            <img alt="logo Icon" src="/assets/logo_rn-55bdc63a1bf8f938457705b6cbd396984be3680d69eb2dff7a70e3ea52b79516.svg" width="24" height="24" />
-        </a>
-        <span>Home</span>
+        <%= link_to new_game_path, class: "nav-link" do %>
+    <%= image_tag("home.svg", alt: "Notif Icon", size: "30x30") %>
+     <br>
+    <span>HOME</span>
+  <% end %>
+</div>
     </div>
     <div class="footer-item">
-        <a class="navbar-logo" href="#">
-            <img alt="logo Icon" src="/assets/logo_rn-55bdc63a1bf8f938457705b6cbd396984be3680d69eb2dff7a70e3ea52b79516.svg" width="24" height="24" />
-        </a>
-        <span>Your Games</span>
+        <%= link_to new_game_path, class: "nav-link" do %>
+    <%= image_tag("your_runs.svg", alt: "Notif Icon", size: "30x30") %>
+     <br>
+    <span>YOUR GAMES</span>
+  <% end %>
+</div>
     </div>
     <div class="footer-item">
   <%= link_to new_game_path, class: "nav-link" do %>
-    <%= image_tag("notif_icon.svg", alt: "Notif Icon", size: "30x30") %>
+    <%= image_tag("new_run.svg", alt: "Notif Icon", size: "30x30") %>
      <br>
-    <span>New Game</span>
+    <span>NEW GAME</span>
   <% end %>
 </div>
     </div>
