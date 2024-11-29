@@ -203,6 +203,17 @@ body {
   color: #555;
 }
 
+.rank.pending {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  background: #f9f9f9;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  color: #555;
+}
+
 .rankempty {
   display: flex;
   justify-content: space-between;
@@ -216,7 +227,8 @@ body {
 }
 
 .rank.first {
-  background: #ffdd99;
+
+  border: 3px solid $yelo;
 }
 
 .rank.player {
@@ -255,8 +267,27 @@ button.join-game-card {
 }
 
 .namecard {
-  font-size: 30px;
+  font-size: 38px;
   font-weight: 900;
   margin: 0;
-  color: #4a90e2;
+  color: $blouclaire;
+  padding: 16px
+}
+
+form.button_to {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    max-width: 90%;
+    margin: 5px auto;
+    padding: 5px;
+    background-color: #ffffff00 !important;
+    border-radius: 8px;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1) !important;
+
+
+}
+
+a.card-title {
+  text-decoration: none;
 }
