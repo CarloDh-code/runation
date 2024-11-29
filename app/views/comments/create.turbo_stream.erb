@@ -1,0 +1,2 @@
+<%= turbo_stream.append "messages", partial: "comments/comment", locals: { comment: @comment } %>
+<%= turbo_stream.replace "new_comment", partial: "comments/form", locals: { game: @game, comment: Comment.new } %>
