@@ -291,3 +291,48 @@ form.button_to {
 a.card-title {
   text-decoration: none;
 }
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: $blou;
+}
+
+.rotating-logos {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+.logo-step {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.logo-step-1 {
+  animation: logo-cycle 3s linear infinite 0s;
+}
+
+.logo-step-2 {
+  animation: logo-cycle 3s linear infinite 1s;
+}
+
+.logo-step-3 {
+  animation: logo-cycle 3s linear infinite 2s;
+}
+
+@keyframes logo-cycle {
+  0%, 33.33% {
+    opacity: 1;
+  }
+  66.66%, 100% {
+    opacity: 0; 
+  }
+}
