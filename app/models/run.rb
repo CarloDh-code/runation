@@ -6,7 +6,6 @@ class Run < ApplicationRecord
   belongs_to :player
   has_many :game_player_runs
 
-
   def coordinate
     decoded_polyline = self.decoded_path
     downsample_polyline(decoded_polyline)
@@ -17,8 +16,13 @@ class Run < ApplicationRecord
     polygon = polyline_to_polygon(simplified_polyline).area
   end
 
+  def coordinate_layer
+  # Inverser coordonnées car avec layer on doit mettre l'inverse
+    data = coordinate
+    data.map { |coord| [coord[1], coord[0]] }
+   end
 
-    # private
+
 
     def decoded_path
       begin

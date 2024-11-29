@@ -226,8 +226,67 @@ run_inclus = Run.create!(
   player: carlos
 )
 
+run_11 = Run.create!(
+  start_datetime: "2024-11-25 18:40:23",
+  end_datetime: "2024-11-25 19:38:27",
+  start_lat: 48.863731,
+  end_lat: 48.863731,
+  start_long: 2.370202,
+  end_long: 2.370202,
+  polyline:   "iufiHw|mMmIg_AnVon@`_@bJfT|j@xE`jAiQ|k@e\\vM}[ca@fB}j@",
+  strava_activity_id: 12982250051,
+  player: carlos
+)
+
+
+run_7 = Run.create!(
+  start_datetime: "2024-11-25 18:40:23",
+  end_datetime: "2024-11-25 19:38:27",
+  start_lat: 48.861093,
+  end_lat: 48.861093,
+  start_long: 2.370202,
+  end_long: 2.370202,
+  polyline:   "ydfiHqs_M`YyjBxo@gMrUff@jDdtAiPvw@e}@_IkVcp@",
+  strava_activity_id: 12982250051,
+  player: carlos
+)
+
+
 # Création des GamePlayerRuns
 GamePlayerRun.create!(game_player: gp1, run: run_inclus)
 GamePlayerRun.create!(game_player: gp2, run: run_exclu)
+GamePlayerRun.create!(game_player: gp1, run: run_11)
+GamePlayerRun.create!(game_player: gp2, run: run_7)
 
 puts "GamePlayerRuns créés !"
+
+
+
+
+
+seven_coords = [
+  [48.861093, 2.297047],
+ [48.856918, 2.314303],
+ [48.849105, 2.316581],
+ [48.845493, 2.310304],
+ [48.844626, 2.296665],
+ [48.847402, 2.287592],
+ [48.857352, 2.289194],
+ [48.861093, 2.297047]
+]
+# "ydfiHqs_M`YyjBxo@gMrUff@jDdtAiPvw@e}@_IkVcp@"
+
+
+eleven_coords = [
+  [48.863731, 2.370202],
+  [48.865396, 2.380478],
+  [48.861637, 2.388082],
+  [48.856508, 2.386295],
+  [48.853111, 2.379265],
+  [48.852016, 2.367259],
+  [48.854948, 2.360066],
+  [48.859620, 2.357709],
+  [48.864248, 2.363169],
+  [48.863731, 2.370202]
+]
+# "iufiHw|mMmIg_AnVon@`_@bJfT|j@xE`jAiQ|k@e\\vM}[ca@fB}j@"

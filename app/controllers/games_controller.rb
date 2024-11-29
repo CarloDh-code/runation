@@ -6,8 +6,7 @@ class GamesController < ApplicationController
        unless @game.status == 'pending' || @game.players.include?(current_player)
         redirect_to games_path, alert: 'You can not access this game, sorry ! '
        end
-
-       # @polylines = @game.runs.includes(:polyline)
+  game_run_layers
   end
 
   def index
@@ -42,4 +41,14 @@ class GamesController < ApplicationController
   def game_params
     params.require(:game).permit(:name, :nb_of_players, :start_date, :duration)
   end
+
+  def game_run_layers
+    included_runs = Games::AssessRuns.new.call
+    @game = Game.find(params[:id])
+    @layers = []
+    @game.runs.each do |run|
+      @layers << run.coordinate_layer
+    end
+  end
+
 end

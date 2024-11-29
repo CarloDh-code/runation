@@ -24,12 +24,18 @@ class Game < ApplicationRecord
     downsample_polyline(decoded_polyline)
   end
 
+  def coordinate_layer
+   # Inverser coordonnées car avec layer on doit mettre l'inverse
+   data = coordinate
+   data.map { |coord| [coord[1], coord[0]] }
+  end
+
   def surface
     simplified_polyline = coordinate
     polygon = polyline_to_polygon(simplified_polyline).area
   end
 
-  private
+
 
   def decoded_path
     begin
