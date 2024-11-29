@@ -5,3 +5,24 @@
   margin-bottom: 5px;
   padding: 10px;
 }
+
+.nav-logo {
+  flex-grow: 1; /* Permet de centrer le logo */
+  text-align: center;
+}
+
+.chat-icon,
+.notif-icon {
+  display: inline-block; /* Assure un alignement horizontal */
+  margin-left: 15px; /* Ajoute un espacement entre les deux icônes */
+}
+
+.notif-icon {
+  display: flex;
+  align-items: center;
+
+  img {
+    margin-left: 10px; /* Espace pour séparer les icônes */
+  }
+}
+

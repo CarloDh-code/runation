@@ -1,0 +1,6 @@
+<%= simple_form_for [game, comment], url: game_comments_path(game), html: { class: "new-message" } do |f| %>
+  <div class="form-group">
+    <%= f.input :content, label: false, placeholder: "Type your message..." %>
+  </div>
+  <%= f.submit "Send", class: "btn btn-primary" %>
+<% end %>

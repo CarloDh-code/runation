@@ -1,0 +1,9 @@
+<div id="comment-<%= comment.id %>" class="message <%= "own-message" if comment.player == current_player %>">
+  <div class="message-header">
+    <strong><%= comment.player.nickname %></strong>
+    <i><%= comment.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+  </div>
+  <div class="message-body">
+    <p><%= comment.content %></p>
+  </div>
+</div>

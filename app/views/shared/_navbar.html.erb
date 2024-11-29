@@ -1,18 +1,30 @@
-
 <nav class="navbar">
-        <div class="user-icon">
-            <%= link_to new_player_session_path, class: "nav-link" do %>
-             <%= image_tag("profile.svg", alt: "User Icon", size: "30x30") %>
-           <% end %>
-        </div>
-        <div class="nav-logo">
-            <%= link_to "#", class: "navbar-logo" do %>
-             <%= image_tag "logo_rn.svg", alt: "logo Icon", size: "40x40", class:"rounded-3" %>
-            <% end %>
-        </div>
-        <div class="notif-icon">
-            <%= link_to new_player_session_path, class: "nav-link" do %>
-             <%= image_tag("notif.svg", alt: "Notif Icon", size: "30x30") %>
-           <% end %>
-        </div>
-    </nav>
+  <div class="user-icon">
+    <%= link_to new_player_session_path, class: "nav-link" do %>
+      <%= image_tag("profile.svg", alt: "User Icon", size: "30x30") %>
+    <% end %>
+  </div>
+
+  <div class="nav-logo">
+    <%= link_to "#", class: "navbar-logo" do %>
+      <%= image_tag "logo_rn.svg", alt: "logo Icon", size: "40x40", class: "rounded-3" %>
+    <% end %>
+  </div>
+
+  <% if params[:controller] == "games" && params[:action] == "show" %>
+    <% current_game = Game.find_by(id: params[:id]) %>
+    <% if current_game&.status == "ongoing" %>
+      <div class="chat-icon">
+        <%= link_to chat_game_comments_path(current_game), class: "nav-link" do %>
+          💬
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="notif-icon">
+    <%= link_to new_player_session_path, class: "nav-link" do %>
+      <%= image_tag("notif.svg", alt: "Notif Icon", size: "30x30") %>
+    <% end %>
+  </div>
+</nav>
