@@ -1,17 +1,20 @@
 Rails.application.routes.draw do
   devise_for :players
   root to: "pages#home"
+
   resources :games, only: [:index, :show, :new, :create] do
     collection do
       get :mine
     end
-    resources :game_players, only: [:create]
-    
-  end
 
-  resources :runs, only: [] do
-    collection do
-      patch :refresh
+
+    
+
+    resources :game_players, only: [:create]
+    resources :comments, only: [:create] do
+      collection do
+        get :chat # Route pour le chat imbriqué sous les jeux
+      end
     end
   end
 

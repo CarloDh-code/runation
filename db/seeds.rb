@@ -99,10 +99,16 @@ puts "#{Game.count} jeux créés !"
 # Création des GamePlayers
 gp1 = GamePlayer.create!(game: trail_running_alps, player: carlos, ranking: 1)
 gp2 = GamePlayer.create!(game: trail_running_alps, player: mickael, ranking: 2)
-gp3 = GamePlayer.create!(game: city_marathon, player: antoine, ranking: 2)
-gp4 = GamePlayer.create!(game: city_marathon, player: taib, ranking: 1)
-gp5 = GamePlayer.create!(game: beach_running, player: mickael, ranking: 2)
-gp6 = GamePlayer.create!(game: beach_running, player: jean_martial, ranking: 4)
+gp3 = GamePlayer.create!(game: trail_running_alps, player: jean_martia, ranking: 3)
+gp4 = GamePlayer.create!(game: trail_running_alps, player: mickael, ranking: 4)
+
+
+
+
+gp5 = GamePlayer.create!(game: city_marathon, player: antoine, ranking: 2)
+gp6 = GamePlayer.create!(game: city_marathon, player: taib, ranking: 1)
+gp7 = GamePlayer.create!(game: beach_running, player: mickael, ranking: 2)
+gp8 = GamePlayer.create!(game: beach_running, player: jean_martial, ranking: 4)
 
 puts "GamePlayers créés !"
 
@@ -226,37 +232,36 @@ run_inclus = Run.create!(
   player: carlos
 )
 
-run_11 = Run.create!(
-  start_datetime: "2024-11-25 18:40:23",
-  end_datetime: "2024-11-25 19:38:27",
-  start_lat: 48.863731,
-  end_lat: 48.863731,
-  start_long: 2.370202,
-  end_long: 2.370202,
-  polyline:   "iufiHw|mMmIg_AnVon@`_@bJfT|j@xE`jAiQ|k@e\\vM}[ca@fB}j@",
-  strava_activity_id: 12982250051,
+
+run_seven = Run.create!(
+  start_datetime: "2024-11-28 12:00:00",
+  end_datetime: "2024-11-28 13:00:00",
+  start_lat: 48.87619586661458,
+  end_lat: 48.876970605924726,
+  start_long: 2.332328511402011,
+  end_long: 2.333370130509138,
+  polyline:   "e}hiHsofMn@{@bAOp@g@bA?p@QRAh@SzAiAPJ@ZLB`@Ab@Rd@JJh@JVdA[h@Nf@X\\V`@HNALJ`@RJJ`@JTLFO^Yb@QD@P`@Zf@`@`AZHHJTZz@fBh@l@tApB^L^Yh@t@h@Vr@Pj@H~@xAXp@T^lA~@\\f@X|@NXf@Nj@|@d@`@PGN?@DKIH{@HeB^kBbBcHFQJMpAuGXw@f@T`@HZb@f@h@T?`@RtA`@l@h@n@z@\\\\r@`@`@\\n@TJKNGVoATi@DAR[RmAj@uFZeCPcBf@mCj@eEF[N_@J_@ZoBJcALuDp@kHJuBDSAe@Fy@VoAX{Ct@sGRqAlBaJZiBJsARqA\\{A`@y@j@iEXaBVo@zCcMN[`@oBRi@TcBP]RgAh@aBf@yBh@iBX[B?JHdArA~@^TLJAHW\\iBn@kCHs@`@eB^{BJWb@{@JwAx@cDJg@n@yBt@_Bl@c@j@Of@FZV[~AOj@Kt@Mj@Up@If@]hAO^]vAQb@Ip@a@jBW\\Op@Iv@g@`BWp@Af@[z@Ub@Mn@AJQn@KJENCVBt@Hb@Dd@RfAFj@AFIDc@NaBXaAX_@Rk@l@iA~@y@nAQh@Yh@UJ{B{AQGSl@_Av@Wt@QdA{@`DAPm@~CIx@K^ILUB[Im@m@a@Yg@O_@[k@[kACmBg@_@FMCKKIWUYe@MUAIMy@o@OCg@WYSk@[e@DKEU_@[M]YMUKCGDKBUK][m@Ie@WYa@g@Ug@e@I?_@TK?OQc@Wu@{@ECc@F_@Kc@[g@m@c@YOCi@@g@_@q@s@cAu@i@Jo@m@k@c@c@Ia@Ba@SYY[Kk@i@mAOsByAQ?IK[E_@Sy@JONUp@YpDSrAm@zCSp@Iv@Ml@OjASt@QlAEf@Cn@QbAE`AQdAG`AKl@u@GW@]GmBHg@Co@@e@IW@QES?s@DcBWi@@EHG?gAU}@I_@?oAK}@Ug@Cs@|Ag@t@i@~AUXQj@QNCN?ZNr@Ht@Mv@S|DBZFNCb@BrAItACbBBvAUhEP~@EnB@PAh@I|A@ZAR]~AF\\@ZItA?`AJtBHv@DHAh@Kz@BXIN",
+  strava_activity_id: 123165781647,
   player: carlos
 )
-
-
-run_7 = Run.create!(
-  start_datetime: "2024-11-25 18:40:23",
-  end_datetime: "2024-11-25 19:38:27",
-  start_lat: 48.861093,
-  end_lat: 48.861093,
-  start_long: 2.370202,
-  end_long: 2.370202,
-  polyline:   "ydfiHqs_M`YyjBxo@gMrUff@jDdtAiPvw@e}@_IkVcp@",
-  strava_activity_id: 12982250051,
+run_eleven = Run.create!(
+  start_datetime: "2024-11-28 12:00:00",
+  end_datetime: "2024-11-28 13:00:00",
+  start_lat: 48.87619586661458,
+  end_lat: 48.876970605924726,
+  start_long: 2.332328511402011,
+  end_long: 2.333370130509138,
+  polyline:   "e}hiHsofMn@{@bAOp@g@bA?p@QRAh@SzAiAPJ@ZLB`@Ab@Rd@JJh@JVdA[h@Nf@X\\V`@HNALJ`@RJJ`@JTLFO^Yb@QD@P`@Zf@`@`AZHHJTZz@fBh@l@tApB^L^Yh@t@h@Vr@Pj@H~@xAXp@T^lA~@\\f@X|@NXf@Nj@|@d@`@PGN?@DKIH{@HeB^kBbBcHFQJMpAuGXw@f@T`@HZb@f@h@T?`@RtA`@l@h@n@z@\\\\r@`@`@\\n@TJKNGVoATi@DAR[RmAj@uFZeCPcBf@mCj@eEF[N_@J_@ZoBJcALuDp@kHJuBDSAe@Fy@VoAX{Ct@sGRqAlBaJZiBJsARqA\\{A`@y@j@iEXaBVo@zCcMN[`@oBRi@TcBP]RgAh@aBf@yBh@iBX[B?JHdArA~@^TLJAHW\\iBn@kCHs@`@eB^{BJWb@{@JwAx@cDJg@n@yBt@_Bl@c@j@Of@FZV[~AOj@Kt@Mj@Up@If@]hAO^]vAQb@Ip@a@jBW\\Op@Iv@g@`BWp@Af@[z@Ub@Mn@AJQn@KJENCVBt@Hb@Dd@RfAFj@AFIDc@NaBXaAX_@Rk@l@iA~@y@nAQh@Yh@UJ{B{AQGSl@_Av@Wt@QdA{@`DAPm@~CIx@K^ILUB[Im@m@a@Yg@O_@[k@[kACmBg@_@FMCKKIWUYe@MUAIMy@o@OCg@WYSk@[e@DKEU_@[M]YMUKCGDKBUK][m@Ie@WYa@g@Ug@e@I?_@TK?OQc@Wu@{@ECc@F_@Kc@[g@m@c@YOCi@@g@_@q@s@cAu@i@Jo@m@k@c@c@Ia@Ba@SYY[Kk@i@mAOsByAQ?IK[E_@Sy@JONUp@YpDSrAm@zCSp@Iv@Ml@OjASt@QlAEf@Cn@QbAE`AQdAG`AKl@u@GW@]GmBHg@Co@@e@IW@QES?s@DcBWi@@EHG?gAU}@I_@?oAK}@Ug@Cs@|Ag@t@i@~AUXQj@QNCN?ZNr@Ht@Mv@S|DBZFNCb@BrAItACbBBvAUhEP~@EnB@PAh@I|A@ZAR]~AF\\@ZItA?`AJtBHv@DHAh@Kz@BXIN",
+  strava_activity_id: 1231657816411,
   player: carlos
 )
-
-
 # Création des GamePlayerRuns
-GamePlayerRun.create!(game_player: gp1, run: run_inclus)
-GamePlayerRun.create!(game_player: gp2, run: run_exclu)
-GamePlayerRun.create!(game_player: gp1, run: run_11)
-GamePlayerRun.create!(game_player: gp2, run: run_7)
+GamePlayerRun.create!(game_player: gp1, run: run_seven)
+GamePlayerRun.create!(game_player: gp2, run: run_eleven)
+GamePlayerRun.create!(game_player: gp5, run: run_inclus)
+GamePlayerRun.create!(game_player: gp6, run: run_exclu)
+GamePlayerRun.create!(game_player: gp7, run: run_inclus)
+GamePlayerRun.create!(game_player: gp8, run: run_exclu)
 
 puts "GamePlayerRuns créés !"
 

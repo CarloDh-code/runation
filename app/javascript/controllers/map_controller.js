@@ -9,7 +9,7 @@ export default class extends Controller {
 
   connect() {
     // Configure Mapbox
-    console.log("hello")
+    console.log("hello");
     mapboxgl.accessToken = this.apiKeyValue;
 
     // Initialiser la carte centrée sur Paris
@@ -20,37 +20,35 @@ export default class extends Controller {
       zoom: 12
     });
 
-    // Ajouter des contrôles de navigation
-    map.addControl(new mapboxgl.NavigationControl());
+    // Coordonnées supplémentaires
+    const sevenCoords = [
+      [2.297047, 48.861093],
+      [2.314303, 48.856918],
+      [2.316581, 48.849105],
+      [2.310304, 48.845493],
+      [2.296665, 48.844626],
+      [2.287592, 48.847402],
+      [2.289194, 48.857352],
+      [2.297047, 48.861093]
+    ];
 
-    // Lorsque la carte est chargée, ajoutez les layers
+    const elevenCoords = [
+      [2.370202, 48.863731],
+      [2.380478, 48.865396],
+      [2.388082, 48.861637],
+      [2.386295, 48.856508],
+      [2.379265, 48.853111],
+      [2.367259, 48.852016],
+      [2.360066, 48.854948],
+      [2.357709, 48.859620],
+      [2.363169, 48.864248],
+      [2.370202, 48.863731]
+    ];
+
+    // Lorsque la carte est chargée, ajoutez les sources et les polygones
     map.on('load', () => {
-
-      // Ajouter chaque layer pour chaque ensemble de coordonnées passé via `this.mapLayersValue`
-      this.mapLayersValue.forEach((layer, index) => {
-        map.addLayer({
-          'id': `layer-${index}`, // ID unique pour chaque layer
-          'type': 'fill',
-          'source': {
-            'type': 'geojson',
-            'data': {
-              'type': 'Feature',
-              'geometry': {
-                'type': 'Polygon',
-                'coordinates': [layer] // Assurez-vous que c'est un tableau de tableaux
-              }
-            }
-          },
-          'layout': {},
-          'paint': {
-            'fill-color': this.randomColor(), // Couleur aléatoire pour chaque layer
-            'fill-opacity': 0.5
-          }
-        });
-      });
-
-      // Exemple supplémentaire : Ajouter un layer fixe (Maine) avec une source GeoJSON
-      map.addSource('paris', {
+      // Ajout de la première source (maine)
+      map.addSource('maine', {
         'type': 'geojson',
         'data': {
           'type': 'Feature',
@@ -77,29 +75,89 @@ export default class extends Controller {
         }
       });
 
-      // Add a new layer to visualize the polygon (Maine)
-      map.addLayer({
-        'id': 'paris',
-        'type': 'fill',
-        'source': 'paris', // reference the data source
-        'layout': {},
-        'paint': {
-          'fill-color': '#0080ff', // blue color fill
-          'fill-opacity': 0.5
+      // Ajout de la source et du polygone pour sevenCoords
+      map.addSource('seven', {
+        'type': 'geojson',
+        'data': {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Polygon',
+            'coordinates': [sevenCoords]
+          }
         }
       });
 
-      // Add a black outline around the polygon (Maine)
+      // Ajout de la source et du polygone pour elevenCoords
+      map.addSource('eleven', {
+        'type': 'geojson',
+        'data': {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Polygon',
+            'coordinates': [elevenCoords]
+          }
+        }
+      });
+
+
+
       map.addLayer({
-        'id': 'outline',
+        'id': 'maine-outline',
         'type': 'line',
         'source': 'paris',
         'layout': {},
         'paint': {
-          'line-color': '#F5564E',
-          'line-width': 4
+          'line-color': '#000',
+          'line-width': 3
         }
       });
+
+      map.addLayer({
+        'id': 'seven',
+        'type': 'fill',
+        'source': 'seven',
+        'layout': {},
+        'paint': {
+          'fill-color': '#FAB95B', // Jaune pour sevenCoords
+          'fill-opacity': 0.5
+        }
+      });
+
+      map.addLayer({
+        'id': 'seven-outline',
+        'type': 'line',
+        'source': 'seven',
+        'layout': {},
+        'paint': {
+          'line-color': '#F5564E', // Orange pour le contour
+          'line-width': 3
+        }
+      });
+
+      map.addLayer({
+        'id': 'eleven',
+        'type': 'fill',
+        'source': 'eleven',
+        'layout': {},
+        'paint': {
+          'fill-color': '#5C96E0', // Bleu clair pour elevenCoords
+          'fill-opacity': 0.5
+        }
+      });
+
+      map.addLayer({
+        'id': 'eleven-outline',
+        'type': 'line',
+        'source': 'eleven',
+        'layout': {},
+        'paint': {
+          'line-color': '#002D80', // Bleu foncé pour le contour
+          'line-width': 3
+        }
+      });
+
+      // Ajout des contrôles de navigation
+      map.addControl(new mapboxgl.NavigationControl());
     });
   }
 

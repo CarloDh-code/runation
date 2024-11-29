@@ -1,0 +1,19 @@
+<div class="chat-page">
+  <div class="back-button">
+    <%= link_to "⬅️ Back to Game", game_path(@game), class: "btn-back" %>
+  </div>
+
+  <div class="chat-card">
+    <h2>Chat for <%= @game.name %></h2>
+
+    <div id="messages">
+      <% @comments.each do |comment| %>
+        <%= render "comments/comment", comment: comment %>
+      <% end %>
+    </div>
+
+    <%= turbo_frame_tag "new_comment" do %>
+      <%= render "comments/form", game: @game, comment: Comment.new %>
+    <% end %>
+  </div>
+</div>
