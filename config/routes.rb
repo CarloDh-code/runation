@@ -7,6 +7,9 @@ Rails.application.routes.draw do
       get :mine
     end
 
+
+    
+
     resources :game_players, only: [:create]
     resources :comments, only: [:create] do
       collection do
