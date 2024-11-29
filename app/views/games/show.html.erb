@@ -1,24 +1,233 @@
-<div class='game-card-show'>
-  <h1> <%= @game.name %> </h1>
-  <p>Status: <%= @game.status.capitalize %></p>
-  <p>Joueurs: <%= @game.players.count %> / <%= @game.nb_of_players %></p>
 
-
-  <% if @game.end_date.present? %>
-    <p> <%= (@game.end_date - Date.today).to_i %> days left</p>
-  <% else %>
-    <p>Date de fin non définie</p>
-  <% end %>
-
+<% if @game.status == "pending"  %>
+<div class="battle-container">
+  <div class="header">
+    <h2 class="namecard"> <%= @game.name %></h2>
+  </div>
+  <div class="map1">
   <div id="map" style="width: 100%; height: 400px;"
        data-controller="map"
        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-
-  <% if !@game.players.include?(current_player) %>
-   <%= button_to "Rejoindre cette partie", game_game_players_path(@game), method: :post, class: "btn btn-primary" %>
-
-  <% else %>
-    <p>Vous êtes déjà inscrit à cette partie.</p>
-  <% end %>
 </div>
+  <div class="details">
+    <div class="infox">
+        <div class="truc">
+          <p class="nami">Number of players</p>
+          <p class="namip"><%= @game.players.count %> / <%= @game.nb_of_players %> </p>
+      </div>
+
+        <div class="truc">
+          <p class="nami">Map size</p>
+          <p class="namip">15 km2s</p>
+      </div>
+
+      <div class="truc">
+        <p class="nami">Duration</p>
+          <p class="namip"><%= @game.duration  %> days</p>
+      </div>
+
+      <div class="truc">
+          <p class="nami">Location</p>
+          <p class="namip">Paris</p>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="leaderboard">
+
+    <div class="rankings">
+      <div class="rank pending">
+        <span>1</span>
+        <span>Iman</span>
+        <span>0 runs</span>
+        <span>0%</span>
+      </div>
+      <div class="rank pending">
+        <span>2</span>
+        <span>Antoine</span>
+        <span>0 runs</span>
+        <span>0%</span>
+      </div>
+      <div class="rank pending">
+        <span>3</span>
+        <span>Joe</span>
+        <span>0 runs</span>
+        <span>0%</span>
+      </div>
+      <div class="rankempty">
+
+      </div>
+    </div>
+  </div>
+
+         <%= button_to "JOIN THIS GAME", game_game_players_path(@game), method: :post, class: "join-game-card" %>
+
+</div>
+
+<% end %>
+
+
+
+<%# contenaire deja dans la partie %>
+<% if @game.status == "ongoing"  %>
+<div class="battle-container">
+  <div class="header">
+    <h2 class="namecard"> <%= @game.name %></h2>
+  </div>
+  <div class="map1">
+  <div id="map" style="width: 100%; height: 400px;"
+       data-controller="map"
+       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
+  <div class="details">
+    <div class="infox">
+        <div class="truc">
+          <p class="nami">Players</p>
+          <p class="namip"><%= @game.nb_of_players %> </p>
+      </div>
+
+        <div class="truc">
+          <p class="nami">Surface covered</p>
+          <p class="namip">20%</p>
+      </div>
+
+      <div class="truc">
+        <p class="nami">Time left</p>
+          <p class="namip"><%= (@game.end_date - Date.today).to_i %> days left</p>
+      </div>
+
+      <div class="truc">
+          <p class="nami">Number of runs</p>
+          <p class="namip">Paris</p>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="leaderboard">
+    <div class="player-icons">
+      <div class="player">
+        <img src="images/avatar1.svg" alt="ava" class="playerimgsecond">
+        <span>Antoine</span>
+      </div>
+      <div class="player first">
+        <img src="images/avatar1.svg" alt="ava" class="playerimgfirst">
+        <span>Iman</span>
+      </div>
+      <div class="player" >
+        <img src="images/avatar1.svg" alt="ava" class="playerimgthird">
+        <span>John</span>
+      </div>
+    </div>
+    <div class="rankings">
+      <div class="rank first">
+        <span>1</span>
+        <span>Iman</span>
+        <span>0 runs</span>
+        <span>0%</span>
+      </div>
+      <div class="rank player">
+        <span>2</span>
+        <span>Antoine</span>
+        <span>0 runs</span>
+        <span>0%</span>
+      </div>
+      <div class="rank">
+        <span>3</span>
+        <span>Joe</span>
+        <span>0 runs</span>
+        <span>0%</span>
+      
+    </div>
+  </div>
+
+
+</div>
+
+ <% end %>
+
+
+<% if @game.status == "finished"  %>
+<div class="battle-container">
+  <div class="header">
+    <h2 class="namecard"> <%= @game.name %></h2>
+  </div>
+  <div class="map1">
+  <div id="map" style="width: 100%; height: 400px;"
+       data-controller="map"
+       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
+  <div class="details">
+    <div class="infox">
+        <div class="truc">
+          <p class="nami">Players</p>
+          <p class="namip"><%= @game.nb_of_players %> </p>
+      </div>
+
+        <div class="truc">
+          <p class="nami">Surface covered</p>
+          <p class="namip">20%</p>
+      </div>
+
+      <div class="truc">
+        <p class="nami">Time left</p>
+          <p class="namip"><%= (@game.end_date - Date.today).to_i %> days left</p>
+      </div>
+
+      <div class="truc">
+          <p class="nami">Number of runs</p>
+          <p class="namip">Paris</p>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="leaderboard">
+    <div class="player-icons">
+      <div class="player">
+        <img src="images/avatar1.svg" alt="ava" class="playerimgsecond">
+        <span>Antoine</span>
+      </div>
+      <div class="player first">
+        <img src="images/avatar1.svg" alt="ava" class="playerimgfirst">
+        <span>Iman</span>
+      </div>
+      <div class="player" >
+        <img src="images/avatar1.svg" alt="ava" class="playerimgthird">
+        <span>John</span>
+      </div>
+    </div>
+    <div class="rankings">
+      <div class="rank first">
+        <span>1</span>
+        <span>Iman</span>
+        <span>0 runs</span>
+        <span>0%</span>
+      </div>
+      <div class="rank player">
+        <span>2</span>
+        <span>Antoine</span>
+        <span>0 runs</span>
+        <span>0%</span>
+      </div>
+      <div class="rank">
+        <span>3</span>
+        <span>Joe</span>
+        <span>0 runs</span>
+        <span>0%</span>
+      </div>
+      <div class="rankempty">
+
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+<% end %>

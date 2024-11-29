@@ -1,6 +1,6 @@
 <nav class="navbar">
   <div class="user-icon">
-    <%= link_to new_player_session_path, class: "nav-link" do %>
+    <%= link_to profile_path, class: "nav-link" do %>
       <%= image_tag("profile.svg", alt: "User Icon", size: "30x30") %>
     <% end %>
   </div>
@@ -16,7 +16,7 @@
     <% if current_game&.status == "ongoing" %>
       <div class="chat-icon">
         <%= link_to chat_game_comments_path(current_game), class: "nav-link" do %>
-          💬
+          <%= image_tag("msg.svg", alt: "msg Icon", size: "30x30") %>
         <% end %>
       </div>
     <% end %>
