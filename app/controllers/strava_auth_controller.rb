@@ -39,10 +39,16 @@ class StravaAuthController < ApplicationController
       redirect_to root_path
     end
   end
+
   private
+
   # Callback URL for your app
   def callback_url
-    "localhost:3000/auth/strava/callback"
+    if Rails.env.production?
+      "https://runation-carlodh-code-6fabe19e87af.herokuapp.com/auth/strava/callback"
+    else
+      "http://localhost:3000/auth/strava/callback"
+    end
   end
   # Exchange the authorization code for an access token and refresh token
   def exchange_code_for_tokens(code)
