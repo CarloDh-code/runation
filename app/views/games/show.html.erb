@@ -6,8 +6,8 @@
   </div>
   <div class="map1">
   <div id="map" style="width: 100%; height: 400px;"
-       data-controller="map"
-       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+       data-controller="map-demo"
+       data-map-demo-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
   <div class="details">
@@ -40,7 +40,7 @@
     <div class="rankings">
       <div class="rank pending">
         <span>1</span>
-        <span>Iman</span>
+        <span><%= @game.players.first.nickname %></span>
         <span>0 runs</span>
         <span>0%</span>
       </div>
@@ -61,8 +61,9 @@
       </div>
     </div>
   </div>
-
+  <<% if !@game.players.include?(current_player)  %>
          <%= button_to "JOIN THIS GAME", game_game_players_path(@game), method: :post, class: "join-game-card" %>
+<% end %>
 
 </div>
 
@@ -110,26 +111,26 @@
   <div class="leaderboard">
     <div class="player-icons">
       <div class="player">
-        <img src="images/avatar1.svg" alt="ava" class="playerimgsecond">
+        <img src="/images/avatar1.svg" alt="ava" class="playerimgsecond">
         <span>Antoine</span>
       </div>
       <div class="player first">
-        <img src="images/avatar1.svg" alt="ava" class="playerimgfirst">
+        <img src="/images/avatar1.svg" alt="ava" class="playerimgfirst">
         <span>Iman</span>
       </div>
       <div class="player" >
-        <img src="images/avatar1.svg" alt="ava" class="playerimgthird">
+        <img src="/images/avatar1.svg" alt="ava" class="playerimgthird">
         <span>John</span>
       </div>
     </div>
     <div class="rankings">
-      <div class="rank first">
+      <div class="rank player first">
         <span>1</span>
         <span>Iman</span>
         <span>0 runs</span>
         <span>0%</span>
       </div>
-      <div class="rank player">
+      <div class="rank">
         <span>2</span>
         <span>Antoine</span>
         <span>0 runs</span>
@@ -140,7 +141,7 @@
         <span>Joe</span>
         <span>0 runs</span>
         <span>0%</span>
-      
+
     </div>
   </div>
 
@@ -189,15 +190,15 @@
   <div class="leaderboard">
     <div class="player-icons">
       <div class="player">
-        <img src="images/avatar1.svg" alt="ava" class="playerimgsecond">
+        <img src="/images/avatar1.svg" alt="ava" class="playerimgsecond">
         <span>Antoine</span>
       </div>
       <div class="player first">
-        <img src="images/avatar1.svg" alt="ava" class="playerimgfirst">
+        <img src="/images/avatar1.svg" alt="ava" class="playerimgfirst">
         <span>Iman</span>
       </div>
       <div class="player" >
-        <img src="images/avatar1.svg" alt="ava" class="playerimgthird">
+        <img src="/images/avatar1.svg" alt="ava" class="playerimgthird">
         <span>John</span>
       </div>
     </div>
