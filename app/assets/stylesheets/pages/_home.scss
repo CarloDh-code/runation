@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 
-
+//card
 body {
   background-color: #f9f9f9;
   align-items: center;
@@ -9,8 +9,8 @@ body {
 }
 
 .card {
-  width: 375px;
-  height: 480px;
+  width: 90%;
+  height: auto;
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -40,6 +40,7 @@ body {
   justify-content: space-between;
   height: 25px;
   padding: 0 12px;
+  margin-bottom: 8px;
 }
 
 .map1 {
@@ -82,14 +83,19 @@ body {
   font-weight: bold;
 }
 
+// battlecontainer
+
 
 .battle-container {
-  width: 350px;
+  width: 90%;
+  height: auto;
   margin: auto;
   background: white;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .header {
@@ -103,21 +109,38 @@ body {
 }
 
 .details {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
+  padding: 4px;
 }
 
-.infox span {
-  display: block;
-  font-size: 0.9em;
-  color: #000000;
-  margin: 3px 0;
+.infox {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping of items to form multiple rows */
+  gap: 10px; /* Adds space between items */
+  justify-content: center; /* Centers items horizontally */
+  margin-top: 5px; /* Optional: Adjust spacing around the container */
 }
 
+.infox .truc {
+  flex: 0 1 calc(50% - 10px); /* Ensures each item takes up 50% of the width minus the gap */
+  text-align: center; /* Centers the text */
+}
 
+.nami {
+  font-size: 12px;
+  margin: 0px;
+  color: rgb(88, 88, 88);
+}
+
+.namip {
+  margin: 0px;
+  font-size: 16px;
+  font-weight: bold;
+}
 
 .leaderboard {
   padding: 10px;
+
+
 }
 
 .player-icons {
@@ -178,6 +201,18 @@ body {
   border-radius: 5px;
   font-size: 0.9em;
   color: #555;
+}
+
+.rankempty {
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+  padding: 5px 10px;
+  background: #f9f9f9;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  color: #919191;
 }
 
 .rank.first {

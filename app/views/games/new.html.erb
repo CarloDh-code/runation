@@ -1,4 +1,4 @@
-<h1>Créer un nouveau jeu</h1>
+
 
 <%= form_with model: @game, local: true do |form| %>
   <% if @game.errors.any? %>
@@ -13,24 +13,25 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name, "Nom du jeu" %>
-    <%= form.text_field :name, placeholder: "Entrez le nom du jeu", required: true %>
+
+    <%= form.label :name, "NAME OF THE GAME" %>
+    <%= form.text_field :name, placeholder: "PARIS CONQUEST", required: true %>
   </div>
 
   <div class="field">
-    <%= form.label :nb_of_players, "Nombre de joueurs" %>
-    <%= form.number_field :nb_of_players, min: 1, placeholder: "Entrez le nombre de joueurs", required: true %>
+    <%= form.label :nb_of_players, "NUMBER OF PLAYERS" %>
+    <%= form.number_field :nb_of_players, placeholder: "0",  min: 1, required: true %>
   </div>
 
   <div class="field">
-    <%= form.label :duration, "Durée du jeu (en jours)" %>
-    <%= form.number_field :duration, min: 1, placeholder: "Entrez la durée du jeu", required: true %>
+    <%= form.label :duration, "GAME DURATION (IN DAYS)" %>
+    <%= form.number_field :duration,placeholder: "9",  min: 1, required: true %>
   </div>
 
   <div class="actions">
-    <%= form.submit "Créer le jeu", class: "btn btn-primary" %>
+    <%= form.submit "CREATE GAME", class: "bt" %>
   </div>
 <% end %>
 
 
-<%= link_to "Retour à la liste des jeux", games_path, class: "btn btn-secondary" %>
+<%# <%= link_to "BACK TO GAMES", games_path, class: "btn btn-primary text-white" %>

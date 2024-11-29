@@ -7,14 +7,18 @@ class Run < ApplicationRecord
   has_many :game_player_runs
 
 
+  def coordinate
+    decoded_polyline = self.decoded_path
+    downsample_polyline(decoded_polyline)
+  end
 
-    def surface
-      decoded_polyline = self.decoded_path
-      simplified_polyline = downsample_polyline(decoded_polyline)
-      polygon = polyline_to_polygon(simplified_polyline).area
-    end
+  def surface
+    simplified_polyline = coordinate
+    polygon = polyline_to_polygon(simplified_polyline).area
+  end
 
-    private
+
+    # private
 
     def decoded_path
       begin
@@ -54,7 +58,7 @@ class Run < ApplicationRecord
 
     def polyline_to_polygon(polyline_decoded)
       factory = RGeo::Geos.factory
-      points = polyline_decoded.map { |lat, lon| factory.point(lon, lat) }
+      points = polyline_decoded.map { |lat, lon| factory.point(lat, lon) }
       polygon = factory.polygon(factory.linear_ring(points))
       if polygon.valid?
         polygon

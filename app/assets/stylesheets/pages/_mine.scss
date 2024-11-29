@@ -32,16 +32,22 @@
   border: none;
 }
 
+.a {
+  text-decoration: none !important;
+}
+
 .tab-titles .active {
   font-weight: bold;
   color: #007bff;
   background-color: #f9f9f9;
   border-bottom: 2px solid transparent;
+  text-decoration: none;
 }
 
 .tab-titles a:hover {
   color: #007bff;
   background-color: #f1f1f1;
+  text-decoration: none;
 }
 
 .tab-content {
@@ -58,8 +64,8 @@
 }
 
 .card {
-  width: 375px;
-  height: 480px;
+  width: 90%;
+  height: auto;
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -115,4 +121,3 @@
 .status img {
   width: 16px;
 }
-
