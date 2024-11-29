@@ -10,7 +10,7 @@ class StravaAuthController < ApplicationController
     #
     # strava_url = 'https://www.strava.com/oauth/authorize?client_id=140985&response_type=code&redirect_uri=http://localhost:3000/auth/strava/callback&approval_prompt=force&scope=activity:read_all'
 
-    strava_url = "https://www.strava.com/oauth/authorize?client_id=#{ENV['STRAVA_CLIENT_ID']}&response_type=code&redirect_uri=http://#{callback_url}&approval_prompt=force&scope=activity:read_all"
+    strava_url = "https://www.strava.com/oauth/authorize?client_id=#{ENV['STRAVA_CLIENT_ID']}&response_type=code&redirect_uri=#{callback_url}&approval_prompt=force&scope=activity:read_all"
     p strava_url
 
     # strava_url = "https://www.strava.com/oauth/authorize?client_id=#{ENV['STRAVA_CLIENT_ID']}&response_type=code&redirect_uri=http://localhost:3000/auth/strava/callback&approval_prompt=force&scope=activity:read_all"
