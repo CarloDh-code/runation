@@ -4,7 +4,7 @@
     <img src="<%= asset_path('logo2.png') %>" alt="Logo Step 2" class="logo-step logo-step-2">
     <img src="<%= asset_path('logo3.png') %>" alt="Logo Step 3" class="logo-step logo-step-3">
   </div>
-  <% if current_user.token %>
+  <% if !@player.token  %>
     <div class ="mt-4">
       <%= link_to auth_strava_path do %>
         <%= image_tag 'stravabutton.png', alt: 'Connect with Strava' %>
