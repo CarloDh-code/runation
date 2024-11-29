@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'messages/index'
+  get 'messages/show'
   devise_for :players
   root to: "pages#home"
   resources :games, only: [:index, :show, :new, :create] do
