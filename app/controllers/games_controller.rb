@@ -3,15 +3,12 @@ class GamesController < ApplicationController
 
 
   def show
-       unless @game.status == 'pending' || @game.players.include?(current_player)
-        redirect_to games_path, alert: 'You can not access this game, sorry ! '
-       end
-<<<<<<< HEAD
-  game_run_layers
-=======
-        @comments = @game.comments.includes(:player) if @game.status == "ongoing"
-        # @polylines = @game.runs.includes(:polyline)
->>>>>>> master
+    unless @game.status == 'pending' || @game.players.include?(current_player)
+      redirect_to games_path, alert: 'You can not access this game, sorry ! '
+    end
+    game_run_layers
+    @comments = @game.comments.includes(:player) if @game.status == "ongoing"
+    # @polylines = @game.runs.includes(:polyline)
   end
 
   def index
@@ -48,8 +45,6 @@ class GamesController < ApplicationController
   end
 
   def game_run_layers
-    included_runs = Games::AssessRuns.new.call
-    @game = Game.find(params[:id])
     @layers = []
     @game.runs.each do |run|
       @layers << run.coordinate_layer
