@@ -1,0 +1,18 @@
+class NotificationsController < ApplicationController
+  before_action :authenticate_player! # Assure que le joueur est connecté
+
+  def index
+    @notifications = current_player.notifications.order(created_at: :desc)
+  end
+
+  def mark_as_read
+    notification = current_player.notifications.find(params[:id])
+    notification.update(read: true)
+    redirect_to notifications_path, notice: 'Notification marquée comme lue.'
+  end
+
+  def clear_all
+    current_player.notifications.update_all(read: true)
+    redirect_to notifications_path, notice: 'Toutes les notifications ont été marquées comme lues.'
+  end
+end

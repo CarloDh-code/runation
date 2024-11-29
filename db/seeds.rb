@@ -231,3 +231,10 @@ GamePlayerRun.create!(game_player: gp1, run: run_inclus)
 GamePlayerRun.create!(game_player: gp2, run: run_exclu)
 
 puts "GamePlayerRuns créés !"
+
+
+Notification.create!(title: "New Game Added", content: "A new game has been added to your favorites.", created_at: 2.hours.ago, player: taib)
+Notification.create!(title: "Add me to your game buddy", content: "Man, it would be great to add me to your game, it'll be challenging", created_at: 1.hour.ago, player: taib)
+
+Notification.create!(title: "Game Reminder", content: "Don't forget your upcoming game tomorrow.", created_at: 1.day.ago, player: carlos)
+Notification.create!(title: "Achievement Unlocked", content: "You unlocked the 'Marathon Master' badge!", created_at: 3.days.ago, player: antoine)

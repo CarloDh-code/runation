@@ -1,0 +1,43 @@
+.notifications-tab {
+  h2 {
+    font-size: 1.8rem;
+    color: #4A4A4A;
+    font-weight: bold;
+  }
+
+  .list-group-item {
+    border: none;
+    border-bottom: 1px solid #E5E5E5;
+    padding: 1rem 0.5rem;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #F9F9F9;
+    }
+
+    .icon-container {
+      font-size: 1.5rem;
+      color: #6C757D; // Bootstrap secondary color
+    }
+
+    .text-container {
+      h5 {
+        font-size: 1.2rem;
+        color: #212529; // Bootstrap text-primary color
+      }
+
+      p {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+
+      small {
+        font-size: 0.8rem;
+      }
+    }
+
+    button {
+      font-size: 0.8rem;
+    }
+  }
+}

@@ -6,12 +6,21 @@ Rails.application.routes.draw do
       get :mine
     end
     resources :game_players, only: [:create]
-    
+
   end
 
   resources :runs, only: [] do
     collection do
       patch :refresh
+    end
+  end
+
+  resources :notifications, only: [:index] do
+    member do
+      patch :mark_as_read
+    end
+    collection do
+      patch :clear_all
     end
   end
 
