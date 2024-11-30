@@ -74,6 +74,7 @@ class Game < ApplicationRecord
   end
 
   def polyline_to_polygon(polyline_decoded)
+    return nil if polyline_decoded.nil?
     factory = RGeo::Geos.factory
     points = polyline_decoded.map { |lat, lon| factory.point(lat, lon) }
     polygon = factory.polygon(factory.linear_ring(points))

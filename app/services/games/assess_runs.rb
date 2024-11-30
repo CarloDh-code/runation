@@ -44,11 +44,11 @@ module Games
     def runs_valid_for_game(game_id)
       runs_valid = []
       game = Game.find(game_id)
-      next unless game.map_polyline.present?
+      return runs_valid unless game.map_polyline.present?
         game.players.each do |player|
           runs_in_date_range = player.runs.where(start_datetime: game.start_date.beginning_of_day..game.end_date.end_of_day)
           runs_in_date_range.each do |run|
-            if run.polyline_to_polygon(run.decoded_path).within?(game.polyline_to_polygon(game.decoded_path))
+            if run.polyline_to_polygon(run.decoded_path) && game.polyline_to_polygon(game.decoded_path) && run.polyline_to_polygon(run.decoded_path).within?(game.polyline_to_polygon(game.decoded_path))
               runs_valid << run
               gp = GamePlayer.find_by(game: game, player: player)
               unless GamePlayerRun.find_by(game_player_id: gp.id, run_id: run.id)

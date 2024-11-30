@@ -3,8 +3,7 @@ import mapboxgl from "mapbox-gl" // Assurez-vous que mapbox-gl est bien importé
 
 export default class extends Controller {
   static values = {
-    apiKey: String,
-    mapLayers: Array
+    apiKey: String
   }
 
   connect() {
