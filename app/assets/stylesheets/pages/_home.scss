@@ -203,6 +203,17 @@ body {
   color: #555;
 }
 
+.rank.pending {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  background: #f9f9f9;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  color: #555;
+}
+
 .rankempty {
   display: flex;
   justify-content: space-between;
@@ -216,7 +227,8 @@ body {
 }
 
 .rank.first {
-  background: #ffdd99;
+
+  border: 3px solid $yelo;
 }
 
 .rank.player {
@@ -255,8 +267,77 @@ button.join-game-card {
 }
 
 .namecard {
-  font-size: 30px;
+  font-size: 38px;
   font-weight: 900;
   margin: 0;
-  color: #4a90e2;
+  color: $blouclaire;
+  padding: 16px
+}
+
+form.button_to {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    max-width: 90%;
+    margin: 5px auto;
+    padding: 5px;
+    background-color: #ffffff00 !important;
+    border-radius: 8px;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1) !important;
+
+
+}
+
+a.card-title {
+  text-decoration: none;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: $blou;
+}
+
+.rotating-logos {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+.logo-step {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.logo-step-1 {
+  animation: logo-cycle 3s linear infinite 0s;
+}
+
+.logo-step-2 {
+  animation: logo-cycle 3s linear infinite 1s;
+}
+
+.logo-step-3 {
+  animation: logo-cycle 3s linear infinite 2s;
+}
+
+@keyframes logo-cycle {
+  0%, 33.33% {
+    opacity: 1;
+  }
+  66.66%, 100% {
+    opacity: 0;
+  }
+}
+
+a.game-title-link {
+  text-decoration: none;
+  color: $blouclaire;
 }

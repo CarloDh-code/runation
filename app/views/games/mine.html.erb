@@ -13,7 +13,7 @@
     </ul>
 
     <div id="tab-ongoing" data-tabs-target="content" class="tab-content hidden">
-      <h2>Ongoing games</h2>
+
       <% @games.select { |game| game.status == "ongoing" }.each do |game| %>
         <div class="card">
           <h2><%= link_to game.name, game_path(game), class: "card-title" %></h2>
@@ -51,7 +51,7 @@
     </div>
 
     <div id="tab-pending" data-tabs-target="content" class="tab-content hidden">
-      <h2>Pending games</h2>
+
       <% @games.select { |game| game.status == "pending" }.each do |game| %>
         <div class="card">
           <h2><%= link_to game.name, game_path(game), class: "card-title" %></h2>
@@ -89,7 +89,7 @@
     </div>
 
     <div id="tab-finished" data-tabs-target="content" class="tab-content hidden">
-      <h2>Finished games</h2>
+     
       <% @games.select { |game| game.status == "finished" }.each do |game| %>
         <div class="card">
           <h2><%= link_to game.name, game_path(game), class: "card-title" %></h2>

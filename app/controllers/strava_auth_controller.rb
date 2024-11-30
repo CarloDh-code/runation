@@ -10,7 +10,7 @@ class StravaAuthController < ApplicationController
     #
     # strava_url = 'https://www.strava.com/oauth/authorize?client_id=140985&response_type=code&redirect_uri=http://localhost:3000/auth/strava/callback&approval_prompt=force&scope=activity:read_all'
 
-    strava_url = "https://www.strava.com/oauth/authorize?client_id=#{ENV['STRAVA_CLIENT_ID']}&response_type=code&redirect_uri=http://#{callback_url}&approval_prompt=force&scope=activity:read_all"
+    strava_url = "https://www.strava.com/oauth/authorize?client_id=#{ENV['STRAVA_CLIENT_ID']}&response_type=code&redirect_uri=#{callback_url}&approval_prompt=force&scope=activity:read_all"
     p strava_url
 
     # strava_url = "https://www.strava.com/oauth/authorize?client_id=#{ENV['STRAVA_CLIENT_ID']}&response_type=code&redirect_uri=http://localhost:3000/auth/strava/callback&approval_prompt=force&scope=activity:read_all"
@@ -39,10 +39,16 @@ class StravaAuthController < ApplicationController
       redirect_to root_path
     end
   end
+
   private
+
   # Callback URL for your app
   def callback_url
-    "localhost:3000/auth/strava/callback"
+    if Rails.env.production?
+      "https://runation-carlodh-code-6fabe19e87af.herokuapp.com/auth/strava/callback"
+    else
+      "http://localhost:3000/auth/strava/callback"
+    end
   end
   # Exchange the authorization code for an access token and refresh token
   def exchange_code_for_tokens(code)
