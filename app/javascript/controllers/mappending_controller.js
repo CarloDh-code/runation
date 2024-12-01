@@ -3,7 +3,7 @@ import mapboxgl from "mapbox-gl" // Assurez-vous que mapbox-gl est bien importé
 
 export default class extends Controller {
   static values = {
-    apiKey: String // Déclare l'apiKey pour utiliser dans le contrôleur
+    apiKey: String
   }
 
   connect() {
@@ -98,12 +98,12 @@ export default class extends Controller {
         }
       });
 
-     
+
 
       map.addLayer({
         'id': 'maine-outline',
         'type': 'line',
-        'source': 'maine',
+        'source': 'paris',
         'layout': {},
         'paint': {
           'line-color': '#000',
@@ -158,5 +158,10 @@ export default class extends Controller {
       // Ajout des contrôles de navigation
       map.addControl(new mapboxgl.NavigationControl());
     });
+  }
+
+  randomColor() {
+    // Génère une couleur aléatoire au format hexadécimal
+    return '#' + Math.floor(Math.random() * 16777215).toString(16);
   }
 }
