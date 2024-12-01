@@ -5,7 +5,7 @@ class GamesController < ApplicationController
     unless @game.status == 'pending' || @game.players.include?(current_player)
       redirect_to games_path, alert: 'You can not access this game, sorry ! '
     end
-    game_run_layers
+    game_run_layers(@game)
 
     @comments = @game.comments.includes(:player) if @game.status == "ongoing"
   end
@@ -31,6 +31,10 @@ class GamesController < ApplicationController
 
   def mine
     @games = current_player.games.order(end_date: :desc)
+    @games.each do |game|
+      # Appel de la méthode pour obtenir les layers de ce jeu
+      game_run_layers(game)
+    end
   end
 
   private
@@ -45,26 +49,19 @@ class GamesController < ApplicationController
 
 
 
-  def game_run_layers
+    # Modification de la méthode game_run_layers pour accepter un argument `game`
+  def game_run_layers(game)
     @layers = []
     assess_runs_service = Games::AssessRuns.new
-    valid_runs = assess_runs_service.runs_valid_for_game(@game.id)
+    valid_runs = assess_runs_service.runs_valid_for_game(game.id)
 
     # Récupérer tous les joueurs du jeu et leurs runs valides
-    players_runs = @game.runs.group_by(&:player_id)
+    players_runs = game.runs.group_by(&:player_id)
 
     # Définir un tableau de couleurs prédéfinies
     colors = [
-      '#a2922d',  # Joueur 1
-      '#FF5964',  # Joueur 2
-      '#38618C',  # Joueur 3
-      '#35A7FF',  # Joueur 4
-      '#ad72b3',  # Joueur 5
-      '#61fab8',  # Joueur 6
-      '#f29451',  # Joueur 7
-      '#1c3d56',  # Joueur 8
-      '#51cff2',  # Joueur 9
-      '#561c23'   # Joueur 10
+      '#a2922d', '#FF5964', '#38618C', '#35A7FF', '#ad72b3', '#61fab8',
+      '#f29451', '#1c3d56', '#51cff2', '#561c23'
     ]
     # Itérer sur les joueurs et leurs runs
     players_runs.each_with_index do |(player_id, runs), index|
@@ -81,5 +78,7 @@ class GamesController < ApplicationController
         }
       end
     end
+    # Assigner les layers calculés au jeu pour qu'ils soient accessibles dans la vue
+    game.instance_variable_set(:@layers, @layers)
   end
 end
