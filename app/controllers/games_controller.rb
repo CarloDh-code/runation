@@ -7,9 +7,15 @@ class GamesController < ApplicationController
       redirect_to games_path, alert: 'You can not access this game, sorry ! '
     end
     game_run_layers
-    
+
     @comments = @game.comments.includes(:player) if @game.status == "ongoing"
     # @polylines = @game.runs.includes(:polyline)
+    # @player_colors = {
+    #   @players[0].id => '#a2922d',
+    #   @players[1].id => '#FF5964',
+    #   @players[2].id => '#38618C',
+    #   @players[3].id => '#35A7FF'
+    # }.to_json
   end
 
   def index

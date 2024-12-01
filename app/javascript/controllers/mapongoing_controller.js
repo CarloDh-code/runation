@@ -11,6 +11,7 @@ export default class extends Controller {
     console.log("Initializing map for game", this.element.id);  // Log the map container ID
     console.log("Received layers data:", this.layersValue);
 
+
     // Set Mapbox access token
     mapboxgl.accessToken = this.apiKeyValue;
 
@@ -32,30 +33,49 @@ export default class extends Controller {
   }
 
   addLayers(map) {
-    // Loop through the layers passed from the server (e.g., @layers)
+    // Array of colors to cycle through for each layer
+    const fillColors = ['#5C96E0', '#FF5733', '#33FF57', '#FFC300', '#8E44AD', '#2980B9', '#16A085'];
+
+    // Loop through the layers passed from the server
     this.layersValue.forEach((layerData, index) => {
+      const fillColor = fillColors[index % fillColors.length];  // Select a color for each layer
+
+      // Add the GeoJSON source for each polygon
       map.addSource(`layer-source-${index}`, {
-        'type': 'geojson',
-        'data': {
-          'type': 'FeatureCollection',
-          'features': [{
-            'type': 'Feature',
-            'geometry': {
-              'type': 'Polygon',
-              'coordinates': layerData,  // Use the coordinates for each run
+        type: 'geojson',
+        data: {
+          type: 'FeatureCollection',
+          features: [{
+            type: 'Feature',
+            geometry: {
+              type: 'Polygon',
+              coordinates: [layerData],
             },
           }],
         },
       });
 
+      // Add a layer to fill the polygon with color
       map.addLayer({
-        'id': `layer-outline-${index}`,
-        'type': 'line',
-        'source': `layer-source-${index}`,
-        'layout': {},
-        'paint': {
-          'line-color': '#000',  // Color of the layer's outline
-          'line-width': 3,
+        id: `layer-fill-${index}`,
+        type: 'fill',
+        source: `layer-source-${index}`,
+        layout: {},
+        paint: {
+          'fill-color': fillColor,
+          'fill-opacity': 0.5,  // Adjust opacity as needed
+        },
+      });
+
+      // Add a layer for the polygon's outline
+      map.addLayer({
+        id: `layer-outline-${index}`,
+        type: 'line',
+        source: `layer-source-${index}`,
+        layout: {},
+        paint: {
+          'line-color': '#000',  // Outline color
+          'line-width': 2,  // Outline thickness
         },
       });
     });
