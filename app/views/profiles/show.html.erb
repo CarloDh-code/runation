@@ -18,28 +18,21 @@
   <!-- Profile Section -->
   <div class="text-center mt-3 pt-4">
     <div class="position-relative d-inline-block">
-      <div class="rounded-circle bg-primary" style="width: 89px; height: 89px;">
-        <i class="fa-solid fa-user text-white fs-1 d-flex justify-content-center align-items-center" style="height: 100%;">
-          <!-- app/views/articles/index.html.erb -->
+      <%= link_to edit_player_registration_path, class: 'position-absolute top-0 start-100' do %>
+        <i class="fa-regular fa-pen-to-square"></i>
+      <% end %>
+      <div class="rounded-circle bg-primary">
           <% if current_player.photo.attached? %>
-            <%= cl_image_tag(current_player.photo.key, width: 400, height: 300, crop: :fill) %>
+            <%= cl_image_tag(current_player.photo.key, class: "avatar-base", width: 89, height: 89) %>
           <% else %>
-            <%= image_tag "avatar.svg" %>
+            <i class="fa-solid fa-user text-white fs-1 d-flex justify-content-center align-items-center" style="height: 100%;">
           <% end %>
-
-          <!-- for face detection -->
-          <%#= cl_image_tag("IMAGE_WITH_FACE_ID",
-              width: 150, height: 150, crop: :thumb, gravity: :face) %>
         </i>
-
       </div>
-
-      <%= link_to "edit", edit_player_registration_path %>
-
-      <button class="btn btn-light position-absolute top-0 start-100 translate-middle p-0 rounded-circle border" id="profileButton" style="width: 25px; height: 25px;">
+      <%# <button class="btn btn-light position-absolute top-0 start-100 translate-middle p-0 rounded-circle border" id="profileButton" style="width: 25px; height: 25px;">
         <i class="fa-regular fa-pen-to-square"></i>
         <input type="file" class="form-control-file" id="photoUpload" accept="image/*" style="opacity: 0; position: absolute; top: 0; left: 0; width: 25px; height: 25px; cursor: pointer;">
-      </button>
+      </button> %>
 
 
 
@@ -53,47 +46,23 @@
     </p>
   </div>
 
-  <!-- Stats Section -->
-  <div class="row text-center mt-5 align-items-center">
-    <div class="d-flex align-items-center justify-content-center">
-      <div class="text-center m-2">
-        <div class="rounded-circle bg-info mx-auto" style="width: 132px; height: 132px;">
-          <div class="d-flex flex-column justify-content-center align-items-center h-100 text-white">
-            <p class="mb-0 fw-bold">Games played</p>
-            <p class="display-4"><%= @games_played_count %></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="text-center m-2">
-        <div class="rounded-circle bg-warning mx-auto" style="width: 132px; height: 132px;">
-          <div class="d-flex flex-column justify-content-center align-items-center h-100 text-dark">
-            <p class="mb-0 fw-bold">Games won</p>
-            <p class="display-4"><%= @games_won_count %></p>
-          </div>
-        </div>
-      </div>
+  <!-- Stats section -->
+  <div class="stats-container">
+    <div class="stat-box red">
+      <p class="stat-value"><%= @games_played_count %></p>
+      <p class="stat-label">Games played</p>
     </div>
-
-
-    <div class="d-flex align-items-center justify-content-center">
-      <div class="text-center m-2">
-        <div class="rounded-circle bg-dark mx-auto" style="width: 132px; height: 132px;">
-          <div class="d-flex flex-column justify-content-center align-items-center h-100 text-white">
-            <p class="mb-0 fw-bold">Km2 Covered</p>
-            <p class="display-4">100</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="text-center m-2">
-        <div class="rounded-circle bg-light mx-auto" style="width: 132px; height: 132px;">
-          <div class="d-flex flex-column justify-content-center align-items-center h-100 text-dark">
-            <p class="mb-0 fw-bold">Games coming</p>
-            <p class="display-4"><%= @upcoming_games_count %></p>
-          </div>
-        </div>
-      </div>
+    <div class="stat-box orange">
+      <p class="stat-value"><%= @games_won_count %></p>
+      <p class="stat-label">Games won</p>
+    </div>
+    <div class="stat-box black">
+      <p class="stat-value">100</p>
+      <p class="stat-label">Km² Covered</p>
+    </div>
+    <div class="stat-box blue">
+      <p class="stat-value"><%= @upcoming_games_count %></p>
+      <p class="stat-label">Games coming</p>
     </div>
   </div>
 </div>

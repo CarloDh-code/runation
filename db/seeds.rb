@@ -21,48 +21,87 @@ carlos = Player.create!(
   name: 'Carlitow',
   nickname: 'Speedycar'
 )
+
+file = URI.parse("https://images.unsplash.com/photo-1732919258508-3fd53a8007b6?q=80&w=2646&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D").open
+carlos.photo.attach(io: file, filename: "avatar_player.png", content_type: "image/png")
+carlos.save!
+
 mickael = Player.create!(
   email: 'mick@test.test',
   password: '123456',
   name: 'mickcmik',
   nickname: 'SpeedyMick'
 )
+
+file = URI.parse("https://images.unsplash.com/photo-1732919258508-3fd53a8007b6?q=80&w=2646&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D").open
+mickael.photo.attach(io: file, filename: "avatar_player.png", content_type: "image/png")
+mickael.save!
+
 antoine = Player.create!(
   email: 'antoine@test.test',
   password: '123456',
   name: 'anto',
   nickname: 'Speedyanto'
 )
+
+file = URI.parse("https://images.unsplash.com/photo-1732919258508-3fd53a8007b6?q=80&w=2646&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D").open
+antoine.photo.attach(io: file, filename: "avatar_player.png", content_type: "image/png")
+antoine.save!
+
 taib = Player.create!(
   email: 'taib@test.test',
   password: '123456',
   name: 'Taib',
   nickname: 'Speedytaid'
 )
+
+file = URI.parse("https://images.unsplash.com/photo-1732919258508-3fd53a8007b6?q=80&w=2646&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D").open
+taib.photo.attach(io: file, filename: "avatar_player.png", content_type: "image/png")
+taib.save!
+
 paul = Player.create!(
   email: "player1@gmail.com",
   password: "111111",
   name: "paul",
   nickname: "First1"
 )
+
+file = URI.parse("https://images.unsplash.com/photo-1732919258508-3fd53a8007b6?q=80&w=2646&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D").open
+paul.photo.attach(io: file, filename: "avatar_player.png", content_type: "image/png")
+paul.save!
+
 jean_martial = Player.create!(
   email: "player2@gmail.com",
   password: "222222",
   name: "jean-martial",
   nickname: "Second1"
 )
+
+file = URI.parse("https://images.unsplash.com/photo-1732919258508-3fd53a8007b6?q=80&w=2646&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D").open
+jean_martial.photo.attach(io: file, filename: "avatar_player.png", content_type: "image/png")
+jean_martial.save!
+
 gustave = Player.create!(
   email: "player3@gmail.com",
   password: "333333",
   name: "Gustave",
   nickname: "Third1"
 )
+
+file = URI.parse("https://images.unsplash.com/photo-1732919258508-3fd53a8007b6?q=80&w=2646&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D").open
+gustave.photo.attach(io: file, filename: "avatar_player.png", content_type: "image/png")
+gustave.save!
+
 geogette = Player.create!(
   email: "player4@gmail.com",
   password: "444444",
   name: "geogette",
   nickname: "Fourth1"
 )
+
+file = URI.parse("https://images.unsplash.com/photo-1732919258508-3fd53a8007b6?q=80&w=2646&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D").open
+geogette.photo.attach(io: file, filename: "avatar_player.png", content_type: "image/png")
+geogette.save!
 
 puts "#{Player.count} joueurs créés !"
 
@@ -111,7 +150,7 @@ puts "#{Game.count} jeux créés !"
 # Création des GamePlayers
 gp1 = GamePlayer.create!(game: trail_running_alps, player: carlos, ranking: 1)
 gp2 = GamePlayer.create!(game: trail_running_alps, player: mickael, ranking: 2)
-gp3 = GamePlayer.create!(game: trail_running_alps, player: jean_martia, ranking: 3)
+gp3 = GamePlayer.create!(game: trail_running_alps, player: jean_martial, ranking: 3)
 gp4 = GamePlayer.create!(game: trail_running_alps, player: mickael, ranking: 4)
 
 
