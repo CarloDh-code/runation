@@ -9,7 +9,8 @@ module Strava
         access_token: @player.token
       )
 
-      activities = client.athlete_activities
+      activities = client.athlete_activities.select { |activity| activity.type == "Run" }
+
 
       activities.map do |activity|
         next if @player.runs.exists?(strava_activity_id: activity.id)
@@ -24,6 +25,7 @@ module Strava
           end_datetime: activity.start_date + activity.moving_time,
           polyline: activity.map.summary_polyline,
           player_id: @player.id,
+          name: activity.name
         )
       end.compact
     end

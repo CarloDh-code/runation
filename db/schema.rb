@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_02_133522) do
+
+ActiveRecord::Schema[7.1].define(version: 2024_12_02_140839) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,6 +69,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_02_133522) do
     t.integer "ranking"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "score"
     t.index ["game_id"], name: "index_game_players_on_game_id"
     t.index ["player_id"], name: "index_game_players_on_player_id"
   end
@@ -114,6 +117,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_02_133522) do
     t.bigint "player_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["player_id"], name: "index_runs_on_player_id"
   end
 

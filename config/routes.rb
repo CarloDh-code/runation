@@ -2,12 +2,13 @@ Rails.application.routes.draw do
   devise_for :players
   root to: "pages#home"
 
-  resources :games, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+  resources :games do
+    member do
+      post :update_runs
+    end
     collection do
       get :mine
     end
-
-
 
     resources :game_players, only: [:create]
     resources :comments, only: [:create] do
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :profile, only: [:show, :update]
+  resource :profile, only: [:show]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -27,7 +28,6 @@ Rails.application.routes.draw do
 
   get "/auth/strava", to: 'strava_auth#redirect'
   get "/auth/strava/callback", to: 'strava_auth#callback'
-
 
   # Defines the root path route ("/")
   # root "posts#index"
