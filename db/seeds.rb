@@ -8,6 +8,12 @@ Player.destroy_all
 
 puts 'Toutes les données ont été supprimées avec succès.'
 
+require "open-uri"
+
+# file = URI.parse("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg").open
+# article.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+# article.save
+
 # Création des joueurs
 carlos = Player.create!(
   email: 'carlos@test.test',
@@ -59,6 +65,12 @@ geogette = Player.create!(
 )
 
 puts "#{Player.count} joueurs créés !"
+
+Player.all.each do |player|
+  file = URI.parse("https://images.unsplash.com/photo-1732919258508-3fd53a8007b6?q=80&w=2646&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D").open
+  player.photo.attach(io: file, filename: "avatar_player.png", content_type: "image/png")
+  player.save!
+end
 
 # Création des games
 trail_running_alps = Game.create!(

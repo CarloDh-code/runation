@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :authenticate_player!
+  # before_action :authenticate_player!
 
   def show
     @user_real_name = current_player.name
@@ -13,12 +13,18 @@ class ProfilesController < ApplicationController
     @upcoming_games_count = current_player.games.where(status: "pending").count
   end
 
-  def update
-    if params[:photo]
-      current_user.update(photo: params[:photo])
-      redirect_to profile_path, notice: "Photo mise à jour avec succès."
-    else
-      redirect_to profile_path, alert: "Erreur lors de l'upload."
-    end
-  end
+  # def update
+  #   if params[:photo]
+  #     current_user.update(photo: params[:photo])
+  #     redirect_to profile_path, notice: "Photo mise à jour avec succès."
+  #   else
+  #     redirect_to profile_path, alert: "Erreur lors de l'upload."
+  #   end
+  # end
+
+  # private
+
+  # def profile_params
+  #   params.require(:profile).permit(:photo)
+  # end
 end
