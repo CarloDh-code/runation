@@ -25,6 +25,14 @@
     <%= form.number_field :duration, placeholder: "9", min: 1, required: true %>
   </div>
 
+  <div class="field">
+    <%= form.label :map_polyline, "CITY" %>
+    <%= form.select :map_polyline,
+      options_for_select(Game::MAP_POLYLINES.map { |city, polyline| [city, polyline] }),
+      { include_blank: 'Select a city' },
+      required: true %>
+  </div>
+
   <div class="actions">
     <%= form.submit "CREATE GAME", class: "bt" %>
   </div>

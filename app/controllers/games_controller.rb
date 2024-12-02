@@ -31,14 +31,23 @@ class GamesController < ApplicationController
     @map_polylines = Game::MAP_POLYLINES
   end
 
+
   def create
-    @game = Game.new(game_params)
-    @game.status = "pending"
+    selected_city = params[:game][:map_polyline]
+    map_polyline_value = Game::MAP_POLYLINES[selected_city]
+
+    @game = Game.new(game_params.merge(map_polyline: map_polyline_value, status: "pending"))
     @game.game_players.new(player: current_player)
-    @map_polylines = Game::MAP_POLYLINES
+
+    Rails.logger.info "Selected city: #{selected_city}"
+    Rails.logger.info "Map polyline value: #{map_polyline_value}"
+    Rails.logger.info "Game parameters: #{game_params.inspect}"
+    Rails.logger.info "Game object before save: #{@game.inspect}"
+
     if @game.save
       redirect_to @game, notice: "Game successfully created"
     else
+      Rails.logger.info "Errors: #{@game.errors.full_messages.join(", ")}"
       render :new
     end
   end
@@ -83,7 +92,7 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:name, :nb_of_players, :start_date, :duration)
+    params.require(:game).permit(:name, :nb_of_players, :duration, :map_polyline)
   end
 
   def authorize_creator

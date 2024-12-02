@@ -51,51 +51,49 @@
   <% end %>
 </div>
 
-    <!-- Onglet Pending -->
-    <div id="tab-pending" data-tabs-target="content" class="tab-content hidden">
-      <% @games.select { |game| game.status == "pending" }.each do |game| %>
-        <div class="card">
-          <h2><%= link_to game.name, game_path(game), class: "card-title" %></h2>
-          <div class="info">
-            <span>Created by <%= game.players.first.nickname %></span>
-             <div>
+ <!-- Onglet Pending -->
+<div id="tab-pending" data-tabs-target="content" class="tab-content hidden">
+  <% @games.select { |game| game.status == "pending" }.each do |game| %>
+    <div class="card">
+      <h2><%= link_to game.name, game_path(game), class: "card-title" %></h2>
+      <div class="info">
+        <span>Created by <%= game.players.first.nickname %></span>
+        <div>
           <img src="/images/location.svg" alt="User Icon" class="icon"> <span>Paris</span>
         </div>
-          </div>
-          <div class="mapy" style="position: relative;">
-            <div id="map-<%= game.id %>" style="width: 100%; height: 300px;"
-                 data-controller="mappending"
-                 data-mappending-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-                 data-mappending-latitude-value="<%= game.latitude %>"
-                 data-mappending-longitude-value="<%= game.longitude %>">
-            </div>
-            <% if game.game_players.first.player == current_player %>
-              <div class="action-buttons">
-                <%= link_to "✎", edit_game_path(game), class: "edit-button" %>
-                    <%= link_to "X", game_path(game),
+      </div>
+      <div class="mapy" style="position: relative;">
+        <div id="map-<%= game.id %>" style="width: 100%; height: 300px;"
+             data-controller="mappending"
+             data-mappending-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+             data-mappending-latitude-value="<%= game.latitude %>"
+             data-mappending-longitude-value="<%= game.longitude %>">
+        </div>
+        <% if game.game_players.first.player == current_player %>
+          <div class="action-buttons">
+            <%= link_to "✎", edit_game_path(game), class: "edit-button" %>
+            <%= link_to "X", game_path(game),
                   data: { turbo_method: :delete, confirm: "Are you sure you want to delete this game?" },
                   class: "delete-button" %>
-              </div>
-            <% end %>
-          </div>
-         
-        <div>
-          <img src="/images/players.svg" alt="User Icon" class="icon"> <span><%= game.players.count %></span>
-        </div>
-        <% if game.duration.present? %>
-          <div>
-            <img src="/images/sablier.svg" alt="Timer Icon" class="icon"> <span><%= game.duration %> days</span>
-          </div>
-        <% else %>
-          <div>
-            <img src="/images/msg.svg" alt="Timer Icon" class="icon"> <span>Duration unknown</span>
           </div>
         <% end %>
       </div>
-    </div>
-  <% end %>
-</div>
 
+      <div>
+        <img src="/images/players.svg" alt="User Icon" class="icon"> <span><%= game.players.count %></span>
+      </div>
+      <% if game.duration.present? %>
+        <div>
+          <img src="/images/sablier.svg" alt="Timer Icon" class="icon"> <span><%= game.duration %> days</span>
+        </div>
+      <% else %>
+        <div>
+          <img src="/images/msg.svg" alt="Timer Icon" class="icon"> <span>Duration unknown</span>
+        </div>
+      <% end %>
+    </div> <!-- Fermeture de .card -->
+  <% end %>
+</div> <!-- Fermeture de #tab-pending -->
     <!-- Onglet Finished -->
     <div id="tab-finished" data-tabs-target="content" class="tab-content hidden">
       <% @games.select { |game| game.status == "finished" }.each do |game| %>
