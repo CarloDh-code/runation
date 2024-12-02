@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :players
   root to: "pages#home"
 
-  resources :games, only: [:index, :show, :new, :create] do
+  resources :games do
     member do
       post :update_runs
     end

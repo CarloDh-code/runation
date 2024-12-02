@@ -1,0 +1,9 @@
+.rounded-circle.bg-primary {
+  overflow: hidden;
+  border: 2px solid #fff; /* Optionnel : ajoute une bordure blanche */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover; /* Adapte l'image */
+  background-position: center; /* Centre l'image */
+}

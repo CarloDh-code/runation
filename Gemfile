@@ -38,7 +38,7 @@ gem "fast-polylines", "~> 2.0.0"
 
 gem "rgeo"
 
-
+gem "cloudinary"
 
 
 # Use Redis adapter to run Action Cable in production

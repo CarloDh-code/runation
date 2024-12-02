@@ -1,16 +1,13 @@
 import { Controller } from "@hotwired/stimulus"
 import mapboxgl from "mapbox-gl" // Assurez-vous que mapbox-gl est bien importé
-
 export default class extends Controller {
   static values = {
     apiKey: String
   }
-
   connect() {
     // Configure Mapbox
     console.log("hello");
     mapboxgl.accessToken = this.apiKeyValue;
-
     // Initialiser la carte centrée sur Paris
     const map = new mapboxgl.Map({
       container: this.element,
@@ -18,7 +15,6 @@ export default class extends Controller {
       center: [2.3522, 48.8566], // Paris
       zoom: 12
     });
-
     // Coordonnées pour "maine"
     const maineCoords = [
       [2.25991, 48.84959],
@@ -35,7 +31,6 @@ export default class extends Controller {
       [2.29815, 48.82941],
       [2.25991, 48.84959]
     ];
-
     // Lorsque la carte est chargée, ajoutez les sources et le polygone pour "maine"
     map.on('load', () => {
       // Ajout de la source pour "maine"
@@ -49,7 +44,6 @@ export default class extends Controller {
           }
         }
       });
-
       // Ajout du contour de "maine"
       map.addLayer({
         'id': 'maine-outline',
@@ -61,12 +55,10 @@ export default class extends Controller {
           'line-width': 4
         }
       });
-
       // Ajout des contrôles de navigation
       map.addControl(new mapboxgl.NavigationControl());
     });
   }
-
   randomColor() {
     // Génère une couleur aléatoire au format hexadécimal
     return '#' + Math.floor(Math.random() * 16777215).toString(16);
