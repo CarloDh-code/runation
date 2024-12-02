@@ -1,9 +1,31 @@
 <nav class="navbar">
-  <div class="user-icon">
-    <%= link_to profile_path, class: "nav-link" do %>
-      <%= image_tag("profile.svg", alt: "User Icon", size: "30x30") %>
+
+    <div class="back-button">
+    <%= link_to "javascript:history.back()", class: "nav-link mr-2", aria: { label: "Go back" } do %>
+      <%= image_tag("back.svg", alt: "Back", size: "30x30") %>
     <% end %>
   </div>
+
+  <div class="user-icon <%= 'active' if current_page?(profile_path) %>">
+    <%= link_to profile_path, class: "nav-link" do %>
+    <% if current_page?(profile_path) %>
+      <%= image_tag("profile2.svg", alt: "profil orange Icon", size: "30x30") %>
+      <% else %>
+        <%= image_tag("profile.svg", alt: "profil  Icon", size: "30x30") %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <% if params[:controller] == "games" && params[:action] == "show" %>
+    <% current_game = Game.find_by(id: params[:id]) %>
+    <% if current_game&.status == "ongoing" %>
+      <div class="navbar-item refresh-icon">
+        <%= link_to request.path, class: "nav-link", method: :get, aria: { label: "Refresh page" } do %>
+          <%= image_tag("refresh.svg", alt: "Refresh", size: "30x30") %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
 
   <div class="nav-logo">
     <%= link_to "#", class: "navbar-logo" do %>

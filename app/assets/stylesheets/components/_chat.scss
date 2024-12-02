@@ -3,13 +3,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  min-height: 100vh;
-  background-color: $cream; /* Couleur de fond douce */
+  padding: 16px;
 
   .chat-card {
     position: relative;
-    width: 400px;
+    width: 90%;
     max-width: 90%;
     background-color: white;
     border-radius: 12px;
@@ -43,7 +41,8 @@
     }
 
     #messages {
-      max-height: 300px;
+      height: 500px;
+      max-height: 600px;
       overflow-y: auto;
       margin-bottom: 20px;
       background-color: $cream; /* Fond crème pour les messages */
@@ -127,4 +126,13 @@
     font-size: 14px;
     margin: 0;
   }
+}
+
+form {
+  max-width: 90%;
+  margin: 16px auto !important;
+  padding: 4px !important;
+  background-color: #ffffff00 !important;
+  border-radius: 8px;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.0) !important;
 }

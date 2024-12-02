@@ -3,7 +3,7 @@
   background: white;
   box-shadow: 2px 1px 5px 1px rgba(0, 0, 0, .2);
   margin-bottom: 15px;
-  padding: 10px;
+  padding: 10px 5px;
   position: sticky;
 }
 
@@ -25,4 +25,8 @@
   img {
     margin-left: 10px; /* Espace pour séparer les icônes */
   }
+}
+
+.refresh-icon {
+  margin-left: 10px;
 }

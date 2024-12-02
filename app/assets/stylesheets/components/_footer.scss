@@ -3,13 +3,13 @@
   justify-content: space-around;
   align-items: center;
   background-color: white;
-  padding: 10px 0;
+  padding: 12px 4px;
   position: sticky;
   margin-top: 10px;
   bottom: 0;
   width: 100%;
   box-shadow: 2px -1px 5px 1px rgba(0, 0, 0, 0.2);
-  gap: 15px; /* Optional */
+  gap: 16px; /* Optional */
 }
 
 .footer-item {
@@ -43,4 +43,13 @@ span {
   .footer-item {
     font-size: 14px;
   }
+}
+
+
+.footer-item.active {
+  color: #F5564E;
+}
+
+.footer-item.active span {
+  color: #F5564E; /* Set the text color to #F5564E */
 }
