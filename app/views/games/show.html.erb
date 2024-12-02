@@ -5,10 +5,12 @@
     <h2 class="namecard"> <%= @game.name %></h2>
   </div>
   <div class="map1">
-  <div id="map" style="width: 100%; height: 400px;"
-       data-controller="mappending"
-       data-mappending-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+    <div id="map-<%= @game.id %>" style="width: 100%; height: 400px;"
+         data-controller="mappending"
+         data-mappending-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+         data-mappending-centroid-value="<%= @centroid.to_json %>"
+         data-mappending-coordinates-value="<%= @game.coordinate_layer %>">
+    </div>
 </div>
   <div class="details">
     <div class="infox">
@@ -125,27 +127,22 @@
         <span>John</span>
       </div>
     </div>
+    
     <div class="rankings">
-      <div class="rank player first">
-        <span>1</span>
-        <span>Iman</span>
-        <span>0 runs</span>
-        <span>0%</span>
-      </div>
-      <div class="rank">
-        <span>2</span>
-        <span>Antoine</span>
-        <span>0 runs</span>
-        <span>0%</span>
-      </div>
-      <div class="rank">
-        <span>3</span>
-        <span>Joe</span>
-        <span>0 runs</span>
-        <span>0%</span>
+      <% @game_players.each_with_index do |game_player, index| %>
+        <div class="rank <%= 'player first' if index == 0 %>">
+          <span><%= index + 1 %></span> <!-- Affiche le classement (1, 2, 3, ...) -->
+          <span><%= game_player.player.nickname || 'No nickname' %></span> <!-- Affiche le nickname ou "No nickname" -->
 
+          <!-- Récupérer le nombre de runs à partir de la table GamePlayerRun -->
+          <span><%= game_player.game_player_runs.count %> runs</span> <!-- Affiche le nombre de runs du joueur -->
+
+          <!-- Afficher le score divisé par la surface du jeu -->
+          <span><%= (game_player.score.to_f / @game.surface.to_f).round(2) %></span> <!-- Affiche le score divisé par la surface -->
+        </div>
+      <% end %>
     </div>
-  </div>
+
 
 
 </div>
