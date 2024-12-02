@@ -6,7 +6,7 @@
 
   <div class="info">
     <p>Created by <strong><%= game.players.first.nickname %></strong></p>
-    <p>📍 PARIS</p>
+    <p><img src="/images/location.svg" alt="Timer Icon" class="icon">PARIS</p>
   </div>
 
   <div class="mapy">
@@ -25,9 +25,9 @@
   </div>
 
   <div class="status">
-    <div class="infos">👤 <%= game.players.count %> / <%= game.nb_of_players %>   </div>
-    <div class="infos">⏳ <%= game.duration %> DAYS</div>
-    <div class="infos">🌍 15 KM²</div>
+    <div class="infos"> <img src="/images/players.svg" alt="Timer Icon" class="icon"><%= game.players.count %> / <%= game.nb_of_players %>   </div>
+    <div class="infos"><img src="/images/sablier.svg" alt="Timer Icon" class="icon"> <%= game.duration %> DAYS</div>
+    <div class="infos"><img src="/images/surface.svg" alt="Timer Icon" class="icon"> 15 KM²</div>
   </div>
 </div>
 <% end %>

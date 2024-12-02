@@ -19,7 +19,9 @@
           <h2><%= link_to game.name, game_path(game), class: "card-title" %></h2>
           <div class="info">
             <span>Created by <%= game.players.first.nickname %></span>
-            <p>📍Paris</p>
+            <div>
+          <img src="/images/location.svg" alt="User Icon" class="icon"> <span>Paris</span>
+        </div>
           </div>
           <div class="mapy">
             <div id="map-<%= game.id %>" style="width: 100%; height: 300px;"
@@ -29,16 +31,23 @@
             </div>
           </div>
           <div class="status">
-            <div>👤 <span><%= game.players.count %></span></div>
-            <% if game.duration.present? %>
-              <div>⏳ <span><%= game.duration %> days</span></div>
-            <% else %>
-              <div>⏳ <span>Duration unknown</span></div>
-            <% end %>
-          </div>
+
+        <div>
+          <img src="/images/players.svg" alt="User Icon" class="icon"> <span><%= game.players.count %></span>
         </div>
-      <% end %>
+        <% if game.duration.present? %>
+          <div>
+            <img src="/images/sablier.svg" alt="Timer Icon" class="icon"> <span><%= game.duration %> days</span>
+          </div>
+        <% else %>
+          <div>
+            <img src="/images/msg.svg" alt="Timer Icon" class="icon"> <span>Duration unknown</span>
+          </div>
+        <% end %>
+      </div>
     </div>
+  <% end %>
+</div>
 
     <!-- Onglet Pending -->
     <div id="tab-pending" data-tabs-target="content" class="tab-content hidden">
@@ -47,7 +56,9 @@
           <h2><%= link_to game.name, game_path(game), class: "card-title" %></h2>
           <div class="info">
             <span>Created by <%= game.players.first.nickname %></span>
-            <p>📍Paris</p>
+             <div>
+          <img src="/images/location.svg" alt="User Icon" class="icon"> <span>Paris</span>
+        </div>
           </div>
           <div class="mapy" style="position: relative;">
             <div id="map-<%= game.id %>" style="width: 100%; height: 300px;"
@@ -65,17 +76,23 @@
               </div>
             <% end %>
           </div>
-          <div class="status">
-            <div>👤 <span><%= game.players.count %> / <%= game.nb_of_players %></span></div>
-            <% if game.duration.present? %>
-              <div>⏳ <span><%= game.duration %> days</span></div>
-            <% else %>
-              <div>⏳ <span>Duration unknown</span></div>
-            <% end %>
-          </div>
+         
+        <div>
+          <img src="/images/players.svg" alt="User Icon" class="icon"> <span><%= game.players.count %></span>
         </div>
-      <% end %>
+        <% if game.duration.present? %>
+          <div>
+            <img src="/images/sablier.svg" alt="Timer Icon" class="icon"> <span><%= game.duration %> days</span>
+          </div>
+        <% else %>
+          <div>
+            <img src="/images/msg.svg" alt="Timer Icon" class="icon"> <span>Duration unknown</span>
+          </div>
+        <% end %>
+      </div>
     </div>
+  <% end %>
+</div>
 
     <!-- Onglet Finished -->
     <div id="tab-finished" data-tabs-target="content" class="tab-content hidden">
@@ -84,7 +101,9 @@
           <h2><%= link_to game.name, game_path(game), class: "card-title" %></h2>
           <div class="info">
             <span>Created by <%= game.players.first.nickname %></span>
-            <p>📍Paris</p>
+             <div>
+                <img src="/images/location.svg" alt="User Icon" class="icon"> <span>Paris</span>
+             </div>
           </div>
           <div class="mapy">
             <div id="map-<%= game.id %>" style="width: 100%; height: 300px;"
@@ -94,15 +113,22 @@
             </div>
           </div>
           <div class="status">
-            <div>🎮 <span><%= game.players.count %> / <%= game.nb_of_players %> players</span></div>
-            <% if game.duration.present? %>
-              <div>⏳ <span><%= game.duration %> days</span></div>
-            <% else %>
-              <div>⏳ <span>Duration unknown</span></div>
-            <% end %>
-          </div>
+
+        <div>
+          <img src="/images/players.svg" alt="User Icon" class="icon"> <span><%= game.players.count %></span>
         </div>
-      <% end %>
+        <% if game.duration.present? %>
+          <div>
+            <img src="/images/sablier.svg" alt="Timer Icon" class="icon"> <span><%= game.duration %> days</span>
+          </div>
+        <% else %>
+          <div>
+            <img src="/images/msg.svg" alt="Timer Icon" class="icon"> <span>Duration unknown</span>
+          </div>
+        <% end %>
+      </div>
     </div>
+  <% end %>
+</div>
   </div>
 </div>

@@ -38,14 +38,14 @@
 
 .tab-titles .active {
   font-weight: bold;
-  color: #007bff;
+  color: $orangy;
   background-color: #f9f9f9;
   border-bottom: 2px solid transparent;
   text-decoration: none;
 }
 
 .tab-titles a:hover {
-  color: #007bff;
+  color: $orangy;
   background-color: #f1f1f1;
   text-decoration: none;
 }
@@ -163,3 +163,7 @@
   color: white; /* Assurez une bonne lisibilité sur les fonds colorés */
 }
 
+.icon {
+  height: 16px;
+  width: 16px;
+}
