@@ -1,5 +1,8 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show]
+  before_action :set_game, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_creator, only: [:edit, :update, :destroy]
+  before_action :authorize_pending_game, only: [:edit, :update, :destroy]
+
 
   def show
     unless @game.status == 'pending' || @game.players.include?(current_player)
@@ -11,23 +14,54 @@ class GamesController < ApplicationController
   end
 
   def index
-    @games = Game.where(status: 'pending')
+    @games = Game.where(status: 'pending').includes(:players).reject do |game|
+      game.players.include?(current_player)
+    end
+
+    @games.each do |game|
+      game_run_layers(game)
+    end
   end
+
 
   def new
     @game = Game.new
+
+    @map_polylines = Game::MAP_POLYLINES
   end
 
   def create
     @game = Game.new(game_params)
     @game.status = "pending"
     @game.game_players.new(player: current_player)
+    @map_polylines = Game::MAP_POLYLINES
     if @game.save
       redirect_to @game, notice: "Game successfully created"
     else
       render :new
     end
   end
+
+  def edit
+    @map_polylines = Game::MAP_POLYLINES
+  end
+
+  def update
+    if @game.update(game_params)
+      redirect_to @game, notice: "Game successfully updated"
+    else
+      @map_polylines = Game::MAP_POLYLINES
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @game.destroy
+    redirect_to mine_games_path, notice: "Game successfully deleted"
+  end
+
+
+
 
   def mine
     @games = current_player.games.order(end_date: :desc)
@@ -47,7 +81,17 @@ class GamesController < ApplicationController
     params.require(:game).permit(:name, :nb_of_players, :start_date, :duration)
   end
 
+  def authorize_creator
+    unless @game.game_players.first.player == current_player
+      redirect_to games_path, alert: "You are not authorized to perform this action."
+    end
+  end
 
+  def authorize_pending_game
+    unless @game.status == "pending"
+      redirect_to games_path, alert: "You can only modify or delete games that are pending."
+    end
+  end
 
     # Modification de la méthode game_run_layers pour accepter un argument `game`
   def game_run_layers(game)
