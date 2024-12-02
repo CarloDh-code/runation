@@ -6,8 +6,14 @@
   <div class="form-group">
     <%= f.input :email,
                 required: true,
-                autofocus: true,
                 input_html: { class: "form-control", placeholder: "Email", autocomplete: "email" },
+                label_html: { class: "form-label" } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :nickname,
+                required: true,
+                input_html: { class: "form-control", placeholder: "Nickname", autocomplete: "nickname" },
                 label_html: { class: "form-label" } %>
   </div>
 
