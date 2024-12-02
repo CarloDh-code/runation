@@ -25,14 +25,6 @@
     <%= form.number_field :duration, placeholder: "9", min: 1, required: true %>
   </div>
 
-  <div class="field">
-    <%= form.label :map_polyline, "Where are you playing?" %>
-    <%= form.select :map_polyline,
-          options_for_select(@map_polylines.map { |city, polyline| [city, polyline] }, selected: @game.map_polyline),
-          { prompt: 'Choose a city' },
-          { class: 'form-control', data: { controller: "tom-select" } } %>
-  </div>
-
   <div class="actions">
     <%= form.submit "CREATE GAME", class: "bt" %>
   </div>
