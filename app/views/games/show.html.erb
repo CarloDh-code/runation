@@ -61,14 +61,13 @@
       </div>
     </div>
   </div>
-  <<% if !@game.players.include?(current_player)  %>
+  <% if !@game.players.include?(current_player)  %>
          <%= button_to "JOIN THIS GAME", game_game_players_path(@game), method: :post, class: "join-game-card" %>
 <% end %>
 
 </div>
 
 <% end %>
-
 
 
 <%# contenaire deja dans la partie %>

@@ -16,6 +16,14 @@
     </div>
   </div>
 
+    <% if game.game_players.first.player == current_player %>
+      <%= link_to "X", game_path(game),
+            method: :delete,
+            data: { confirm: "Are you sure you want to delete this game?" },
+            class: "delete-button" %>
+    <% end %>
+  </div>
+
   <div class="status">
     <div class="infos">👤 <%= game.players.count %> / <%= game.nb_of_players %>   </div>
     <div class="infos">⏳ <%= game.duration %> DAYS</div>

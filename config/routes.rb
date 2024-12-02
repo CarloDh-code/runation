@@ -2,13 +2,13 @@ Rails.application.routes.draw do
   devise_for :players
   root to: "pages#home"
 
-  resources :games, only: [:index, :show, :new, :create] do
+  resources :games, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     collection do
       get :mine
     end
 
 
-    
+
 
     resources :game_players, only: [:create]
     resources :comments, only: [:create] do
