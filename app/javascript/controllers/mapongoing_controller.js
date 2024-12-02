@@ -18,7 +18,7 @@ export default class extends Controller {
     const mapId = this.element.id;
     const map = new mapboxgl.Map({
       container: mapId,
-      style: "mapbox://styles/mapbox/streets-v11",
+      // style: "mapbox://styles/mapbox/streets-v11",
       center: [2.3522, 48.8566], // Centre par défaut sur Paris
       zoom: 12 // Niveau de zoom par défaut
     });

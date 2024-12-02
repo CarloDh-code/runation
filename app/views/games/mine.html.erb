@@ -30,7 +30,7 @@
                  data-mapongoing-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
                  data-mapongoing-latitude-value="<%= game.latitude %>"
                  data-mapongoing-longitude-value="<%= game.longitude %>"
-                 data-mapongoing-layers-value="<%= game.instance_variable_get(:@layers).to_json %>">
+                 data-mapongoing-layers-value="<%= Games::ComputeRunsLayers.new(game).call.to_json %>">
             </div>
           </div>
 

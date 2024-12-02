@@ -35,7 +35,14 @@ class Game < ApplicationRecord
     polygon = polyline_to_polygon(simplified_polyline).area
   end
 
+  def polyline
+    coords = decoded_path
+    return downsample_polyline(coords)
+  end
 
+  def polygone
+    polyline_to_polygon(polyline)
+  end
 
   def decoded_path
     begin

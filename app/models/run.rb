@@ -6,10 +6,12 @@ class Run < ApplicationRecord
   belongs_to :player
   has_many :game_player_runs
 
-  def coordinate
-    decoded_polyline = self.decoded_path
-    downsample_polyline(decoded_polyline)
-  end
+  scope :during_game, ->(game) { where(start_datetime: game.start_date.beginning_of_day..game.end_date.end_of_day) }
+
+  # def coordinate
+  #   decoded_polyline = self.decoded_path
+  #   downsample_polyline(decoded_polyline)
+  # end
 
   def surface
     simplified_polyline = coordinate
@@ -18,14 +20,30 @@ class Run < ApplicationRecord
 
   def coordinate_layer
   # Inverser coordonnées car avec layer on doit mettre l'inverse
-    data = coordinate
+    # data = coordinate
+    data = polyline
     data.map { |coord| [coord[1], coord[0]] }
-   end
+  end
+
+  def is_inside_game_area?(game)
+    return unless polygone && game.polygone
+    
+    polygone.within?(game.polygone)
+  end
+
+  def polyline
+    coords = decoded_path
+    return downsample_polyline(coords)
+  end
+
+  def polygone
+    polyline_to_polygon(polyline)
+  end
 
 
   def decoded_path
     begin
-    FastPolylines.decode(self.polyline)
+    FastPolylines.decode(self.attributes['polyline'])
     rescue StandardError => e
       Rails.logger.error("Failed to decode polyline: #{e.message}")
       nil
