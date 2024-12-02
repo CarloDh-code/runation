@@ -6,7 +6,7 @@ class GamesController < ApplicationController
       redirect_to games_path, alert: 'You can not access this game, sorry ! '
     end
     # game_run_layers(@game)
-    @layers = Games::ComputeRunsLayers.new(@game).call
+    @layers = Games::ComputeRunsLayers.new(@game).call ## PLUS BESOIN?
 
     @comments = @game.comments.includes(:player) if @game.status == "ongoing"
   end
