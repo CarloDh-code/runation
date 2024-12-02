@@ -12,118 +12,123 @@
       </li>
     </ul>
 
+    <!-- Onglet Ongoing -->
     <div id="tab-ongoing" data-tabs-target="content" class="tab-content hidden">
-
       <% @games.select { |game| game.status == "ongoing" }.each do |game| %>
         <div class="card">
           <h2><%= link_to game.name, game_path(game), class: "card-title" %></h2>
-
           <div class="info">
             <span>Created by <%= game.players.first.nickname %></span>
-            <p>📍Paris</p>
-          </div>
-
-          <div class="mapy">
-            <div id="map" style="width: 100%; height: 300px;"
-                 data-controller="map"
-                 data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-                 data-map-latitude-value="<%= game.latitude %>"
-                 data-map-longitude-value="<%= game.longitude %>">
-            </div>
-          </div>
-
-          <div class="status">
             <div>
-              👤 <span><%= game.players.count %></span>
-            </div>
-            <% if game.duration.present? %>
-              <div>
-                ⏳ <span><%= game.duration %> days</span>
-              </div>
-            <% else %>
-              <div>
-                ⏳ <span>Duration unknown</span>
-              </div>
-            <% end %>
-          </div>
+          <img src="/images/location.svg" alt="User Icon" class="icon"> <span>Paris</span>
         </div>
-      <% end %>
+          </div>
+          <div class="mapy">
+            <div id="map-<%= game.id %>" style="width: 100%; height: 300px;"
+                 data-controller="mapongoing"
+                 data-mapongoing-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+                 data-mapongoing-layers-value="<%= game.instance_variable_get(:@layers).to_json %>">
+            </div>
+          </div>
+          <div class="status">
+
+        <div>
+          <img src="/images/players.svg" alt="User Icon" class="icon"> <span><%= game.players.count %></span>
+        </div>
+        <% if game.duration.present? %>
+          <div>
+            <img src="/images/sablier.svg" alt="Timer Icon" class="icon"> <span><%= game.duration %> days</span>
+          </div>
+        <% else %>
+          <div>
+            <img src="/images/msg.svg" alt="Timer Icon" class="icon"> <span>Duration unknown</span>
+          </div>
+        <% end %>
+      </div>
     </div>
+  <% end %>
+</div>
 
+    <!-- Onglet Pending -->
     <div id="tab-pending" data-tabs-target="content" class="tab-content hidden">
-
       <% @games.select { |game| game.status == "pending" }.each do |game| %>
         <div class="card">
           <h2><%= link_to game.name, game_path(game), class: "card-title" %></h2>
-
           <div class="info">
             <span>Created by <%= game.players.first.nickname %></span>
-            <p>📍Paris</p>
+             <div>
+          <img src="/images/location.svg" alt="User Icon" class="icon"> <span>Paris</span>
+        </div>
           </div>
-
-          <div class="mapy">
-            <div id="map" style="width: 100%; height: 300px;"
-                 data-controller="map"
-                 data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-                 data-map-latitude-value="<%= game.latitude %>"
-                 data-map-longitude-value="<%= game.longitude %>">
+          <div class="mapy" style="position: relative;">
+            <div id="map-<%= game.id %>" style="width: 100%; height: 300px;"
+                 data-controller="mappending"
+                 data-mappending-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+                 data-mappending-latitude-value="<%= game.latitude %>"
+                 data-mappending-longitude-value="<%= game.longitude %>">
             </div>
-          </div>
-
-          <div class="status">
-            <div>
-              👤 <span><%= game.players.count %> / <%= game.nb_of_players %></span>
-            </div>
-            <% if game.duration.present? %>
-              <div>
-                ⏳ <span><%= game.duration %> days</span>
-              </div>
-            <% else %>
-              <div>
-                ⏳ <span>Duration unknown</span>
+            <% if game.game_players.first.player == current_player %>
+              <div class="action-buttons">
+                <%= link_to "✎", edit_game_path(game), class: "edit-button" %>
+                    <%= link_to "X", game_path(game),
+                  data: { turbo_method: :delete, confirm: "Are you sure you want to delete this game?" },
+                  class: "delete-button" %>
               </div>
             <% end %>
           </div>
+         
+        <div>
+          <img src="/images/players.svg" alt="User Icon" class="icon"> <span><%= game.players.count %></span>
         </div>
-      <% end %>
+        <% if game.duration.present? %>
+          <div>
+            <img src="/images/sablier.svg" alt="Timer Icon" class="icon"> <span><%= game.duration %> days</span>
+          </div>
+        <% else %>
+          <div>
+            <img src="/images/msg.svg" alt="Timer Icon" class="icon"> <span>Duration unknown</span>
+          </div>
+        <% end %>
+      </div>
     </div>
+  <% end %>
+</div>
 
+    <!-- Onglet Finished -->
     <div id="tab-finished" data-tabs-target="content" class="tab-content hidden">
-     
       <% @games.select { |game| game.status == "finished" }.each do |game| %>
         <div class="card">
           <h2><%= link_to game.name, game_path(game), class: "card-title" %></h2>
-
           <div class="info">
             <span>Created by <%= game.players.first.nickname %></span>
-            <p>📍Paris</p>
+             <div>
+                <img src="/images/location.svg" alt="User Icon" class="icon"> <span>Paris</span>
+             </div>
           </div>
-
           <div class="mapy">
-            <div id="map" style="width: 100%; height: 300px;"
-                 data-controller="map"
-                 data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-                 data-map-latitude-value="<%= game.latitude %>"
-                 data-map-longitude-value="<%= game.longitude %>">
+            <div id="map-<%= game.id %>" style="width: 100%; height: 300px;"
+                 data-controller="mapongoing"
+                 data-mapongoing-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+                 data-mapongoing-layers-value="<%= game.instance_variable_get(:@layers).to_json %>">
             </div>
           </div>
-
           <div class="status">
-            <div>
-              🎮 <span><%= game.players.count %> / <%= game.nb_of_players %> players</span>
-            </div>
-            <% if game.duration.present? %>
-              <div>
-                ⏳ <span><%= game.duration %> days</span>
-              </div>
-            <% else %>
-              <div>
-                ⏳ <span>Duration unknown</span>
-              </div>
-            <% end %>
-          </div>
+
+        <div>
+          <img src="/images/players.svg" alt="User Icon" class="icon"> <span><%= game.players.count %></span>
         </div>
-      <% end %>
+        <% if game.duration.present? %>
+          <div>
+            <img src="/images/sablier.svg" alt="Timer Icon" class="icon"> <span><%= game.duration %> days</span>
+          </div>
+        <% else %>
+          <div>
+            <img src="/images/msg.svg" alt="Timer Icon" class="icon"> <span>Duration unknown</span>
+          </div>
+        <% end %>
+      </div>
     </div>
+  <% end %>
+</div>
   </div>
 </div>

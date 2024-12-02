@@ -6,20 +6,28 @@
 
   <div class="info">
     <p>Created by <strong><%= game.players.first.nickname %></strong></p>
-    <p>📍 PARIS</p>
+    <p><img src="/images/location.svg" alt="Timer Icon" class="icon">PARIS</p>
   </div>
 
   <div class="mapy">
     <div id="map" style="width: 100%; height: 300px;"
-         data-controller="map-demo"
-         data-map-demo-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+         data-controller="mappending"
+         data-mappending-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
 
+    <% if game.game_players.first.player == current_player %>
+      <%= link_to "X", game_path(game),
+            method: :delete,
+            data: { confirm: "Are you sure you want to delete this game?" },
+            class: "delete-button" %>
+    <% end %>
+  </div>
+
   <div class="status">
-    <div class="infos">👤 <%= game.nb_of_players %> / 9</div>
-    <div class="infos">⏳ <%= game.duration %> DAYS</div>
-    <div class="infos">🌍 15 KM²</div>
+    <div class="infos"> <img src="/images/players.svg" alt="Timer Icon" class="icon"><%= game.players.count %> / <%= game.nb_of_players %>   </div>
+    <div class="infos"><img src="/images/sablier.svg" alt="Timer Icon" class="icon"> <%= game.duration %> DAYS</div>
+    <div class="infos"><img src="/images/surface.svg" alt="Timer Icon" class="icon"> 15 KM²</div>
   </div>
 </div>
 <% end %>

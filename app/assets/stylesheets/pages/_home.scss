@@ -333,6 +333,11 @@ a.card-title {
     opacity: 1;
   }
   66.66%, 100% {
-    opacity: 0; 
+    opacity: 0;
   }
+}
+
+a.game-title-link {
+  text-decoration: none;
+  color: $blouclaire;
 }

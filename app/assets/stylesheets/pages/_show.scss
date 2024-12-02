@@ -1,17 +1,24 @@
+
+/* Profile Page Styling */
 .profile-page {
   text-align: center;
   padding: 20px;
+
+
 }
+
 .profile-header {
   position: relative;
   margin-bottom: 20px;
 }
+
 .profile-avatar {
   position: relative;
   margin: 0 auto;
   width: 100px;
   height: 100px;
 }
+
 .avatar-img {
   width: 100px;
   height: 100px;
@@ -21,6 +28,7 @@
   border-radius: 50%;
   font-size: 50px;
 }
+
 .edit-btn {
   position: absolute;
   top: 0;
@@ -30,16 +38,20 @@
   font-size: 20px;
   cursor: pointer;
 }
+
+
 .username {
   font-size: 1.5em;
   font-weight: bold;
   margin: 10px 0;
 }
+
 .email,
 .localisation {
   color: gray;
   margin: 5px 0;
 }
+
 /* Stats Section */
 .stats-container {
   display: flex;
@@ -47,6 +59,7 @@
   gap: 15px;
   justify-content: center;
 }
+
 .stat-box {
   width: 150px;
   height: 100px;
@@ -58,11 +71,13 @@
   color: white;
   font-size: 1.2em;
 }
+
 .stat-value {
   font-size: 28px;
   font-weight: bold;
   margin: 0;
 }
+
 .stat-label {
   font-size: 16px;
 }
@@ -110,11 +125,13 @@
   font-size: 20px;
   cursor: pointer;
 }
+
 .username {
   font-size: 1.5em;
   font-weight: bold;
   margin: 10px 0;
 }
+
 .email,
 .localisation {
   color: gray;
@@ -155,6 +172,25 @@
 .black {
   background-color: #333333;
 }
+
+
+.stat-label {
+  font-size: 16px;
+}
+
+.red {
+  background-color: $blouclaire;
+}
+
+
+.orange {
+  background-color: $orangy;
+}
+
+.black {
+  background-color: #333333;
+}
+
 .blue {
   background-color: $blou;
 }

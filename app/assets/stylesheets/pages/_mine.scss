@@ -38,14 +38,14 @@
 
 .tab-titles .active {
   font-weight: bold;
-  color: #007bff;
+  color: $orangy;
   background-color: #f9f9f9;
   border-bottom: 2px solid transparent;
   text-decoration: none;
 }
 
 .tab-titles a:hover {
-  color: #007bff;
+  color: $orangy;
   background-color: #f1f1f1;
   text-decoration: none;
 }
@@ -119,5 +119,51 @@
 }
 
 .status img {
+  width: 16px;
+}
+
+.action-buttons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 5px; /* Espacement entre les boutons */
+  z-index: 1000; /* Assurez-vous que les boutons restent au-dessus de la carte */
+}
+
+.edit-button, .delete-button {
+  background-color: transparent;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.edit-button {
+  background-color: #007bff; /* Couleur bleue pour modifier */
+}
+
+.delete-button {
+  background-color: #dc3545; /* Couleur rouge pour supprimer */
+}
+
+.edit-button:hover {
+  background-color: #0056b3; /* Couleur bleue foncée au survol */
+}
+
+.delete-button:hover {
+  background-color: #c82333; /* Couleur rouge foncée au survol */
+}
+
+.edit-button, .delete-button {
+  color: white; /* Assurez une bonne lisibilité sur les fonds colorés */
+}
+
+.icon {
+  height: 16px;
   width: 16px;
 }

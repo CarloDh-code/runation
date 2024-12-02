@@ -1,26 +1,41 @@
 <footer class="footer">
 
-<div class="footer-item">
-      <%= link_to new_game_path, class: "nav-link" do %>
-       <%= image_tag("new_run.svg", alt: "Notif Icon", size: "30x30") %>
-        <br>
-        <span>NEW GAME</span>
+  <div class="footer-item <%= 'active' if current_page?(new_game_path) %>">
+    <%= link_to new_game_path, class: "nav-link" do %>
+      <% if current_page?(new_game_path) %>
+      <%= image_tag("new2.svg", alt: "new orange Icon", size: "30x30") %>
+      <% else %>
+        <%= image_tag("new_run.svg", alt: "new run Icon", size: "30x30") %>
       <% end %>
-    </div>
-    <div class="footer-item">
-        <%= link_to games_path, class: "nav-link" do %>
-            <%= image_tag("home.svg", alt: "Notif Icon", size: "30x30") %>
-            <br>
-           <span>HOME</span>
-       <% end %>
-    </div>
+      <br>
+      <span><strong>NEW GAME</strong></span>
+    <% end %>
+  </div>
 
-    <div class="footer-item">
-        <%= link_to mine_games_path, class: "nav-link" do %>
-          <%= image_tag("your_runs.svg", alt: "Notif Icon", size: "30x30") %>
-          <br>
-          <span>MY GAMES</span>
-       <% end %>
-    </div>
+  <div class="footer-item <%= 'active' if current_page?(mine_games_path) %>">
+    <%= link_to mine_games_path, class: "nav-link" do %>
+      <% if current_page?(mine_games_path) %>
+      <%= image_tag("home2.svg", alt: "home orange Icon", size: "30x30") %>
+      <% else %>
+        <%= image_tag("home.svg", alt: "home  Icon", size: "30x30") %>
+      <% end %>
+      <br>
+      <span><strong>MY GAMES</strong></span>
+    <% end %>
+  </div>
+
+
+  <div class="footer-item <%= 'active' if current_page?(games_path) %>">
+    <%= link_to games_path, class: "nav-link" do %>
+      <% if current_page?(games_path) %>
+        <%= image_tag("your_runs2.svg", alt: "feed orange Icon", size: "30x30") %>
+      <% else %>
+        <%= image_tag("your_runs.svg", alt: "feed Icon", size: "30x30") %>
+      <% end %>
+      <br>
+      <span><strong>FEED</strong></span>
+    <% end %>
+</div>
+
 
 </footer>
