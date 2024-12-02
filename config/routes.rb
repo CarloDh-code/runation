@@ -8,7 +8,6 @@ Rails.application.routes.draw do
     end
 
 
-    
 
     resources :game_players, only: [:create]
     resources :comments, only: [:create] do
@@ -18,7 +17,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :profile, only: [:show]
+  resource :profile, only: [:show, :update]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
