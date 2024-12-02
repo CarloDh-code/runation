@@ -10,9 +10,11 @@
   </div>
 
   <div class="mapy">
-    <div id="map" style="width: 100%; height: 300px;"
+    <div id="map-<%= game.id %>" style="width: 100%; height: 300px;"
          data-controller="mappending"
-         data-mappending-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+         data-mappending-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+         data-mappending-centroid-value="<%= game.instance_variable_get(:@centroid).to_json %>"
+         data-mappending-coordinates-value="<%= game.coordinate_layer %>">
     </div>
   </div>
 
@@ -22,12 +24,12 @@
             data: { confirm: "Are you sure you want to delete this game?" },
             class: "delete-button" %>
     <% end %>
-  </div>
 
   <div class="status">
     <div class="infos"> <img src="/images/players.svg" alt="Timer Icon" class="icon"><%= game.players.count %> / <%= game.nb_of_players %>   </div>
     <div class="infos"><img src="/images/sablier.svg" alt="Timer Icon" class="icon"> <%= game.duration %> DAYS</div>
     <div class="infos"><img src="/images/surface.svg" alt="Timer Icon" class="icon"> 15 KM²</div>
+  </div>
   </div>
 </div>
 <% end %>

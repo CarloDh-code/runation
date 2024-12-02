@@ -12,17 +12,28 @@ class GamesController < ApplicationController
     @layers = Games::ComputeRunsLayers.new(@game).call ## PLUS BESOIN?
 
     @comments = @game.comments.includes(:player) if @game.status == "ongoing"
+
+    centroid = @game.polygone.centroid
+    # Mets à disposition les coordonnées du centre du polygone pour la vue
+    @centroid = { latitude: centroid.y, longitude: centroid.x }
+
+
+    @game_players = @game.game_players.includes(:player).order('ranking ASC')
   end
 
   def index
-    @games = Game.where(status: 'pending').includes(:players).reject do |game|
-      game.players.include?(current_player)
-    end
-
+    @games = Game.where(status: 'pending').where.not(id: GamePlayer.where(player_id: current_player.id).select(:game_id))
     @games.each do |game|
-      game_run_layers(game)
+      # Calcule le centre du polygone
+      centroid = game.polygone.centroid
+      # Mets à disposition les coordonnées du centre du polygone pour chaque jeu
+      game.instance_variable_set(:@centroid, { latitude: centroid.y, longitude: centroid.x })
     end
   end
+
+    # @games.each do |game|
+    #   game_run_layers(game)
+    # end
 
 
   def new
@@ -33,21 +44,15 @@ class GamesController < ApplicationController
 
 
   def create
-    selected_city = params[:game][:map_polyline]
-    map_polyline_value = Game::MAP_POLYLINES[selected_city]
+    # Récupération de la valeur sélectionnée du formulaire
+    map_polyline_value = params[:game][:map_polyline]
 
     @game = Game.new(game_params.merge(map_polyline: map_polyline_value, status: "pending"))
-    @game.game_players.new(player: current_player)
-
-    Rails.logger.info "Selected city: #{selected_city}"
-    Rails.logger.info "Map polyline value: #{map_polyline_value}"
-    Rails.logger.info "Game parameters: #{game_params.inspect}"
-    Rails.logger.info "Game object before save: #{@game.inspect}"
 
     if @game.save
-      redirect_to @game, notice: "Game successfully created"
+      @game.players << current_player
+      redirect_to @game, notice: 'Game was successfully created.'
     else
-      Rails.logger.info "Errors: #{@game.errors.full_messages.join(", ")}"
       render :new
     end
   end
@@ -79,10 +84,12 @@ class GamesController < ApplicationController
 
   def mine
     @games = current_player.games.order(end_date: :desc)
-    # @games.each do |game|
-    #   # Appel de la méthode pour obtenir les layers de ce jeu
-    #   game_run_layers(game)
-    # end
+    @games.each do |game|
+      # Calcule le centre du polygone
+      centroid = game.polygone.centroid
+      # Mets à disposition les coordonnées du centre du polygone pour chaque jeu
+      game.instance_variable_set(:@centroid, { latitude: centroid.y, longitude: centroid.x })
+    end
   end
 
   private

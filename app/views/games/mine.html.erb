@@ -63,12 +63,12 @@
         </div>
       </div>
       <div class="mapy" style="position: relative;">
-        <div id="map-<%= game.id %>" style="width: 100%; height: 300px;"
-             data-controller="mappending"
-             data-mappending-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-             data-mappending-latitude-value="<%= game.latitude %>"
-             data-mappending-longitude-value="<%= game.longitude %>">
-        </div>
+          <div id="map-<%= game.id %>" style="width: 100%; height: 400px;"
+              data-controller="mappending"
+              data-mappending-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+              data-mappending-centroid-value="<%= game.instance_variable_get(:@centroid).to_json %>"
+              data-mappending-coordinates-value="<%= game.coordinate_layer %>">
+          </div>
         <% if game.game_players.first.player == current_player %>
           <div class="action-buttons">
             <%= link_to "✎", edit_game_path(game), class: "edit-button" %>
