@@ -52,7 +52,6 @@ module Games
     # On vérifie la validité des runs de tous les players du jeu
     # On crée le gameplayerRun avec uniquement les runs valides
 
-    private
 
     def runs_valid_for_game(game_id)
       runs_valid = []

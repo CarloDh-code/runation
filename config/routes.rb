@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :games, only: [:index, :show, :new, :create] do
+    member do
+      post :update_runs
+    end
     collection do
       get :mine
     end
-
-
-    
 
     resources :game_players, only: [:create]
     resources :comments, only: [:create] do
@@ -28,7 +28,6 @@ Rails.application.routes.draw do
 
   get "/auth/strava", to: 'strava_auth#redirect'
   get "/auth/strava/callback", to: 'strava_auth#callback'
-
 
   # Defines the root path route ("/")
   # root "posts#index"

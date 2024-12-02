@@ -16,11 +16,11 @@
     <% end %>
   </div>
 
-  <% if params[:controller] == "games" && params[:action] == "show" %>
+<% if params[:controller] == "games" && params[:action] == "show" %>
     <% current_game = Game.find_by(id: params[:id]) %>
     <% if current_game&.status == "ongoing" %>
       <div class="navbar-item refresh-icon">
-        <%= link_to request.path, class: "nav-link", method: :get, aria: { label: "Refresh page" } do %>
+        <%= link_to update_runs_game_path(current_game), class: "btn btn-primary", data: { turbo_method: :post } do %>
           <%= image_tag("refresh.svg", alt: "Refresh", size: "30x30") %>
         <% end %>
       </div>
