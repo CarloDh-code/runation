@@ -20,16 +20,15 @@
           <div class="info">
             <span>Created by <%= game.players.first.nickname %></span>
             <div>
-          <img src="/images/location.svg" alt="User Icon" class="icon"> <span>Paris</span>
+          <img src="/images/location.svg" alt="User Icon" class="icon"> <span><%= game.location %></span>
         </div>
           </div>
           <div class="mapy">
             <div id="map-<%= game.id %>" style="width: 100%; height: 300px;"
                 data-controller="mapongoing"
                 data-mapongoing-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-                data-mapongoing-latitude-value="<%= game.latitude %>"
-                data-mapongoing-longitude-value="<%= game.longitude %>"
                 data-mapongoing-layers-value="<%= Games::ComputeRunsLayers.new(game).call.to_json %>"
+                data-mapongoing-centroid-value="<%= game.instance_variable_get(:@centroid).to_json %>"
                 data-mapongoing-coordinate-layer-value="<%= game.coordinate_layer.to_json %>">
             </div>
           </div>
@@ -53,48 +52,61 @@
 </div>
 
  <!-- Onglet Pending -->
+<!-- Onglet Pending -->
 <div id="tab-pending" data-tabs-target="content" class="tab-content hidden">
   <% @games.select { |game| game.status == "pending" }.each do |game| %>
     <div class="card">
+      <!-- Boutons d'action affichés uniquement pour le joueur qui a créé le jeu -->
+      <% if game.game_players.first.player == current_player %>
+        <div class="action-buttons">
+          <%= link_to "✎", edit_game_path(game), class: "edit-button text-decoration-none" %>
+          <%= link_to "X", game_path(game),
+                data: { turbo_method: :delete, confirm: "Are you sure you want to delete this game?" },
+                class: "delete-button text-decoration-none" %>
+        </div>
+      <% end %>
+
+      <!-- Nom du jeu -->
       <h2><%= link_to game.name, game_path(game), class: "card-title" %></h2>
+
+      <!-- Informations sur le créateur -->
       <div class="info">
         <span>Created by <%= game.players.first.nickname %></span>
         <div>
-          <img src="/images/location.svg" alt="User Icon" class="icon"> <span>Paris</span>
+          <img src="/images/location.svg" alt="User Icon" class="icon"> <span><%= game.location %></span>
         </div>
-      </div>
-      <div class="mapy" style="position: relative;">
-          <div id="map-<%= game.id %>" style="width: 100%; height: 400px;"
-              data-controller="mappending"
-              data-mappending-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-              data-mappending-centroid-value="<%= game.instance_variable_get(:@centroid).to_json %>"
-              data-mappending-coordinates-value="<%= game.coordinate_layer %>">
-          </div>
-        <% if game.game_players.first.player == current_player %>
-          <div class="action-buttons">
-            <%= link_to "✎", edit_game_path(game), class: "edit-button" %>
-            <%= link_to "X", game_path(game),
-                  data: { turbo_method: :delete, confirm: "Are you sure you want to delete this game?" },
-                  class: "delete-button" %>
-          </div>
-        <% end %>
       </div>
 
-      <div>
-        <img src="/images/players.svg" alt="User Icon" class="icon"> <span><%= game.players.count %></span>
+      <!-- Carte du jeu -->
+      <div class="mapy" style="position: relative;">
+        <div id="map-<%= game.id %>" style="width: 100%; height: 300px;"
+            data-controller="mappending"
+            data-mappending-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+            data-mappending-centroid-value="<%= game.instance_variable_get(:@centroid).to_json %>"
+            data-mappending-coordinates-value="<%= game.coordinate_layer %>">
+        </div>
       </div>
-      <% if game.duration.present? %>
+
+      <!-- Statut du jeu -->
+      <div class="status">
         <div>
-          <img src="/images/sablier.svg" alt="Timer Icon" class="icon"> <span><%= game.duration %> days</span>
+          <img src="/images/players.svg" alt="User Icon" class="icon"> <span><%= game.players.count %></span>
         </div>
-      <% else %>
-        <div>
-          <img src="/images/msg.svg" alt="Timer Icon" class="icon"> <span>Duration unknown</span>
-        </div>
-      <% end %>
+
+        <% if game.duration.present? %>
+          <div>
+            <img src="/images/sablier.svg" alt="Timer Icon" class="icon"> <span><%= game.duration %> days</span>
+          </div>
+        <% else %>
+          <div>
+            <img src="/images/msg.svg" alt="Timer Icon" class="icon"> <span>Duration unknown</span>
+          </div>
+        <% end %>
+      </div> <!-- Fermeture de .status -->
     </div> <!-- Fermeture de .card -->
   <% end %>
 </div> <!-- Fermeture de #tab-pending -->
+ <!-- Fermeture de #tab-pending -->
     <!-- Onglet Finished -->
     <div id="tab-finished" data-tabs-target="content" class="tab-content hidden">
       <% @games.select { |game| game.status == "finished" }.each do |game| %>
@@ -103,14 +115,16 @@
           <div class="info">
             <span>Created by <%= game.players.first.nickname %></span>
              <div>
-                <img src="/images/location.svg" alt="User Icon" class="icon"> <span>Paris</span>
+                <img src="/images/location.svg" alt="User Icon" class="icon"> <span><%= game.location %></span>
              </div>
           </div>
           <div class="mapy">
             <div id="map-<%= game.id %>" style="width: 100%; height: 300px;"
-                 data-controller="mapongoing"
-                 data-mapongoing-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-                 data-mapongoing-layers-value="<%= game.instance_variable_get(:@layers).to_json %>">
+                data-controller="mapongoing"
+                data-mapongoing-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+                data-mapongoing-layers-value="<%= Games::ComputeRunsLayers.new(game).call.to_json %>"
+                data-mapongoing-coordinate-layer-value="<%= game.coordinate_layer.to_json %>"
+                data-mapongoing-centroid-value="<%= game.instance_variable_get(:@centroid).to_json if game.instance_variable_get(:@centroid).present? %>">
             </div>
           </div>
           <div class="status">

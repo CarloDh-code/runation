@@ -20,6 +20,7 @@ class GamesController < ApplicationController
     # @players_colors = @compute_runs_layers_service.players_colors
     @game_players = @game.game_players.includes(:player).order('ranking ASC')
 
+
       # Récupérer les couleurs des joueurs à partir des layers
     @players_colors = @layers.each_with_object({}) do |layer, hash|
       hash[layer[:player_id]] = layer[:color]

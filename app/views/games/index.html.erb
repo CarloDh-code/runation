@@ -6,7 +6,7 @@
 
   <div class="info">
     <p>Created by <strong><%= game.players.first.nickname %></strong></p>
-    <p><img src="/images/location.svg" alt="Timer Icon" class="icon">PARIS</p>
+    <p><img src="/images/location.svg" alt="Timer Icon" class="icon"> <%= game.location %></p>
   </div>
 
   <div class="mapy">
@@ -28,7 +28,7 @@
   <div class="status">
     <div class="infos"> <img src="/images/players.svg" alt="Timer Icon" class="icon"><%= game.players.count %> / <%= game.nb_of_players %>   </div>
     <div class="infos"><img src="/images/sablier.svg" alt="Timer Icon" class="icon"> <%= game.duration %> DAYS</div>
-    <div class="infos"><img src="/images/surface.svg" alt="Timer Icon" class="icon"> 15 KM²</div>
+    <div class="infos"><img src="/images/surface.svg" alt="Timer Icon" class="icon"> <%= game.surface_in_km2 %> km²</div>
   </div>
   </div>
 </div>
