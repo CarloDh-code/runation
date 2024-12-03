@@ -1,5 +1,3 @@
-
-
 <%= form_with model: @game, local: true do |form| %>
   <% if @game.errors.any? %>
     <div class="alert alert-danger">
@@ -13,25 +11,29 @@
   <% end %>
 
   <div class="field">
-
     <%= form.label :name, "NAME OF THE GAME" %>
     <%= form.text_field :name, placeholder: "PARIS CONQUEST", required: true %>
   </div>
 
   <div class="field">
     <%= form.label :nb_of_players, "NUMBER OF PLAYERS" %>
-    <%= form.number_field :nb_of_players, placeholder: "0",  min: 1, required: true %>
+    <%= form.number_field :nb_of_players, placeholder: "0", min: 1, required: true %>
   </div>
 
   <div class="field">
     <%= form.label :duration, "GAME DURATION (IN DAYS)" %>
-    <%= form.number_field :duration,placeholder: "9",  min: 1, required: true %>
+    <%= form.number_field :duration, placeholder: "9", min: 1, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :map_polyline, "CITY" %>
+    <%= form.select :map_polyline,
+      options_for_select(Game::MAP_POLYLINES.map { |city, polyline| [city, polyline] }),
+      { include_blank: 'Select a city' },
+      required: true %>
   </div>
 
   <div class="actions">
     <%= form.submit "CREATE GAME", class: "bt" %>
   </div>
 <% end %>
-
-
-<%# <%= link_to "BACK TO GAMES", games_path, class: "btn btn-primary text-white" %>

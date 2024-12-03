@@ -9,6 +9,11 @@ class GamePlayer < ApplicationRecord
 
   after_create :check_game_status
 
+
+  def update_ranking
+    
+  end
+
   private
 
   def notification_message

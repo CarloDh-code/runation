@@ -1,0 +1,31 @@
+<div class="chat-page">
+  <div class="chat-card">
+    <!-- Bouton "X" pour fermer -->
+    <div class="close-button">
+      <%= link_to "✖", game_path(@game), class: "btn-close" %>
+    </div>
+
+    <!-- Titre du chat -->
+    <h2>Chat for <%= @game.name %></h2>
+
+    <!-- Messages -->
+    <div id="messages">
+      <% @comments.each do |comment| %>
+        <div id="comment-<%= comment.id %>" class="message <%= "own-message" if comment.player == current_player %>">
+          <div class="message-header">
+            <strong><%= comment.player.nickname %></strong>
+            <i><%= comment.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+          </div>
+          <div class="message-body">
+            <p><%= comment.content %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Formulaire d'envoi -->
+    <%= turbo_frame_tag "new_comment" do %>
+      <%= render "comments/form", game: @game, comment: Comment.new %>
+    <% end %>
+  </div>
+</div>

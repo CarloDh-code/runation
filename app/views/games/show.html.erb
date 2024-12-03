@@ -1,24 +1,210 @@
-<div class='game-card-show'>
-  <h1> <%= @game.name %> </h1>
-  <p>Status: <%= @game.status.capitalize %></p>
-  <p>Joueurs: <%= @game.players.count %> / <%= @game.nb_of_players %></p>
+<% if @game.status == "pending" %>
+  <div class="battle-container">
+    <div class="header">
+      <h2 class="namecard"> <%= @game.name %></h2>
+    </div>
+    <div class="map1">
+      <div id="map-<%= @game.id %>" style="width: 100%; height: 400px;"
+           data-controller="mappending"
+           data-mappending-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+           data-mappending-centroid-value="<%= @centroid.to_json %>"
+           data-mappending-coordinates-value="<%= @game.coordinate_layer %>">
+      </div>
+    </div>
+    <div class="details">
+      <div class="infox">
+        <div class="truc">
+          <p class="nami">Number of players</p>
+          <p class="namip"><%= @game.players.count %> / <%= @game.nb_of_players %> </p>
+        </div>
 
+        <div class="truc">
+          <p class="nami">Map size</p>
+          <p class="namip"><%= @game.surface_in_km2 %> km²</p>
+        </div>
 
-  <% if @game.end_date.present? %>
-    <p> <%= (@game.end_date - Date.today).to_i %> days left</p>
-  <% else %>
-    <p>Date de fin non définie</p>
-  <% end %>
+        <div class="truc">
+          <p class="nami">Duration</p>
+          <p class="namip"><%= @game.duration %> days</p>
+        </div>
 
-  <div id="map" style="width: 100%; height: 400px;"
-       data-controller="map"
-       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        <div class="truc">
+          <p class="nami">Status</p>
+          <p class="namip">Pending</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="leaderboard">
+      <div class="rankings">
+        <% @game.nb_of_players.times do |i| %> <!-- Boucle autant de fois que le nombre de joueurs -->
+          <div class="rank pending">
+            <span><%= i + 1 %></span> <!-- Classement, à partir de 1 -->
+            <span>
+              <% if @game_players[i] %> <!-- Si un joueur est inscrit à cette position -->
+                <%= @game_players[i].player.nickname %> <!-- Affiche son pseudo -->
+              <% else %>
+                Player <%= i + 1 %> <!-- Sinon, affiche un pseudo générique -->
+              <% end %>
+            </span>
+            <span>0 runs</span> <!-- Nombre de runs à 0 -->
+            <span>0%</span> <!-- Score à 0% -->
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <% if !@game.players.include?(current_player) %>
+      <%= button_to "JOIN THIS GAME", game_game_players_path(@game), method: :post, class: "join-game-card" %>
+    <% end %>
   </div>
+<% end %>
 
-  <% if !@game.players.include?(current_player) %>
-   <%= button_to "Rejoindre cette partie", game_game_players_path(@game), method: :post, class: "btn btn-primary" %>
+<% if @game.status == "ongoing" %>
+  <div class="battle-container">
+    <div class="header">
+      <h2 class="namecard"> <%= @game.name %></h2>
+    </div>
+    <div class="map1">
+      <div id="map-<%= @game.id %>"
+           style="width: 100%; height: 400px;"
+           data-controller="mapongoing"
+           data-mapongoing-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+           data-mapongoing-layers-value="<%= @layers.to_json %>"
+           data-mapongoing-coordinate-layer-value="<%= @game.coordinate_layer.to_json %>">
+      </div>
+    </div>
+    <div class="details">
+      <div class="infox">
+        <div class="truc">
+          <p class="nami">Players</p>
+          <p class="namip"><%= @game.nb_of_players %> </p>
+        </div>
 
-  <% else %>
-    <p>Vous êtes déjà inscrit à cette partie.</p>
-  <% end %>
-</div>
+        <div class="truc">
+          <p class="nami">Surface covered</p>
+          <p class="namip"><%= @game.covered_surface_percentage %> %</p>
+        </div>
+
+        <div class="truc">
+          <p class="nami">Time left</p>
+          <p class="namip"><%= (@game.end_date - Date.today).to_i %> days</p>
+        </div>
+
+        <div class="truc">
+          <p class="nami">Number of runs</p>
+          <p class="namip"><%= Game.total_runs(@game.id) %> </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="player-icons">
+      <% top_players = @game_players.take(3) %> <!-- Prendre les 3 premiers joueurs -->
+
+      <div class="player second">
+        <img src="/images/avatar1.svg" alt="avatar" class="playerimgsecond">
+        <span><%= top_players[1]&.player&.nickname || 'No nickname' %></span>
+      </div>
+
+      <div class="player first">
+        <img src="/images/avatar1.svg" alt="avatar" class="playerimgfirst">
+        <span><%= top_players[0]&.player&.nickname || 'No nickname' %></span>
+      </div>
+
+      <div class="player third">
+        <img src="/images/avatar1.svg" alt="avatar" class="playerimgthird">
+        <span><%= top_players[2]&.player&.nickname || 'No nickname' %></span>
+      </div>
+    </div>
+
+    <div class="rankings">
+      <% @game_players.each_with_index do |game_player, index| %>
+        <% player_id = game_player.player.id %>
+        <% player_color = @players_colors[player_id] || '#f9f9f9' %> <!-- Utiliser la couleur du joueur ou #f9f9f9 par défaut -->
+        <% text_color = player_color == '#f9f9f9' ? 'black' : 'white' %> <!-- Si la couleur de fond est #f9f9f9, utiliser du texte noir, sinon blanc -->
+
+        <div class="rank <%= 'player first' if index == 0 %>" style="background-color: <%= player_color %>; color: <%= text_color %>;">
+          <span><%= index + 1 %></span> <!-- Affiche le classement (1, 2, 3, ...) -->
+          <span><%= game_player.player.nickname || 'No nickname' %></span> <!-- Affiche le nickname ou "No nickname" -->
+          <span><%= game_player.game_player_runs.count %> runs</span> <!-- Affiche le nombre de runs du joueur -->
+          <span><%= ((game_player.score.to_f / @game.surface.to_f) * 100).round %>%</span> <!-- Affiche le score divisé par la surface -->
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<% if @game.status == "finished" %>
+  <div class="battle-container">
+    <div class="header">
+      <h2 class="namecard"> <%= @game.name %></h2>
+    </div>
+    <div class="map1">
+      <div id="map-<%= @game.id %>"
+           style="width: 100%; height: 400px;"
+           data-controller="mapongoing"
+           data-mapongoing-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+           data-mapongoing-layers-value="<%= @layers.to_json %>">
+      </div>
+    </div>
+    <div class="details">
+      <div class="infox">
+        <div class="truc">
+          <p class="nami">Players</p>
+          <p class="namip"><%= @game.nb_of_players %></p>
+        </div>
+
+        <div class="truc">
+          <p class="nami">Surface covered</p>
+          <p class="namip"><%= @game.covered_surface_percentage %> %</p>
+        </div>
+
+        <div class="truc">
+          <p class="nami">Time left</p>
+          <p class="namip"><%= (@game.end_date - Date.today).to_i %> days</p>
+        </div>
+
+        <div class="truc">
+          <p class="nami">Number of runs</p>
+          <p class="namip"><%= Game.total_runs(@game.id) %> </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="leaderboard">
+      <div class="player-icons">
+        <% top_players = @game_players.take(3) %> <!-- Prendre les 3 premiers joueurs -->
+
+        <div class="player second">
+          <img src="/images/avatar1.svg" alt="avatar" class="playerimgsecond">
+          <span><%= top_players[1]&.player&.nickname || 'No nickname' %></span>
+        </div>
+
+        <div class="player first">
+          <img src="/images/avatar1.svg" alt="avatar" class="playerimgfirst">
+          <span><%= top_players[0]&.player&.nickname || 'No nickname' %></span>
+        </div>
+
+        <div class="player third">
+          <img src="/images/avatar1.svg" alt="avatar" class="playerimgthird">
+          <span><%= top_players[2]&.player&.nickname || 'No nickname' %></span>
+        </div>
+      </div>
+
+      <div class="rankings">
+        <% @game_players.each_with_index do |game_player, index| %>
+          <% player_id = game_player.player.id %>
+          <% player_color = @players_colors[player_id] || '#f9f9f9' %> <!-- Utiliser la couleur du joueur ou #f9f9f9 par défaut -->
+          <% text_color = player_color == '#f9f9f9' ? 'black' : 'white' %> <!-- Si la couleur de fond est #f9f9f9, utiliser du texte noir, sinon blanc -->
+
+          <div class="rank <%= 'player first' if index == 0 %>" style="background-color: <%= player_color %>; color: <%= text_color %>;">
+            <span><%= index + 1 %></span> <!-- Affiche le classement (1, 2, 3, ...) -->
+            <span><%= game_player.player.nickname || 'No nickname' %></span> <!-- Affiche le nickname ou "No nickname" -->
+            <span><%= game_player.game_player_runs.count %> runs</span> <!-- Affiche le nombre de runs du joueur -->
+            <span><%= ((game_player.score.to_f / @game.surface.to_f) * 100).round %>%</span> <!-- Affiche le score divisé par la surface -->
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

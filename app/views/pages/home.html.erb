@@ -1,133 +1,29 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= link_to 'Connect to strava', auth_strava_path, class:'btn btn-primary' %>
-
-<%# Antoinetestcard %>
-
-
-
-<button class="btn-join">JOIN GAME</button>
-
-
-<div class="battle-container">
-  <div class="header">
-    <h2 class="namecard">Battle day</h2>
+<div class="loading-container flex-column" data-controller="page">
+  <!-- Logos tournants -->
+  <div class="rotating-logos">
+    <img src="<%= asset_path('logo1.png') %>" alt="Logo Step 1" class="logo-step logo-step-1">
+    <img src="<%= asset_path('logo2.png') %>" alt="Logo Step 2" class="logo-step logo-step-2">
+    <img src="<%= asset_path('logo3.png') %>" alt="Logo Step 3" class="logo-step logo-step-3">
   </div>
-  <div class="map1">
-  <div id="map" style="width: 100%; height: 400px;"
-       data-controller="map"
-       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-</div>
-  <div class="details">
-    <div class="infox">
-      <span>👥 3/7 Players</span>
-      <span>⏳ 70 days </span>
-      <span>📍 Paris</span>
-      <span>🗺️ 0% covered</span>
-    </div>
 
-
-  </div>
-  <div class="leaderboard">
-    <div class="player-icons">
-      <div class="player">
-        <img src="images/avatar1.svg" alt="ava" class="playerimgsecond">
-        <span>Antoine</span>
+  <!-- Contenu affiché immédiatement si connecté -->
+  <% if player_signed_in? %>
+    <% if @player&.token.nil? %>
+      <div class="button-container">
+        <%= link_to auth_strava_path do %>
+          <%= image_tag 'stravabutton.png', alt: 'Connect with Strava' %>
+        <% end %>
+        <%= link_to "Skip for now", mine_games_path, class: "btn skip-button" %>
       </div>
-      <div class="player first">
-        <img src="images/avatar1.svg" alt="ava" class="playerimgfirst">
-        <span>Iman</span>
-      </div>
-      <div class="player" >
-        <img src="images/avatar1.svg" alt="ava" class="playerimgthird">
-        <span>John</span>
-      </div>
-    </div>
-    <div class="rankings">
-      <div class="rank first">
-        <span>1</span>
-        <span>Iman</span>
-        <span>0 runs</span>
-        <span>0%</span>
-      </div>
-      <div class="rank player">
-        <span>2</span>
-        <span>Antoine</span>
-        <span>0 runs</span>
-        <span>0%</span>
-      </div>
-      <div class="rank">
-        <span>3</span>
-        <span>Joe</span>
-        <span>0 runs</span>
-        <span>0%</span>
-      </div>
-    </div>
-  </div>
-      <div  class="btncard">
-        <button class="join-game-card">Join Game</button>
-      </div>
-</div>
-
-
-<div class="battle-container">
-  <div class="header">
-    <h2 class="namecard">Battle day</h2>
-  </div>
-  <div class="map1">
-  <div id="map" style="width: 100%; height: 400px;"
-       data-controller="map"
-       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-</div>
-  <div class="details">
-    <div class="infox">
-      <span>👥 3/7 Players</span>
-      <span>⏳ 70 days </span>
-      <span>📍 Paris</span>
-      <span>🗺️ 0% covered</span>
-    </div>
-
-
-  </div>
-  <div class="leaderboard">
-    <div class="player-icons">
-      <div class="player">
-        <img src="images/avatar1.svg" alt="ava" class="playerimgsecond">
-        <span>Antoine</span>
-      </div>
-      <div class="player first">
-        <img src="images/avatar1.svg" alt="ava" class="playerimgfirst">
-        <span>Iman</span>
-      </div>
-      <div class="player" >
-        <img src="images/avatar1.svg" alt="ava" class="playerimgthird">
-        <span>John</span>
-      </div>
-    </div>
-    <div class="rankings">
-      <div class="rank first">
-        <span>1</span>
-        <span>Iman</span>
-        <span>0 runs</span>
-        <span>0%</span>
-      </div>
-      <div class="rank player">
-        <span>2</span>
-        <span>Antoine</span>
-        <span>0 runs</span>
-        <span>0%</span>
-      </div>
-      <div class="rank">
-        <span>3</span>
-        <span>Joe</span>
-        <span>0 runs</span>
-        <span>0%</span>
-      </div>
-    </div>
-  </div>
-      <div  class="btncard">
-        <button class="join-game-card">Join Game</button>
-      </div>
+    <% else %>
+      <p>Strava already connected.</p>
+    <% end %>
+  <% else %>
+    <!-- Redirection vers la page de connexion après 3 secondes -->
+    <script>
+      setTimeout(function() {
+        window.location.href = "<%= new_player_session_path %>";
+      }, 3000); // Redirige après 3 secondes
+    </script>
+  <% end %>
 </div>

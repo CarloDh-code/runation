@@ -3,17 +3,26 @@ Rails.application.routes.draw do
   get 'messages/show'
   devise_for :players
   root to: "pages#home"
-  resources :games, only: [:index, :show, :new, :create] do
+
+  resources :games do
+    member do
+      post :update_runs
+    end
     collection do
       get :mine
     end
+<<<<<<< HEAD
     resources :game_players, only: [:create]
 
   end
+=======
+>>>>>>> master
 
-  resources :runs, only: [] do
-    collection do
-      patch :refresh
+    resources :game_players, only: [:create]
+    resources :comments, only: [:create] do
+      collection do
+        get :chat # Route pour le chat imbriqué sous les jeux
+      end
     end
   end
 
@@ -35,7 +44,6 @@ Rails.application.routes.draw do
 
   get "/auth/strava", to: 'strava_auth#redirect'
   get "/auth/strava/callback", to: 'strava_auth#callback'
-
 
   # Defines the root path route ("/")
   # root "posts#index"

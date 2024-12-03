@@ -109,18 +109,33 @@ body {
 }
 
 .details {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
+  padding: 4px;
 }
 
-.infox span {
-  display: block;
-  font-size: 14px;
-  color: #000000;
-  margin: 3px 0;
+.infox {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping of items to form multiple rows */
+  gap: 10px; /* Adds space between items */
+  justify-content: center; /* Centers items horizontally */
+  margin-top: 5px; /* Optional: Adjust spacing around the container */
 }
 
+.infox .truc {
+  flex: 0 1 calc(50% - 10px); /* Ensures each item takes up 50% of the width minus the gap */
+  text-align: center; /* Centers the text */
+}
 
+.nami {
+  font-size: 12px;
+  margin: 0px;
+  color: rgb(88, 88, 88);
+}
+
+.namip {
+  margin: 0px;
+  font-size: 16px;
+  font-weight: bold;
+}
 
 .leaderboard {
   padding: 10px;
@@ -149,7 +164,7 @@ body {
   border-radius: 50%;
   margin: 0 auto 5px;
   background-color: #ddd;
-  border: rgb(251, 255, 0) solid;
+  border: 5px solid rgb(255, 204, 0);
 }
 
 .playerimgsecond{
@@ -188,8 +203,43 @@ body {
   color: #555;
 }
 
+// .rankongoing {
+//   display: flex;
+//   justify-content: space-between;
+//   padding: 5px 10px;
+//   background: #f9f9f9;
+//   margin-bottom: 5px;
+//   border-radius: 5px;
+//   font-size: 0.9em;
+//   color: #faf9f9;
+// }
+
+.rank.pending {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  background: #f9f9f9;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.rankempty {
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+  padding: 5px 10px;
+  background: #f9f9f9;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  color: #919191;
+}
+
 .rank.first {
-  background: #ffdd99;
+
+  border: 4px solid $yelo;
 }
 
 .rank.player {
@@ -228,8 +278,116 @@ button.join-game-card {
 }
 
 .namecard {
-  font-size: 30px;
+  font-size: 38px;
   font-weight: 900;
   margin: 0;
-  color: #4a90e2;
+  color: $blouclaire;
+  padding: 16px
+}
+
+form.button_to {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    max-width: 90%;
+    margin: 5px auto;
+    padding: 5px;
+    background-color: #ffffff00 !important;
+    border-radius: 8px;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1) !important;
+
+
+}
+
+a.card-title {
+  text-decoration: none;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: $blou;
+}
+
+.rotating-logos {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+.logo-step {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.logo-step-1 {
+  animation: logo-cycle 3s linear infinite 0s;
+}
+
+.logo-step-2 {
+  animation: logo-cycle 3s linear infinite 1s;
+}
+
+.logo-step-3 {
+  animation: logo-cycle 3s linear infinite 2s;
+}
+
+@keyframes logo-cycle {
+  0%, 33.33% {
+    opacity: 1;
+  }
+  66.66%, 100% {
+    opacity: 0;
+  }
+}
+
+a.game-title-link {
+  text-decoration: none;
+  color: $blouclaire;
+}
+
+
+
+.button-container {
+  display: flex;
+  margin-top: 36px;
+  flex-direction: column; /* Place les boutons en colonne */
+  align-items: center; /* Centre les boutons horizontalement */
+  gap: 20px; /* Ajoute un espacement entre les boutons */
+}
+
+.btn.skip-button {
+  display: inline-block;
+  background-color: transparent; /* Fond transparent pour correspondre au background */
+  color: white; /* Texte en blanc */
+  font-size: 8px; /* Taille du texte */
+  font-weight: bold; /* Texte en gras */
+  padding: 10px 20px; /* Espacement interne */
+  border: 2px solid white; /* Bordure blanche pour démarquer */
+  border-radius: 25px; /* Coins arrondis */
+  text-transform: uppercase; /* Mettre le texte en majuscules */
+  text-align: center; /* Centrer le texte */
+  text-decoration: none; /* Supprime les soulignements */
+  cursor: pointer; /* Change le curseur en mode "cliquable" */
+  transition: all 0.3s ease; /* Animation fluide */
+  box-shadow: none; /* Supprime l'ombre */
+  margin-top: 30px; /* Ajoute un espacement supérieur */
+}
+
+.btn.skip-button:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Fond semi-transparent au survol */
+  box-shadow: 0px 6px 8px rgba(255, 255, 255, 0.2); /* Légère ombre blanche au survol */
+  transform: translateY(-2px); /* Légère élévation */
+}
+
+.btn.skip-button:active {
+  transform: translateY(0); /* Supprime l'élévation lorsqu'on clique */
+  box-shadow: none; /* Réduit l'ombre */
 }

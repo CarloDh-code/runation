@@ -1,23 +1,35 @@
-
-
-
-  <% @games.each do |game| %>
+<% @games.each do |game| %>
 <div class="card">
-    <h2><%= game.name %></h2>
-    <div class="info">
-      <p>Created by <strong><%= game.players.first.nickname %></strong> </p>
-      <p>📍 PARIS</p>
-    </div>
-    <div class="mapy">
-  <div id="map" style="width: 100%; height: 300px;"
-       data-controller="map"
-       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <h2 class="namecard">
+    <%= link_to game.name, game_path(game), class: "game-title-link" %>
+  </h2>
+
+  <div class="info">
+    <p>Created by <strong><%= game.players.first.nickname %></strong></p>
+    <p><img src="/images/location.svg" alt="Timer Icon" class="icon">PARIS</p>
   </div>
-</div>
-    <div class="status">
-      <div class="infos">👤 <%= game.nb_of_players  %>/9</div>
-      <div class="infos">⌛  <%= game.duration  %> DAYS </div>
-      <div class="infos">🗺️ 15 KM2 </div>
+
+  <div class="mapy">
+    <div id="map-<%= game.id %>" style="width: 100%; height: 300px;"
+         data-controller="mappending"
+         data-mappending-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+         data-mappending-centroid-value="<%= game.instance_variable_get(:@centroid).to_json %>"
+         data-mappending-coordinates-value="<%= game.coordinate_layer %>">
     </div>
+  </div>
+
+    <% if game.game_players.first.player == current_player %>
+      <%= link_to "X", game_path(game),
+            method: :delete,
+            data: { confirm: "Are you sure you want to delete this game?" },
+            class: "delete-button" %>
+    <% end %>
+
+  <div class="status">
+    <div class="infos"> <img src="/images/players.svg" alt="Timer Icon" class="icon"><%= game.players.count %> / <%= game.nb_of_players %>   </div>
+    <div class="infos"><img src="/images/sablier.svg" alt="Timer Icon" class="icon"> <%= game.duration %> DAYS</div>
+    <div class="infos"><img src="/images/surface.svg" alt="Timer Icon" class="icon"> 15 KM²</div>
+  </div>
+  </div>
 </div>
 <% end %>
