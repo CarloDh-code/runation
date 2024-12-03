@@ -16,7 +16,7 @@
         <%= link_to "Skip for now", mine_games_path, class: "btn skip-button" %>
       </div>
     <% else %>
-      <p>Strava already connected.</p>
+    <%= link_to "Strava already connected", mine_games_path, class: "text-white text-decoration-none" %>
     <% end %>
   <% else %>
     <!-- Redirection vers la page de connexion après 3 secondes -->
