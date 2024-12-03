@@ -13,10 +13,18 @@ class Games::ComputeRunsLayers
     runs = @game.runs.order(:end_datetime)
 
     # Définir un tableau de couleurs prédéfinies
-    colors = [
-      '#a2922d', '#FF5964', '#38618C', '#35A7FF', '#ad72b3', '#61fab8',
-      '#f29451', '#1c3d56', '#51cff2', '#561c23'
-    ]
+     colors = [
+    '#2da25a',  # player1
+    '#FF5964',  # player2
+    '#38618C',  # player3
+    '#35A7FF',  # player4
+    '#ad72b3',  # player5
+    '#de3a5d',  # player6
+    '#f29451',  # player7
+    '#1c3d56',  # player8
+    '#51cff2',  # player9
+    '#561c23'   # player10
+  ]
     players_colors = @game.players.map.with_index do |player, index|
       [player.id, colors[index % colors.length]]
     end.to_h

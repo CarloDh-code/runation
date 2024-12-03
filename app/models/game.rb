@@ -96,7 +96,32 @@ class Game < ApplicationRecord
     else
       polygon = polygon.make_valid
     end
+  end
 
+
+
+  def covered_surface_percentage
+    total_score = game_players.sum(:score) # Somme des scores des joueurs
+    total_surface = self.surface # La surface totale du jeu
+    # Calcul du pourcentage arrondi sans décimale
+    return ((total_score.to_f / total_surface.to_f) * 100).to_i
+  end
+
+  def self.total_runs(game_id)
+    # Compter les entrées dans la table GamePlayerRun qui sont liées à ce jeu
+    GamePlayerRun.joins(:game_player).where(game_player: { game_id: game_id }).count
+  end
+
+
+  def surface_in_km2
+    # Calcule la surface en degrés carrés
+    surface_in_degrees = self.surface # Supposons que `surface` soit en degrés carrés
+
+    # Conversion en km² en multipliant par 8547
+    surface_in_km2 = surface_in_degrees * 8547
+
+    # Arrondir à l'entier le plus proche (sans décimales)
+    surface_in_km2.to_i
   end
 
 end
