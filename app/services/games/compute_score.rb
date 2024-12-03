@@ -14,7 +14,9 @@ class Games::ComputeScore
   end
 
   def call
-    @game.runs.each do |run|
+    @game.game_player_runs.each do |gpr|
+      run = gpr.run
+      game_player = gpr.game_player
       previous_runs = @game.runs.where("end_datetime < ?", run.end_datetime)
       if previous_runs.empty?
 
@@ -22,6 +24,8 @@ class Games::ComputeScore
         previous_runs.each do |previous_run|
           intersection = run.polygone.intersection(previous_run.polygone)
           if intersection
+            #update game_player.gained_area += intersection.area
+            #update game_player.gained_territory_counter += 1
             previous_run_polygone = @runs_polygones[previous_run]
             previous_run_resulting_polygone = previous_run_polygone.difference(run.polygone)
             @runs_polygones[previous_run] = previous_run_resulting_polygone
