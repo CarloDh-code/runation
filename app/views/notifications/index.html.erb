@@ -12,7 +12,7 @@
           <!-- Text Section -->
           <div class="text-container flex-grow-1">
             <h5 class="mb-1"><%= notification.title %></h5>
-            <p class="mb-1 text-muted"><%= notification.content %></p>
+            <p class="mb-1 text-muted"><%= notification.content.truncate(72) %></p>
             <small class="text-secondary"><%= time_ago_in_words(notification.created_at) %> ago</small>
           </div>
           <!-- Action Section -->

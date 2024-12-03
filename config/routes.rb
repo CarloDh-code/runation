@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   #     patch :mark_as_read
   #   end
   # end
+  
   resource :profile, only: [:show]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
