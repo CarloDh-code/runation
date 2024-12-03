@@ -29,7 +29,7 @@ class StravaAuthController < ApplicationController
           refresh_token: tokens['refresh_token'],
           uid: tokens['athlete']['id']
         )
-       redirect_to root_path, notice: 'Strava account connected successfully!'
+        redirect_to mine_games_path, notice: 'Strava account connected successfully!' # Redirection vers mygames
       else
         flash[:alert] = 'Failed to retrieve tokens from Strava. Please try again.'
         redirect_to root_path
@@ -40,12 +40,13 @@ class StravaAuthController < ApplicationController
     end
   end
 
+
   private
 
   # Callback URL for your app
   def callback_url
     if Rails.env.production?
-      "https://runation-carlodh-code-6fabe19e87af.herokuapp.com/auth/strava/callback"
+      "https://www.game-runation.fun/auth/strava/callback"
     else
       "http://localhost:3000/auth/strava/callback"
     end
