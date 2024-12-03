@@ -2,6 +2,12 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_player!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  helper_method :home_page? 
+
+  def home_page?
+    controller_name == "pages" && action_name == "home"
+  end
+
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
     devise_parameter_sanitizer.permit(:sign_up, keys: [:photo])
