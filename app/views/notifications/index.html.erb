@@ -3,20 +3,24 @@
 
   <div class="list-group">
     <% @notifications.each do |notification| %>
-      <div class="list-group-item d-flex align-items-start">
-        <!-- Icon Section -->
-        <div class="icon-container me-3">
-          <i class="fa-regular fa-bell"></i>
-        </div>
-        <!-- Text Section -->
-        <div class="text-container flex-grow-1">
-          <h5 class="mb-1"><%= notification.title %></h5>
-          <p class="mb-1 text-muted"><%= notification.content %></p>
-          <small class="text-secondary"><%= time_ago_in_words(notification.created_at) %> ago</small>
-        </div>
-        <!-- Action Section -->
-        <div class="ms-auto">
-          <button class="btn btn-sm btn-outline-primary">Mark as read</button>
+      <div class="notification-item">
+        <div class="list-group-item d-flex align-items-start m-2">
+          <!-- Icon Section -->
+          <div class="icon-container me-3">
+            <i class="fa-regular fa-bell"></i>
+          </div>
+          <!-- Text Section -->
+          <div class="text-container flex-grow-1">
+            <h5 class="mb-1"><%= notification.title %></h5>
+            <p class="mb-1 text-muted"><%= notification.content %></p>
+            <small class="text-secondary"><%= time_ago_in_words(notification.created_at) %> ago</small>
+          </div>
+          <!-- Action Section -->
+          <div class="ms-auto">
+              <%= link_to notification_path(notification), data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr ?" } do %>
+                <i class="fas fa-times"></i>
+              <% end %>
+          </div>
         </div>
       </div>
     <% end %>
