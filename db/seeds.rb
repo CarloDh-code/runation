@@ -425,21 +425,19 @@ petit_boucle_domicile= Run.create!(
 puts "GamePlayerRuns créés !"
 
 
-<<<<<<< HEAD
 Notification.create!(title: "New Game Added", content: "A new game has been added to your favorites.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   Aliquam consectetur venenatis blandit. Praesent vehicula, libero non pretium vulputate,
   lacus arcu facilisis lectus, sed feugiat tellus nulla eu dolor.
   Nulla porta bibendum lectus quis euismod. Aliquam volutpat ultricies porttitor.
   Cras risus nisi, accumsan vel cursus ut, sollicitudin vitae dolor. Fusce scelerisque eleifend lectus in bibendum.
   Suspendisse lacinia egestas felis a volutpat.", created_at: 2.hours.ago, player: taib)
-  
+
 Notification.create!(title: "Add me to your game buddy", content: "Man, it would be great to add me to your game, it'll be challenging", created_at: 1.hour.ago, player: taib)
 Notification.create!(title: "Let's do some cardio", content: "Man, it promise it would be great to add me to your game, i swear to god", created_at: 1.hour.ago, player: taib)
 
 
 Notification.create!(title: "Game Reminder", content: "Don't forget your upcoming game tomorrow.", created_at: 1.day.ago, player: carlos)
 Notification.create!(title: "Achievement Unlocked", content: "You unlocked the 'Marathon Master' badge!", created_at: 3.days.ago, player: antoine)
-=======
 
 
 
@@ -469,4 +467,3 @@ eleven_coords = [
   [48.863731, 2.370202]
 ]
 # "iufiHw|mMmIg_AnVon@`_@bJfT|j@xE`jAiQ|k@e\\vM}[ca@fB}j@"
->>>>>>> master

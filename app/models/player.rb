@@ -5,11 +5,8 @@ class Player < ApplicationRecord
   has_many :game_players
   has_many :games, through: :game_players
   has_many :runs
-<<<<<<< HEAD
   has_many :notifications, dependent: :destroy
-=======
   has_one_attached :photo
->>>>>>> master
 
 
   devise :database_authenticatable, :registerable,

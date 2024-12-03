@@ -1,24 +1,5 @@
 <nav class="navbar">
-<<<<<<< HEAD
-        <div class="user-icon">
-            <%= link_to new_player_session_path, class: "nav-link" do %>
-             <%= image_tag("profile.svg", alt: "User Icon", size: "30x30") %>
-           <% end %>
-        </div>
-        <div class="nav-logo">
-            <%= link_to "#", class: "navbar-logo" do %>
-             <%= image_tag "logo_rn.svg", alt: "logo Icon", size: "40x40", class:"rounded-3" %>
-            <% end %>
-        </div>
-        <div class="notif-icon">
-            <%= link_to notifications_path,  class: "nav-link" do %>
-             <%= image_tag("notif.svg", alt: "Notif Icon", size: "30x30") %>
-           <% end %>
-        </div>
-    </nav>
-=======
-
-    <div class="back-button">
+  <div class="back-button">
     <%= link_to "javascript:history.back()", class: "nav-link mr-2", aria: { label: "Go back" } do %>
       <%= image_tag("back.svg", alt: "Back", size: "30x30") %>
     <% end %>
@@ -34,7 +15,7 @@
     <% end %>
   </div>
 
-<% if params[:controller] == "games" && params[:action] == "show" %>
+  <% if params[:controller] == "games" && params[:action] == "show" %>
     <% current_game = Game.find_by(id: params[:id]) %>
     <% if current_game&.status == "ongoing" %>
       <div class="navbar-item refresh-icon">
@@ -62,10 +43,17 @@
     <% end %>
   <% end %>
 
+  <% if false %>
+    <div class="notif-icon">
+      <%= link_to new_player_session_path, class: "nav-link" do %>
+        <%= image_tag("notif.svg", alt: "Notif Icon", size: "30x30") %>
+      <% end %>
+    </div>
+  <% end %>
+
   <div class="notif-icon">
-    <%= link_to new_player_session_path, class: "nav-link" do %>
+    <%= link_to notifications_path,  class: "nav-link" do %>
       <%= image_tag("notif.svg", alt: "Notif Icon", size: "30x30") %>
     <% end %>
   </div>
 </nav>
->>>>>>> master

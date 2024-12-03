@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'messages/index'
-  get 'messages/show'
   devise_for :players
   root to: "pages#home"
 
@@ -11,12 +9,6 @@ Rails.application.routes.draw do
     collection do
       get :mine
     end
-<<<<<<< HEAD
-    resources :game_players, only: [:create]
-
-  end
-=======
->>>>>>> master
 
     resources :game_players, only: [:create]
     resources :comments, only: [:create] do
@@ -33,7 +25,7 @@ Rails.application.routes.draw do
   #     patch :mark_as_read
   #   end
   # end
-  
+
   resource :profile, only: [:show]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
