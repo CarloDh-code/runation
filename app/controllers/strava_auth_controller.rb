@@ -29,7 +29,7 @@ class StravaAuthController < ApplicationController
           refresh_token: tokens['refresh_token'],
           uid: tokens['athlete']['id']
         )
-       redirect_to root_path, notice: 'Strava account connected successfully!'
+        redirect_to mine_games_path, notice: 'Strava account connected successfully!' # Redirection vers mygames
       else
         flash[:alert] = 'Failed to retrieve tokens from Strava. Please try again.'
         redirect_to root_path
@@ -39,6 +39,7 @@ class StravaAuthController < ApplicationController
       redirect_to root_path
     end
   end
+
 
   private
 
