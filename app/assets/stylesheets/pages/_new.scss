@@ -55,8 +55,130 @@ form {
   transition: background-color 0.3s ease;
 }
 
-// h1.create {
-//   margin-bottom: 15px;
-//   text-align: center;
-//   color: $blou
-// }
+/* Style for select dropdown */
+.field select {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  transition: border-color 0.3s ease;
+  margin-bottom: 15px;
+  appearance: none; /* Remove default dropdown arrow */
+  -webkit-appearance: none; /* For Safari */
+  -moz-appearance: none; /* For Firefox */
+}
+
+/* Custom arrow for the select */
+.field select::-ms-expand {
+  display: none; /* Hide default arrow in IE */
+}
+
+/* Change border color and background on focus */
+.field select:focus {
+  border-color: $blou;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 45, 128, 0.5); /* Subtle glow effect */
+  background-color: rgb(199, 248, 255);
+}
+
+/* Optional: Custom styling for the dropdown's arrow */
+.field select::after {
+  content: '▼'; /* You can customize the arrow symbol */
+  font-size: 14px;
+  color: #ccc;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* NEW SIGN UP
+/* General styling for form */
+.sign-up-form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sign-up-form h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.sign-up-form .form-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #333;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.form-actions {
+  text-align: center;
+}
+
+.submit-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+/* Styling for file input */
+.file-upload {
+  padding: 8px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Links styling */
+.text-center a {
+  color: #2196F3;
+  text-decoration: none;
+}
+
+.text-center a:hover {
+  text-decoration: underline;
+}
+
+/* Adjustments for error messages */
+.error_notification {
+  color: #F44336;
+  margin-bottom: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Links to login/forgot password */
+.btn-link {
+  color: #4CAF50;
+}
+
+.btn-link:hover {
+  color: #388E3C;
+}
