@@ -164,7 +164,7 @@ puts "#{Game.count} jeux créés !"
 gp1 = GamePlayer.create!(game: trail_running_alps, player: carlos, ranking: 1)
 gp2 = GamePlayer.create!(game: trail_running_alps, player: mickael, ranking: 2)
 gp3 = GamePlayer.create!(game: trail_running_alps, player: jean_martial, ranking: 3)
-gp4 = GamePlayer.create!(game: trail_running_alps, player: mickael, ranking: 4)
+gp4 = GamePlayer.create!(game: trail_running_alps, player: antoine, ranking: 4)
 
 
 puts "#{Game.count} jeux créés !"

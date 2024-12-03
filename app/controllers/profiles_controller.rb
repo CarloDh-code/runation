@@ -13,18 +13,17 @@ class ProfilesController < ApplicationController
     @upcoming_games_count = current_player.games.where(status: "pending").count
   end
 
-  # def update
-  #   if params[:photo]
-  #     current_user.update(photo: params[:photo])
-  #     redirect_to profile_path, notice: "Photo mise à jour avec succès."
-  #   else
-  #     redirect_to profile_path, alert: "Erreur lors de l'upload."
-  #   end
+  # def edit
+  #   # Prépare l'objet joueur pour le formulaire
+  #   @player = current_player
   # end
 
-  # private
-
-  # def profile_params
-  #   params.require(:profile).permit(:photo)
+  # def update
+  #   if params[:photo]
+  #     current_player.update(photo: params[:photo])
+  #     redirect_to profile_path, notice: "Photo mise à jour avec succès."
+  #   else
+  #     redirect_to edit_profile_path, alert: "Erreur lors de l'upload."
+  #   end
   # end
 end
