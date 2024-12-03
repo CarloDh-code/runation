@@ -5,6 +5,7 @@ export default class extends Controller {
   static values = {
     apiKey: String,
     layers: Array, // Données des couches (coordonnées, couleur, joueur)
+    centroid: Object,
     coordinateLayer: Array // Coordonnées du contour du jeu
   };
 
@@ -20,7 +21,7 @@ export default class extends Controller {
     const mapId = this.element.id;
     const map = new mapboxgl.Map({
       container: mapId,
-      center: [2.3522, 48.8566], // Centre par défaut sur Paris
+      center: [this.centroidValue.latitude, this.centroidValue.longitude], // Centre par défaut sur Paris
       zoom: 12 // Niveau de zoom par défaut
     });
 

@@ -17,10 +17,10 @@ require "open-uri"
 
 # Création des joueurs
 carlos = Player.create!(
-  email: 'carlos@test.test',
+  email: 'carlo@runation.fr',
   password: '123456',
-  name: 'Carlitow',
-  nickname: 'Speedycar'
+  name: 'Carlo',
+  nickname: 'Darkarl41'
 )
 
 # file = URI.parse("https://images.unsplash.com/photo-1732919258508-3fd53a8007b6?q=80&w=2646&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D").open
@@ -30,8 +30,8 @@ carlos = Player.create!(
 mickael = Player.create!(
   email: 'mick@test.test',
   password: '123456',
-  name: 'mickcmik',
-  nickname: 'SpeedyMick'
+  name: 'Mickael',
+  nickname: 'Micka'
 )
 
 # file = URI.parse("https://images.unsplash.com/photo-1732919258508-3fd53a8007b6?q=80&w=2646&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D").open
@@ -41,8 +41,8 @@ mickael = Player.create!(
 antoine = Player.create!(
   email: 'antoine@test.test',
   password: '123456',
-  name: 'anto',
-  nickname: 'Speedyanto'
+  name: 'Antoine',
+  nickname: 'Anto'
 )
 
 # file = URI.parse("https://images.unsplash.com/photo-1732919258508-3fd53a8007b6?q=80&w=2646&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D").open
@@ -53,7 +53,7 @@ taib = Player.create!(
   email: 'taib@test.test',
   password: '123456',
   name: 'Taib',
-  nickname: 'Speedytaid'
+  nickname: 'Taib'
 )
 
 # file = URI.parse("https://images.unsplash.com/photo-1732919258508-3fd53a8007b6?q=80&w=2646&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D").open
@@ -61,43 +61,43 @@ taib = Player.create!(
 # taib.save!
 
 paul = Player.create!(
-  email: "player1@gmail.com",
+  email: "paul@test.test",
   password: "111111",
-  name: "paul",
-  nickname: "First1"
+  name: "Paul",
+  nickname: "Polo"
 )
 
 # file = URI.parse("https://images.unsplash.com/photo-1732919258508-3fd53a8007b6?q=80&w=2646&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D").open
 # paul.photo.attach(io: file, filename: "avatar_player.png", content_type: "image/png")
 # paul.save!
 
-jean_martial = Player.create!(
-  email: "player2@gmail.com",
+xavier = Player.create!(
+  email: "xavier@test.test",
   password: "222222",
-  name: "jean-martial",
-  nickname: "Second1"
+  name: "Xavier",
+  nickname: "Xav75"
 )
 
 # file = URI.parse("https://images.unsplash.com/photo-1732919258508-3fd53a8007b6?q=80&w=2646&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D").open
-# jean_martial.photo.attach(io: file, filename: "avatar_player.png", content_type: "image/png")
-# jean_martial.save!
+# xavier.photo.attach(io: file, filename: "avatar_player.png", content_type: "image/png")
+# xavier.save!
 
 gustave = Player.create!(
-  email: "player3@gmail.com",
+  email: "gustave@gmail.com",
   password: "333333",
   name: "Gustave",
-  nickname: "Third1"
+  nickname: "Gus77"
 )
 
 # file = URI.parse("https://images.unsplash.com/photo-1732919258508-3fd53a8007b6?q=80&w=2646&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D").open
 # gustave.photo.attach(io: file, filename: "avatar_player.png", content_type: "image/png")
 # gustave.save!
 
-geogette = Player.create!(
-  email: "player4@gmail.com",
+camille = Player.create!(
+  email: "camille@gmail.com",
   password: "444444",
-  name: "geogette",
-  nickname: "Fourth1"
+  name: "Camille",
+  nickname: "Cam"
 )
 
 # file = URI.parse("https://images.unsplash.com/photo-1732919258508-3fd53a8007b6?q=80&w=2646&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D").open
@@ -113,10 +113,10 @@ puts "#{Player.count} joueurs créés !"
 # end
 
 # Création des games
-trail_running_alps = Game.create!(
-  name: 'Trail Running in the Alps',
+le_wagon_run = Game.create!(
+  name: 'Le Wagon Run batch #1811',
   map_polyline: "}|ciHmkxLaMuF_CgBz@HqFoBE_@uHeEiCs@}FuEqB]_CoBmCcBoLwGwAOk@wAyD}A}AqBuAe@gEgEe@AaNkMkI_GoBc@_H{G]VOw@qBqB{Dm@gJuK{C_FuA_FgBgKgCgC_D}DmD_GeFkKcBqFeCcEsDoJiG}LiDsImA}DeAuAsDi@mCvDu@S{AyEEgCoEgKwDuL{AwBeBuENq@}@kCiB}CcEyK^t@wDyH`AAsAeAi@G{@cCwAeKwCwDeAiJoBwFqBkHm@kEoDqJk@mDeAsBWeDRkBUuDNqBIwP_@eGXq@ByB[qCKiIFkM]aEBaEf@{Ci@eDa@eHHgITaJcAuGx@uCu@oMi@wn@o@_B@oC_@}BLkDQ{@|@s@AiM]wB\\qBOwC?}FRaHKgMSiD^uJa@_Dd@kJSwLc@qEb@{BEgB[yAO}FaAmAnAgFEoEe@_FF}Ee@qAAoAPiBFeFfCDf@|AzAo@McJ^yBn@gPnBqK|A{B|C_C`R_Dp@k@`Cd@OL~Q}ChBgAlFkAz@Np@m@nAVzAq@dEQv@{@n@P^aAfB{@dBaLv@{CbA_@vChB|AJfBgAxJoIt@cDeAeGrAkCt@qE~@kBvABxEoDlMmEjb@{BtPp@dBl@nB]]sAhCh@rDaAjAt@fMwBpGGnFgBlH@lI}AdBLpOcClIOtF_@pBf@p@t@lBExCdAxDTlA\\Xl@zJl@fBjAvGrBpBBnBpAfL`AjBf@xCxC`AXFtBbB~A`DzGdBrAn@jKzCvJ@v@rBlFn@xDjDlIpB~IJ~C~BrMfA~BnApFfLzZtAdAtApCn@jBEjAp@~@GtBvB|Q`DvF@~BzC~LfArDb@^hA|H\\\\dBxGdAlFUrAv@~BGhBr@d@~@nA@`B~AfEjAbHXvD`Ab@@dClAfBTlACjFs@|CV~Bi@vFk@zBgBjBcA`CoA~@e@~Sy@jH~CfL^|Cz@dCF~Cp@d@h@`BNlFOnI^|By@~B_Fp^{@xIi@jDkAfGGzCm@xD]XKzGe@xDDdDm@pAUbC}AxDGrA_AnCGjCiAnDSvF{@vF?vDqAdDk@xIy@xCBrDmAhBq@zG_DlQi@pJcA~Ee@v@?hCiA~FNZcBjDNzL_ApBeA`FOzDqAzEiBbN_CtI_A`GyB~GsBlDuAfHq@v@SvBNnB}BpCmHvUs@hFcAnC}@dFs@jHWZOrDk@jCIhG_EtMo@tGwAzAkAzD]vCqLvWu@`FiBfDKxD{@FM|CmAzDaAlCiAKeAlC}@QoDhCcFPmAl@",
-  nb_of_players: 4,
+  nb_of_players: 5,
   start_date: "2024-11-26",
   end_date: "2024-12-10",
   status: 'ongoing',
@@ -172,10 +172,10 @@ antourun = Game.create!(
 puts "#{Game.count} jeux créés !"
 
 # Création des GamePlayers
-gp1 = GamePlayer.create!(game: trail_running_alps, player: carlos, ranking: 1)
-gp2 = GamePlayer.create!(game: trail_running_alps, player: mickael, ranking: 2)
-gp3 = GamePlayer.create!(game: trail_running_alps, player: jean_martial, ranking: 3)
-gp4 = GamePlayer.create!(game: trail_running_alps, player: antoine, ranking: 4)
+gp1 = GamePlayer.create!(game: le_wagon_run, player: carlos, ranking: 1)
+gp2 = GamePlayer.create!(game: le_wagon_run, player: mickael, ranking: 2)
+gp3 = GamePlayer.create!(game: le_wagon_run, player: xavier, ranking: 3)
+gp4 = GamePlayer.create!(game: le_wagon_run, player: antoine, ranking: 4)
 
 
 puts "#{Game.count} jeux créés !"
@@ -183,26 +183,191 @@ puts "#{Game.count} jeux créés !"
 # Jeu a 4 joueurs sur 5 à join pendant la demo
 gp1 = GamePlayer.create!(game: panam_running , player: antoine, ranking: 1)
 gp2 = GamePlayer.create!(game: panam_running , player: mickael, ranking: 2)
-gp3 = GamePlayer.create!(game: panam_running , player: jean_martial, ranking: 3)
+gp3 = GamePlayer.create!(game: panam_running , player: xavier, ranking: 3)
 gp4 = GamePlayer.create!(game: panam_running , player: paul, ranking: 4)
 
 
 # Autres jeux
 gp5 = GamePlayer.create!(game: city_marathon, player: antoine, ranking: 1)
 gp6 = GamePlayer.create!(game: city_marathon, player: mickael, ranking: 2)
-gp7 = GamePlayer.create!(game: city_marathon, player: jean_martial, ranking: 3)
-gp8 = GamePlayer.create!(game: city_marathon, player: paul, ranking: 4)
+gp7 = GamePlayer.create!(game: city_marathon, player: xavier, ranking: 3)
+gp9 = GamePlayer.create!(game: city_marathon, player: paul, ranking: 4)
 
-gp8 = GamePlayer.create!(game: beach_running , player: taib, ranking: 1)
+gp10 = GamePlayer.create!(game: beach_running , player: taib, ranking: 1)
 
-gp9 = GamePlayer.create!(game: antourun , player: antoine, ranking: 1)
-gp9 = GamePlayer.create!(game: antourun , player: carlos, ranking: 1)
+gp11 = GamePlayer.create!(game: antourun , player: antoine, ranking: 1)
+gp12 = GamePlayer.create!(game: antourun , player: carlos, ranking: 1)
+
+
 
 
 
 
 puts "GamePlayers créés !"
 
+
+
+
+
+
+
+
+
+###################################### SEEED CHATGPT###############################
+
+# =========================================================
+# Définition des jeux manuellement avec dates en dur
+# =========================================================
+
+# Jeu 1 : Paris
+game_1 = Game.create!(
+  name: "Battle des collègues",
+  map_polyline: "}|ciHmkxLaMuF_CgBz@HqFoBE_@uHeEiCs@}FuEqB]_CoBmCcBoLwGwAOk@wAyD}A}AqBuAe@gEgEe@AaNkMkI_GoBc@_H{G]VOw@qBqB{Dm@gJuK{C_FuA_FgBgKgCgC_D}DmD_GeFkKcBqFeCcEsDoJiG}LiDsImA}DeAuAsDi@mCvDu@S{AyEEgCoEgKwDuL{AwBeBuENq@}@kCiB}CcEyK^t@wDyH`AAsAeAi@G{@cCwAeKwCwDeAiJoBwFqBkHm@kEoDqJk@mDeAsBWeDRkBUuDNqBIwP_@eGXq@ByB[qCKiIFkM]aEBaEf@{Ci@eDa@eHHgITaJcAuGx@uCu@oMi@wn@o@_B@oC_@}BLkDQ{@|@s@AiM]wB\\qBOwC?}FRaHKgMSiD^uJa@_Dd@kJSwLc@qEb@{BEgB[yAO}FaAmAnAgFEoEe@_FF}Ee@qAAoAPiBFeFfCDf@|AzAo@McJ^yBn@gPnBqK|A{B|C_C`R_Dp@k@`Cd@OL~Q}ChBgAlFkAz@Np@m@nAVzAq@dEQv@{@n@P^aAfB{@dBaLv@{CbA_@vChB|AJfBgAxJoIt@cDeAeGrAkCt@qE~@kBvABxEoDlMmEjb@{BtPp@dBl@nB]]sAhCh@rDaAjAt@fMwBpGGnFgBlH@lI}AdBLpOcClIOtF_@pBf@p@t@lBExCdAxDTlA\\Xl@zJl@fBjAvGrBpBBnBpAfL`AjBf@xCxC`AXFtBbB~A`DzGdBrAn@jKzCvJ@v@rBlFn@xDjDlIpB~IJ~C~BrMfA~BnApFfLzZtAdAtApCn@jBEjAp@~@GtBvB|Q`DvF@~BzC~LfArDb@^hA|H\\\\dBxGdAlFUrAv@~BGhBr@d@~@nA@`B~AfEjAbHXvD`Ab@@dClAfBTlACjFs@|CV~Bi@vFk@zBgBjBcA`CoA~@e@~Sy@jH~CfL^|Cz@dCF~Cp@d@h@`BNlFOnI^|By@~B_Fp^{@xIi@jDkAfGGzCm@xD]XKzGe@xDDdDm@pAUbC}AxDGrA_AnCGjCiAnDSvF{@vF?vDqAdDk@xIy@xCBrDmAhBq@zG_DlQi@pJcA~Ee@v@?hCiA~FNZcBjDNzL_ApBeA`FOzDqAzEiBbN_CtI_A`GyB~GsBlDuAfHq@v@SvBNnB}BpCmHvUs@hFcAnC}@dFs@jHWZOrDk@jCIhG_EtMo@tGwAzAkAzD]vCqLvWu@`FiBfDKxD{@FM|CmAzDaAlCiAKeAlC}@QoDhCcFPmAl@",
+  nb_of_players: 8,
+  start_date: "2024-11-15",
+  end_date: "2024-12-24",
+  status: 'ongoing',
+  latitude: 48.8566,
+  longitude: 2.3522
+)
+
+# Association des joueurs pour le jeu 1
+GamePlayer.create!(game: game_1, player: carlos)
+GamePlayer.create!(game: game_1, player: mickael)
+GamePlayer.create!(game: game_1, player: antoine)
+GamePlayer.create!(game: game_1, player: taib)
+GamePlayer.create!(game: game_1, player: paul)
+GamePlayer.create!(game: game_1, player: xavier)
+GamePlayer.create!(game: game_1, player: gustave)
+GamePlayer.create!(game: game_1, player: camille)
+
+game_1_1 = Game.create!(
+  name: "Who rules Paris?",
+  map_polyline: "}|ciHmkxLaMuF_CgBz@HqFoBE_@uHeEiCs@}FuEqB]_CoBmCcBoLwGwAOk@wAyD}A}AqBuAe@gEgEe@AaNkMkI_GoBc@_H{G]VOw@qBqB{Dm@gJuK{C_FuA_FgBgKgCgC_D}DmD_GeFkKcBqFeCcEsDoJiG}LiDsImA}DeAuAsDi@mCvDu@S{AyEEgCoEgKwDuL{AwBeBuENq@}@kCiB}CcEyK^t@wDyH`AAsAeAi@G{@cCwAeKwCwDeAiJoBwFqBkHm@kEoDqJk@mDeAsBWeDRkBUuDNqBIwP_@eGXq@ByB[qCKiIFkM]aEBaEf@{Ci@eDa@eHHgITaJcAuGx@uCu@oMi@wn@o@_B@oC_@}BLkDQ{@|@s@AiM]wB\\qBOwC?}FRaHKgMSiD^uJa@_Dd@kJSwLc@qEb@{BEgB[yAO}FaAmAnAgFEoEe@_FF}Ee@qAAoAPiBFeFfCDf@|AzAo@McJ^yBn@gPnBqK|A{B|C_C`R_Dp@k@`Cd@OL~Q}ChBgAlFkAz@Np@m@nAVzAq@dEQv@{@n@P^aAfB{@dBaLv@{CbA_@vChB|AJfBgAxJoIt@cDeAeGrAkCt@qE~@kBvABxEoDlMmEjb@{BtPp@dBl@nB]]sAhCh@rDaAjAt@fMwBpGGnFgBlH@lI}AdBLpOcClIOtF_@pBf@p@t@lBExCdAxDTlA\\Xl@zJl@fBjAvGrBpBBnBpAfL`AjBf@xCxC`AXFtBbB~A`DzGdBrAn@jKzCvJ@v@rBlFn@xDjDlIpB~IJ~C~BrMfA~BnApFfLzZtAdAtApCn@jBEjAp@~@GtBvB|Q`DvF@~BzC~LfArDb@^hA|H\\\\dBxGdAlFUrAv@~BGhBr@d@~@nA@`B~AfEjAbHXvD`Ab@@dClAfBTlACjFs@|CV~Bi@vFk@zBgBjBcA`CoA~@e@~Sy@jH~CfL^|Cz@dCF~Cp@d@h@`BNlFOnI^|By@~B_Fp^{@xIi@jDkAfGGzCm@xD]XKzGe@xDDdDm@pAUbC}AxDGrA_AnCGjCiAnDSvF{@vF?vDqAdDk@xIy@xCBrDmAhBq@zG_DlQi@pJcA~Ee@v@?hCiA~FNZcBjDNzL_ApBeA`FOzDqAzEiBbN_CtI_A`GyB~GsBlDuAfHq@v@SvBNnB}BpCmHvUs@hFcAnC}@dFs@jHWZOrDk@jCIhG_EtMo@tGwAzAkAzD]vCqLvWu@`FiBfDKxD{@FM|CmAzDaAlCiAKeAlC}@QoDhCcFPmAl@",
+  nb_of_players: 8,
+  start_date: "2024-10-15",
+  end_date: "2024-11-24",
+  status: 'finish',
+  latitude: 48.8566,
+  longitude: 2.3522
+)
+
+# Association des joueurs pour le jeu 1
+GamePlayer.create!(game: game_1_1, player: carlos)
+GamePlayer.create!(game: game_1_1, player: mickael)
+GamePlayer.create!(game: game_1_1, player: antoine)
+GamePlayer.create!(game: game_1_1, player: taib)
+GamePlayer.create!(game: game_1_1, player: paul)
+GamePlayer.create!(game: game_1_1, player: xavier)
+GamePlayer.create!(game: game_1_1, player: gustave)
+GamePlayer.create!(game: game_1_1, player: camille)
+
+# Jeu 2 : Lyon
+game_2 = Game.create!(
+  name: "Lyon Run 1",
+  map_polyline: "_smvGi|j\\bcA|jBt|Cj{BzlEshBnnF}`D]y{BhFuyBaS_|C_JqaEiAyfDcTwkCwh@c_Cw}Bos@ooCbMi_Bx@gtB`m@_cArlBwt@t~Aab@fsBec@b}DcNbrDjSnyDfzAdwD",
+  nb_of_players: 6,
+  start_date: "2024-10-20",
+  end_date: "2025-01-10",
+  status: 'pending',
+  latitude: 45.7640,
+  longitude: 4.8357
+)
+
+# Association des joueurs pour le jeu 2
+GamePlayer.create!(game: game_2, player: carlos)
+GamePlayer.create!(game: game_2, player: mickael)
+GamePlayer.create!(game: game_2, player: antoine)
+GamePlayer.create!(game: game_2, player: taib)
+GamePlayer.create!(game: game_2, player: paul)
+
+# Jeu 3 : Marseille
+game_3 = Game.create!(
+  name: "Marseille Run 1",
+  map_polyline: "{kvfGkhm`@_mH}vHioGkJclIbrAw]~yJ{hDj}N`Q~eE|}DbjAxwFghFh_Ev~Al{A_pCzuBoAf_EbfE`w@_nCeRkqLnPacG",
+  nb_of_players: 5,
+  start_date: "2024-09-05",
+  end_date: "2025-01-02",
+  status: 'ongoing',
+  latitude: 43.2965,
+  longitude: 5.3698
+)
+
+# Association des joueurs pour le jeu 3
+GamePlayer.create!(game: game_3, player: carlos)
+GamePlayer.create!(game: game_3, player: mickael)
+GamePlayer.create!(game: game_3, player: antoine)
+GamePlayer.create!(game: game_3, player: taib)
+GamePlayer.create!(game: game_3, player: paul)
+
+# Jeu 4 : Lille
+game_4 = Game.create!(
+  name: "Courir se mettre au chaud",
+  map_polyline: "qu~sH{dnQnm@eeBrEerB?kjByk@gf@maAsAkuAvp@}WdgC|\\jlCnjChf@",
+  nb_of_players: 6,
+  start_date: "2024-08-01",
+  end_date: "2024-11-20",
+  status: 'finish',
+  latitude: 50.6292,
+  longitude: 3.0573
+)
+
+# Association des joueurs pour le jeu 4
+GamePlayer.create!(game: game_4, player: carlos)
+GamePlayer.create!(game: game_4, player: mickael)
+GamePlayer.create!(game: game_4, player: antoine)
+GamePlayer.create!(game: game_4, player: taib)
+GamePlayer.create!(game: game_4, player: paul)
+GamePlayer.create!(game: game_4, player: xavier)
+
+# Jeu 5 : Toulouse
+game_5 = Game.create!(
+  name: "Stade Toulousain fight",
+  map_polyline: "indiGurrG~`BjCn~@ohBqFgfCur@i}@i|@~D_fApe@qFdlArd@|oD",
+  nb_of_players: 4,
+  start_date: "2024-11-25",
+  end_date: "2025-01-05",
+  status: 'pending',
+  latitude: 43.6047,
+  longitude: 1.4442
+)
+
+# Association des joueurs pour le jeu 5
+GamePlayer.create!(game: game_5, player: carlos)
+GamePlayer.create!(game: game_5, player: mickael)
+GamePlayer.create!(game: game_5, player: antoine)
+
+
+# Jeu 6 : Rilly-sur-Loire
+game_6 = Game.create!(
+  name: "Rilly-sur-Loire Run 1",
+  map_polyline: "oxm`H}hdEfdCajA~oCgtFxbAcrL{d@}cS_tAmrGotFcZ{lHz{AypB`yAkhB~hQzx@baM~^rrC|}BjeEh`DlbCfdDlE",
+  nb_of_players: 2,
+  start_date: "2023-12-10",
+  end_date: "2024-01-15",
+  status: 'finish',
+  latitude: 47.3705,
+  longitude: 0.8355
+)
+
+# Association des joueurs pour le jeu 6
+GamePlayer.create!(game: game_6, player: carlos)
+GamePlayer.create!(game: game_6, player: mickael)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###################################### SEEED CHATGPT###############################
 # Création des commentaires
 Comment.create!(
   game: city_marathon,
@@ -255,7 +420,7 @@ run_eleven = Run.create!(
   end_long: 2.333370130509138,
   polyline:   "kxmMoahiHg^?oKnPcGzTnA~W~WnKjWjHvQcBvQgE?kHoKoKoKoKgEoKgE_]",
   strava_activity_id: 1231657816411,
-  player: jean_martial
+  player: xavier
 )
 
 run_five = Run.create!(
@@ -368,18 +533,6 @@ test_greg = Run.create!(
 )
 
 
-sud_paris= Run.create!(
-  name: 'sud paris',
-  start_datetime: "2024-12-09 20:40:00",
-  end_datetime: "2024-12-09 21:03:00",
-  start_lat: 48.83043048328835,
-  end_lat: 48.83043048328835,
-  start_long: 2.3517822591304025,
-  end_long: 2.3517822591304025,
-  polyline:   "e}diHqnhM}DfH}AdCe@^qFrLaAzGEbDUdCgBtJMxBqCtNkAbEoAtG}AnGmFxXc@~CwArFuBvKUnJErI\\fAA`CT~CApBb@pFh@|v@QnCF`EzAzM~CxJ`BdC^nBhBvEZZnALXv@|Ap@\\dBz@nB|GzItKfEt@DT`Ax@JjB~B~@pBnHtI~BbFzAhCpDrCxA`ED|@d@hAxB`CnG~IPp@bFdJJn@lBdBtJfIdAVrF~Ep@`AFgASmAlBaGhMsGhBh@zAhBfBrAXbArAlAtBmKLqHNw@PMp@aBDsB`@qAb@mDl@mBl@yD|@sBPaDvBgIDs@jA{Dz@gCz@yAh@mC^q@n@gCpCsGxAwFzA}Ch@aCFqA|@mC~@kHd@y@NuCTSDoAZu@PmFn@sAHcCbAsDKm@j@{@t@gCJqAQyAn@sDFiBb@k@I_DHg@r@_AX{BXy@ZIN]W}D`@qEt@yFb@m@Tw@TqBCy@bAuDL_BAaBd@iDj@gBHo@Gg@n@}C`@iCDcBb@}Bl@cBv@wEVeF\\eBn@gBMs@bAgGFsBx@aBf@oBn@aE\\yDIsBRkBGmAHcA|@gGNm@J?P_A`@}CHcCv@_EBaAj@}CXi@JqA\\cAhAwGr@uH~@{EdAcJT_DIaFz@kGAcEaAcG@o@_@yAc@{CKcBeBgGm@iDMy@CeDHeGIcGPmDx@gCbAcA|@sBjCqDXoBAyCP_A]}Ok@cDeByE_AgIgDmNe@u@g@kC?q@a@_A{@uEo@eBm@yCq@{AsAwHg@}@iBcG]wC_@mAKeASa@a@gD[}@sEsU_DsHoAgF]e@yD}L{B{FfAnCI\\JnArCfHn@hAx@Ag@gAiA~BiBrByErEcBhCg@^eBxCcDrDk@hAyBbCg@`A}@d@kAfByB~EoEnFuE~Gq@PcCvAi@l@_B|@Mx@k@|@o@GwExGqBxCQ?y@x@Sf@q@f@Yd@a@|AwAjAm@z@uAz@k@hAIh@C~BiA|BkBbBcAdBqBtBMdBs@vBuBtAcA|@}DdG_FxI_FlGyChGaAfA[|AAl@c@FoAbIoBvHyDnQ[xBeA`DsJpLk@q@sAs@eDm@qHcDiAjGeA`Ew@hGwBnKi@jBo@tDqAhN}@tPcCxOGPuBDeAh@yBYg@xACz@F^KlBmAtDsA|FqAf@sEoBw@n@gDrN{@e@sGwF_BsCs@c@cAkA{Ay@wHsH]o@aAh@iAQeBoA}BA",
-  strava_activity_id: 123165781649129,
-  player: antoine
-)
 
 boucle_buttes= Run.create!(
   name: 'boucle buttes',
@@ -394,8 +547,8 @@ boucle_buttes= Run.create!(
   player: antoine
 )
 
-petit_boucle_domicile= Run.create!(
-  name: 'petit boucle à domicile',
+petite_boucle_domicile= Run.create!(
+  name: 'petite boucle à domicile',
   start_datetime: "2024-12-09 20:10:00",
   end_datetime: "2024-12-09 21:02:00",
   start_lat: 48.83043048328835,
@@ -438,32 +591,3 @@ Notification.create!(title: "Let's do some cardio", content: "Man, it promise it
 
 Notification.create!(title: "Game Reminder", content: "Don't forget your upcoming game tomorrow.", created_at: 1.day.ago, player: carlos)
 Notification.create!(title: "Achievement Unlocked", content: "You unlocked the 'Marathon Master' badge!", created_at: 3.days.ago, player: antoine)
-
-
-
-seven_coords = [
-  [48.861093, 2.297047],
- [48.856918, 2.314303],
- [48.849105, 2.316581],
- [48.845493, 2.310304],
- [48.844626, 2.296665],
- [48.847402, 2.287592],
- [48.857352, 2.289194],
- [48.861093, 2.297047]
-]
-# "ydfiHqs_M`YyjBxo@gMrUff@jDdtAiPvw@e}@_IkVcp@"
-
-
-eleven_coords = [
-  [48.863731, 2.370202],
-  [48.865396, 2.380478],
-  [48.861637, 2.388082],
-  [48.856508, 2.386295],
-  [48.853111, 2.379265],
-  [48.852016, 2.367259],
-  [48.854948, 2.360066],
-  [48.859620, 2.357709],
-  [48.864248, 2.363169],
-  [48.863731, 2.370202]
-]
-# "iufiHw|mMmIg_AnVon@`_@bJfT|j@xE`jAiQ|k@e\\vM}[ca@fB}j@"
