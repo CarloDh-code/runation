@@ -14,8 +14,8 @@ class GamesController < ApplicationController
     @comments = @game.comments.includes(:player) if @game.status == "ongoing"
 
     centroid = @game.polygone.centroid
-    # Mets à disposition les coordonnées du centre du polygone pour la vue
-    @centroid = { latitude: centroid.y, longitude: centroid.x }
+    # Mets à disposition les coordonnées du centre du polygone pour chaque jeu
+    @game.instance_variable_set(:@centroid, { latitude: centroid.y, longitude: centroid.x })
 
     # @players_colors = @compute_runs_layers_service.players_colors
     @game_players = @game.game_players.includes(:player).order('ranking ASC')

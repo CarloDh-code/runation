@@ -66,12 +66,12 @@
       <h2 class="namecard"> <%= @game.name %></h2>
     </div>
     <div class="map1">
-      <div id="map-<%= @game.id %>"
-           style="width: 100%; height: 400px;"
-           data-controller="mapongoing"
-           data-mapongoing-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-           data-mapongoing-layers-value="<%= @layers.to_json %>"
-           data-mapongoing-coordinate-layer-value="<%= @game.coordinate_layer.to_json %>">
+      <div id="map-<%= @game.id %>" style="width: 100%; height: 400px;"
+          data-controller="mapongoing"
+          data-mapongoing-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+          data-mapongoing-layers-value="<%= Games::ComputeRunsLayers.new(@game).call.to_json %>"
+          data-mapongoing-centroid-value="<%= @game.instance_variable_get(:@centroid).to_json %>"
+          data-mapongoing-coordinate-layer-value="<%= @game.coordinate_layer.to_json %>">
       </div>
     </div>
     <div class="details">
@@ -134,17 +134,18 @@
   </div>
 <% end %>
 
-<% if @game.status == "finished" %>
+<% if @game.status == "finish" %>
   <div class="battle-container">
     <div class="header">
       <h2 class="namecard"> <%= @game.name %></h2>
     </div>
     <div class="map1">
-      <div id="map-<%= @game.id %>"
-           style="width: 100%; height: 400px;"
-           data-controller="mapongoing"
-           data-mapongoing-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-           data-mapongoing-layers-value="<%= @layers.to_json %>">
+      <div id="map-<%= @game.id %>" style="width: 100%; height: 400px;"
+          data-controller="mapongoing"
+          data-mapongoing-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+          data-mapongoing-layers-value="<%= Games::ComputeRunsLayers.new(@game).call.to_json %>"
+          data-mapongoing-centroid-value="<%= @game.instance_variable_get(:@centroid).to_json %>"
+          data-mapongoing-coordinate-layer-value="<%= @game.coordinate_layer.to_json %>">
       </div>
     </div>
     <div class="details">
