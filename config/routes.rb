@@ -18,6 +18,14 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :notifications, only: [:index, :destroy]
+
+  # resources :notifications, only: [:index] do
+  #   member do
+  #     patch :mark_as_read
+  #   end
+  # end
+
   resource :profile, only: [:show]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

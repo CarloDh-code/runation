@@ -5,6 +5,7 @@ class Player < ApplicationRecord
   has_many :game_players
   has_many :games, through: :game_players
   has_many :runs
+  has_many :notifications, dependent: :destroy
   has_one_attached :photo
 
 

@@ -5,6 +5,7 @@ class GamePlayer < ApplicationRecord
 
   has_many :game_player_runs
   has_many :runs, through: :game_player_runs
+  has_many :notifications, through: :players
 
   after_create :check_game_status
 
@@ -14,6 +15,16 @@ class GamePlayer < ApplicationRecord
   end
 
   private
+
+  def notification_message
+    if @current_player.game.include?
+      Notification.create!(
+        player: game_player_run.player,
+        content: "Vous avez été ajouté à la partie '#{game.name}' par #{game_player.player_id}"
+      )
+    end
+    Notification.save
+  end
 
   def check_game_status
     game.check_and_update_status!

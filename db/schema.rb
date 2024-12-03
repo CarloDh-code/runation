@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_02_140839) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_03_145712) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -86,6 +86,23 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_02_140839) do
     t.integer "duration"
   end
 
+  create_table "notif_contents", force: :cascade do |t|
+    t.bigint "notification_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["notification_id"], name: "index_notif_contents_on_notification_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "content"
+    t.boolean "read", default: false
+    t.bigint "player_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["player_id"], name: "index_notifications_on_player_id"
+  end
+
   create_table "players", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -99,6 +116,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_02_140839) do
     t.string "uid"
     t.string "token"
     t.string "refresh_token"
+    t.string "title"
     t.index ["email"], name: "index_players_on_email", unique: true
     t.index ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true
   end
@@ -127,5 +145,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_02_140839) do
   add_foreign_key "game_player_runs", "runs"
   add_foreign_key "game_players", "games"
   add_foreign_key "game_players", "players"
+  add_foreign_key "notif_contents", "notifications"
+  add_foreign_key "notifications", "players"
   add_foreign_key "runs", "players"
 end
