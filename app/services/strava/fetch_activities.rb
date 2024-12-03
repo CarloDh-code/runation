@@ -5,11 +5,13 @@ module Strava
     end
 
     def call
+      return unless @player.token
+
       client = Strava::Api::Client.new(
         access_token: @player.token
       )
 
-      activities = client.athlete_activities.select { |activity| activity.type == "Run" }
+      activities = client.athlete_activities.select { |activity| activity.sport_type == "Run" }
 
 
       activities.map do |activity|

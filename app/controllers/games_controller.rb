@@ -24,7 +24,7 @@ class GamesController < ApplicationController
     @players_colors = @layers.each_with_object({}) do |layer, hash|
       hash[layer[:player_id]] = layer[:color]
     end
-    
+
   end
 
   def index
@@ -65,6 +65,9 @@ class GamesController < ApplicationController
 
 
   def update_runs
+    @game.players.each do |player|
+      Strava::FetchActivities.new(player).call
+    end
     Games::AssessRuns.new(game: @game).call
     redirect_to game_path(@game)
   end
