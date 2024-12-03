@@ -109,7 +109,7 @@
  <!-- Fermeture de #tab-pending -->
     <!-- Onglet Finished -->
     <div id="tab-finished" data-tabs-target="content" class="tab-content hidden">
-      <% @games.select { |game| game.status == "finished" }.each do |game| %>
+      <% @games.select { |game| game.status == "finish" }.each do |game| %>
         <div class="card">
           <h2><%= link_to game.name, game_path(game), class: "card-title" %></h2>
           <div class="info">

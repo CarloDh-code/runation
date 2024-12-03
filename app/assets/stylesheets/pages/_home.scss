@@ -154,6 +154,7 @@ body {
   font-size: 0.8em;
   position: relative;
   color: #333;
+  flex: 1;
 }
 
 
@@ -239,7 +240,7 @@ body {
 
 .rank.first {
 
-  border: 4px solid $yelo;
+  // border: 4px solid $yelo;
 }
 
 .rank.player {

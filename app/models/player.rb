@@ -14,7 +14,7 @@ class Player < ApplicationRecord
 
   def surface_covered_in_km2
   # Calculer la surface totale couverte par le joueur en degrés carrés, en excluant les valeurs nil
-  total_surface_in_degrees = self.game_players.sum { |game_player| game_player.score.to_i }
+  total_surface_in_degrees = self.game_players.sum { |game_player| game_player.score.to_i * 8547 }
 
   # Si la surface totale est nulle, retourner 0
   return 0 if total_surface_in_degrees == 0
