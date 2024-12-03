@@ -352,3 +352,42 @@ a.game-title-link {
   text-decoration: none;
   color: $blouclaire;
 }
+
+
+
+.button-container {
+  display: flex;
+  margin-top: 36px;
+  flex-direction: column; /* Place les boutons en colonne */
+  align-items: center; /* Centre les boutons horizontalement */
+  gap: 20px; /* Ajoute un espacement entre les boutons */
+}
+
+.btn.skip-button {
+  display: inline-block;
+  background-color: transparent; /* Fond transparent pour correspondre au background */
+  color: white; /* Texte en blanc */
+  font-size: 8px; /* Taille du texte */
+  font-weight: bold; /* Texte en gras */
+  padding: 10px 20px; /* Espacement interne */
+  border: 2px solid white; /* Bordure blanche pour démarquer */
+  border-radius: 25px; /* Coins arrondis */
+  text-transform: uppercase; /* Mettre le texte en majuscules */
+  text-align: center; /* Centrer le texte */
+  text-decoration: none; /* Supprime les soulignements */
+  cursor: pointer; /* Change le curseur en mode "cliquable" */
+  transition: all 0.3s ease; /* Animation fluide */
+  box-shadow: none; /* Supprime l'ombre */
+  margin-top: 30px; /* Ajoute un espacement supérieur */
+}
+
+.btn.skip-button:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Fond semi-transparent au survol */
+  box-shadow: 0px 6px 8px rgba(255, 255, 255, 0.2); /* Légère ombre blanche au survol */
+  transform: translateY(-2px); /* Légère élévation */
+}
+
+.btn.skip-button:active {
+  transform: translateY(0); /* Supprime l'élévation lorsqu'on clique */
+  box-shadow: none; /* Réduit l'ombre */
+}

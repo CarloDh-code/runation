@@ -45,7 +45,7 @@ class StravaAuthController < ApplicationController
   # Callback URL for your app
   def callback_url
     if Rails.env.production?
-      "https://runation-carlodh-code-6fabe19e87af.herokuapp.com/auth/strava/callback"
+      "https://www.game-runation.fun/auth/strava/callback"
     else
       "http://localhost:3000/auth/strava/callback"
     end

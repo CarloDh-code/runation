@@ -17,15 +17,11 @@ class Player < ApplicationRecord
 
   # Si la surface totale est nulle, retourner 0
   return 0 if total_surface_in_degrees == 0
-
   # Conversion en km² en multipliant par 8547
   total_surface_in_km2 = total_surface_in_degrees * 8547
-
   # Arrondir à l'entier le plus proche (sans décimales)
   total_surface_in_km2.to_i
 end
-
-
 
   def self.total_runs(player_id)
     # Compter le nombre de runs associés à ce joueur à travers la table GamePlayerRuns
