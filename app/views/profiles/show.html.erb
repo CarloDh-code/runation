@@ -24,9 +24,7 @@
     <%= @username %>
     </h1>
     <p class="text-muted"> <%= @usermail %> <br> <% @user_real_name %> </p>
-    <p>
-      <i class="fa-solid fa-map-pin text-primary"></i> localisation
-    </p>
+
   </div>
 
   <!-- Stats section -->
@@ -40,12 +38,12 @@
       <p class="stat-label">Games won</p>
     </div>
     <div class="stat-box black">
-      <p class="stat-value">100</p>
+      <%= @player.surface_covered_in_km2 %>
       <p class="stat-label">Km² Covered</p>
     </div>
     <div class="stat-box blue">
-      <p class="stat-value"><%= @upcoming_games_count %></p>
-      <p class="stat-label">Games coming</p>
+      <p class="stat-value"><%= Player.total_runs(@player.id) %></p>
+      <p class="stat-label">Number of runs</p>
     </div>
   </div>
 </div>

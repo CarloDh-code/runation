@@ -338,6 +338,60 @@ run_blois = Run.create!(
   player: taib
 )
 
+## NEW RUNS
+
+test_greg = Run.create!(
+  name: 'test-greg',
+  start_datetime: "2024-12-09 20:00:00",
+  end_datetime: "2024-12-09 21:00:00",
+  start_lat: 48.83043048328835,
+  end_lat: 48.83043048328835,
+  start_long: 2.3517822591304025,
+  end_long: 2.3517822591304025,
+  polyline:   "k_iiHsbiMvCZTCzAXfACv@NlA\\VPd@Bn@GXLf@Er@\\TBPd@Dp@?n@Ad@QlASj@RR^PlARRPj@NL?XUN@ZNLXl@JNX^@b@Jl@b@f@CLLBJPAFJb@ZP@`@RLAVPPOVAXXfA`@l@JPJf@@j@Z|Cz@\\ZBnBZ|AGp@WpADj@D?T[VEj@^`@\\`@d@tARh@KZFh@Xn@Jb@XVK|@l@jB`A`@f@VDR`@@j@FPIbAh@h@FPLDBTYr@G^e@~@Gd@JXRJ~@J|BhA~@VjBrBf@\\p@TJRj@EXYVcANsAb@iCNs@?Qd@iBHaALaCDgAAy@RmAT}@L}CJkA?cAH{@Po@@o@ZkBVeCAg@DWLSXkBPi@?SjAcFDq@Nm@@[Jg@H}@l@sCRkAFw@`AuEN_ANsA\\oAn@{AHi@JOr@}DRg@PIb@eATu@RcAHw@d@uBRYLo@\\w@\\k@F[h@qAb@uA^uAb@cC`AgDBa@Vu@PoAn@wAl@mB^sBVi@tAkFL_@Zc@z@Y|BOXPVDTUnA?zAc@`BkBTO|BmA~Bw@NOIsAF[DEHF@MWuDHCZYHUPQRm@W]F]CYEG?MT]`ABNWeALsAuASEYYQAQU[Cm@[WCQOe@IoAq@GM[Qq@Ak@[]?_@]e@Og@A]Wm@MUOQ?USs@YoBm@k@]S]g@]i@w@iAm@e@aAM@{@w@e@GCG_@Me@i@iAm@iBQOWk@KKK_AUe@a@QCe@_@_@CSOe@S]Ay@OMOq@Sa@_@i@O[Ba@Mk@[SEMMY?WS_AUMOaASc@Q]Ye@Oq@@}@YcAC[JgAGq@Lg@^q@Vi@d@_AZ}@t@a@Li@VMXO@c@^q@Z]Ri@f@c@Z_@NSVm@Ry@l@SBk@j@i@Vw@bA}Ar@gBvA_@Fc@b@_B~@w@t@i@ZSVk@ZKNa@LYTQBs@p@iAz@c@PGNYCi@f@UZaAr@OYEAM`@{@l@q@n@WEuA|Aw@PIN{@j@S\\GBEPe@d@m@eAm@w@AO]SEWQQO]?[U]GWWM_@e@So@_AkBUWGYMKYm@a@k@Qi@W[Wi@SMMSIWGEAU[WEiA@cAD{@?}@Mw@RUEm@@gA",
+  strava_activity_id: 123165781649129,
+  player: carlos
+)
+
+
+sud_paris= Run.create!(
+  name: 'sud paris',
+  start_datetime: "2024-12-09 20:40:00",
+  end_datetime: "2024-12-09 21:03:00",
+  start_lat: 48.83043048328835,
+  end_lat: 48.83043048328835,
+  start_long: 2.3517822591304025,
+  end_long: 2.3517822591304025,
+  polyline:   "e}diHqnhM}DfH}AdCe@^qFrLaAzGEbDUdCgBtJMxBqCtNkAbEoAtG}AnGmFxXc@~CwArFuBvKUnJErI\\fAA`CT~CApBb@pFh@|v@QnCF`EzAzM~CxJ`BdC^nBhBvEZZnALXv@|Ap@\\dBz@nB|GzItKfEt@DT`Ax@JjB~B~@pBnHtI~BbFzAhCpDrCxA`ED|@d@hAxB`CnG~IPp@bFdJJn@lBdBtJfIdAVrF~Ep@`AFgASmAlBaGhMsGhBh@zAhBfBrAXbArAlAtBmKLqHNw@PMp@aBDsB`@qAb@mDl@mBl@yD|@sBPaDvBgIDs@jA{Dz@gCz@yAh@mC^q@n@gCpCsGxAwFzA}Ch@aCFqA|@mC~@kHd@y@NuCTSDoAZu@PmFn@sAHcCbAsDKm@j@{@t@gCJqAQyAn@sDFiBb@k@I_DHg@r@_AX{BXy@ZIN]W}D`@qEt@yFb@m@Tw@TqBCy@bAuDL_BAaBd@iDj@gBHo@Gg@n@}C`@iCDcBb@}Bl@cBv@wEVeF\\eBn@gBMs@bAgGFsBx@aBf@oBn@aE\\yDIsBRkBGmAHcA|@gGNm@J?P_A`@}CHcCv@_EBaAj@}CXi@JqA\\cAhAwGr@uH~@{EdAcJT_DIaFz@kGAcEaAcG@o@_@yAc@{CKcBeBgGm@iDMy@CeDHeGIcGPmDx@gCbAcA|@sBjCqDXoBAyCP_A]}Ok@cDeByE_AgIgDmNe@u@g@kC?q@a@_A{@uEo@eBm@yCq@{AsAwHg@}@iBcG]wC_@mAKeASa@a@gD[}@sEsU_DsHoAgF]e@yD}L{B{FfAnCI\\JnArCfHn@hAx@Ag@gAiA~BiBrByErEcBhCg@^eBxCcDrDk@hAyBbCg@`A}@d@kAfByB~EoEnFuE~Gq@PcCvAi@l@_B|@Mx@k@|@o@GwExGqBxCQ?y@x@Sf@q@f@Yd@a@|AwAjAm@z@uAz@k@hAIh@C~BiA|BkBbBcAdBqBtBMdBs@vBuBtAcA|@}DdG_FxI_FlGyChGaAfA[|AAl@c@FoAbIoBvHyDnQ[xBeA`DsJpLk@q@sAs@eDm@qHcDiAjGeA`Ew@hGwBnKi@jBo@tDqAhN}@tPcCxOGPuBDeAh@yBYg@xACz@F^KlBmAtDsA|FqAf@sEoBw@n@gDrN{@e@sGwF_BsCs@c@cAkA{Ay@wHsH]o@aAh@iAQeBoA}BA",
+  strava_activity_id: 123165781649129,
+  player: antoine
+)
+
+boucle_buttes= Run.create!(
+  name: 'boucle buttes',
+  start_datetime: "2024-12-09 20:07:00",
+  end_datetime: "2024-12-09 21:30:00",
+  start_lat: 48.83043048328835,
+  end_lat: 48.83043048328835,
+  start_long: 2.3517822591304025,
+  end_long: 2.3517822591304025,
+  polyline:   "ofiiHeffM]RWCYLS\\[XQ@AP]Dg@XSZm@PWTIZqAh@KH@Di@^gAXc@VMAKOwA|@{@HYRcCd@e@d@{Bp@iCYw@_@cAUoCuAmCiCGa@P_@iCiB{@aASa@SqAsAwCm@{@Sk@Gm@f@eCRe@TsAVs@dAaEn@sCo@YCOQQOo@DM\\SJa@?{@NeA?[Ie@[Em@w@]}@Gk@Sa@EYu@k@a@KYg@QOEc@H_BJa@^w@NwAG]WQy@SMY?g@Le@@uB[gBHeA@}@[eASmAHQx@Dz@`@jAVvAt@Zb@DtCXpBRJfAWPF@GZQb@Bz@YLBSt@Hr@CH^vAr@^rAi@rCQ~@}BGs@KYAgBOuAYy@?_@UaBm@eBOw@YaCEwAI{@Ok@CaBSeBCaBKmABg@CyAa@oD@m@FMEaAOkBc@yBDq@?kBMe@H_A@wAEu@@q@EyAOiBDq@?kAUkAC_@a@mMFIp@KHi@AyAFk@E}B]_DDaA@_BPuCSmDXsCVgFE_@R_F@sEHo@V[Xi@^_@x@g@b@g@`@m@Rk@HIH]UaCYc@Dc@HGAO_@}@^yCAg@]aBOUC{@d@qCD{@JYBg@NaAFgA?m@G{@a@gAHg@ZwFJy@C{@BaAXmBS}FLs@N}DXg@z@MRcAu@{C}@iCE[A_@MkA@}AE_AFy@l@kAl@aB\\i@pF{D|AiDb@k@`@KRDFLBl@Q|@I~BHzCAp@Dj@j@`BTrAPf@ZfBRn@CbGLdARj@NHZh@fArA~ClBtBd@xAp@Rv@?|@Qt@s@tA]^oA~@kAV{@AMJwBXQx@W^QFg@nAe@p@aCxESr@Br@IXg@|@uAhEL^LTUl@i@~@QdAoA~CqCxEg@|AGb@ZZPf@Bz@Ez@@t@RnBz@zE^vCl@tDj@|ALt@Bl@`@tBDp@VzAP~@Th@JlAVlAVt@Ln@R`CfAvHLRFv@n@nCb@|BXn@F\\TjBL^Lr@HdAZ|ATn@Fz@\\jANt@?b@_@lAC`@HPb@RBHv@~Ef@~DdBdJf@pB`@vBLlAd@zBJv@DxAXjB^f@jA|G^dD\\vAJ~@HjAMjC@d@Q|B@nAGbBO^[LYb@}@b@o@xA_@TOtCAfAF|CL^V@Q~A",
+  strava_activity_id: 123165781649129,
+  player: antoine
+)
+
+petit_boucle_domicile= Run.create!(
+  name: 'petit boucle à domicile',
+  start_datetime: "2024-12-09 20:10:00",
+  end_datetime: "2024-12-09 21:02:00",
+  start_lat: 48.83043048328835,
+  end_lat: 48.83043048328835,
+  start_long: 2.3517822591304025,
+  end_long: 2.3517822591304025,
+  polyline:   "yxciHkj{LWg@EC]COGu@uAG?YQYCMOCSQWAGs@k@S][UIQOSEUSYo@mDCGGAEGOOS{@C@AGMg@?OBQRYXYd@[j@m@Vm@x@qABKCOi@s@}@eAkCcE[_@gA}A[q@G_@Q_@k@q@}@qAKUSSKO[[_@y@o@aASm@iEyGc@i@O]]c@u@uA?K\\_@DMDSDg@HYTi@~@qA@MCKII]I]OE@EXG@e@WoB_AeA]cBo@w@m@i@[SSaAsASg@[c@O_@k@s@Yq@}@}AUW_@k@MYCMUy@O[w@w@e@_@Yg@k@o@eCkEQQ_@m@Ua@}AwDS]G[s@yBGGC@y@~@eBjAe@f@SFK`@?LL^Jf@`@rAj@rCjA~Cl@hAVTXd@RPz@pA\\^|@tArBfCb@`AZb@bBtBv@x@^f@Zd@tBnC`@t@\\Zd@n@RRbAzAXRNBDBVf@n@n@R`@b@f@Zt@d@b@z@rAFN|BzC`@r@h@v@`@t@HHtArBvAnBnArBP^Nl@RZb@hAX\\\\t@Vr@^|Aj@fAHJt@vAZf@Lf@\\r@FRd@n@DVZXVNNN^p@FNJr@^hA\\Xj@t@FTLRf@`@",
+  strava_activity_id: 123165781649129,
+  player: mickael
+)
 
 
 
