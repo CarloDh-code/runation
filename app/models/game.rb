@@ -23,6 +23,7 @@ class Game < ApplicationRecord
   def check_and_update_status!
     if status == "pending" && players.size == nb_of_players
       update!(status: "ongoing", start_date: Date.today, end_date: Date.today + duration.days)
+      send_notifications_to_all_players
     end
   end
 
@@ -132,4 +133,15 @@ class Game < ApplicationRecord
     location_name || "Unknown"  # Retourne "Unknown" si aucune correspondance n'est trouvée
   end
 
+  private
+
+  def send_notifications_to_all_players
+    self.players.each do |player|
+      Notification.create!(
+        title: "Game Notification",
+        player: player,
+        content: "The game #{self.name} has started"
+      )
+    end
+  end
 end
