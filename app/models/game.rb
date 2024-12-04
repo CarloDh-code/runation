@@ -143,5 +143,15 @@ class Game < ApplicationRecord
         content: "The game #{self.name} has started"
       )
     end
+
+    # if game.end_date == game.duration.days || game.status == 'finished'
+    #   self.players.each do |player|
+    #     Notification.create!(
+    #       title: "Game-end notification",
+    #       player: player,
+    #       content: "The game #{self.name} has ended, your rank is "
+    #     )
+    #   end
+    # end
   end
 end
