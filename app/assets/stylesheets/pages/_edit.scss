@@ -94,3 +94,21 @@
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
+
+/* Chat bouton close*/
+.close-button {
+  position: relative; /* Permet à l'icône d'être positionnée par rapport à ce conteneur */
+
+}
+
+.custom-close {
+  top: -18px;    /* Décale un peu du haut, ajuste la valeur selon ton besoin */
+  right: -6px;  /* Décale un peu de la droite, ajuste la valeur selon ton besoin */
+  text-decoration: none; /* Enlève le soulignement du lien */
+  color: black; /* Assure que l'icône est noire ou la couleur de ton choix */
+}
+
+.custom-close i {
+  font-size: 12px;  /* Taille de l'icône */
+}

@@ -1,9 +1,11 @@
- <div class="chat-page">
+ <div class="chat-page height">
   <div class="chat-card">
     <!-- Bouton "X" pour fermer -->
-    <div class="close-button">
-      <%= link_to "✖", game_path(@game), class: "btn-close" %>
-    </div>
+<div class="close-button position-relative">
+  <%= link_to game_path(@game), class: "custom-close position-absolute" do %>
+    <i class="fas fa-times" style="font-size: 16px;"></i>
+  <% end %>
+</div>
 
     <h2><%= @game.name %></h2>
 
@@ -24,7 +26,9 @@
 
     <!-- Formulaire d'envoi -->
     <%= turbo_frame_tag "new_comment" do %>
-      <%= render "comments/form", game: @game, comment: Comment.new %>
+      <div class="new-message-form">
+        <%= render "comments/form", game: @game, comment: Comment.new %>
+      </div>
     <% end %>
   </div>
 </div>
