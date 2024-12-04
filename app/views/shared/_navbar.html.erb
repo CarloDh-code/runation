@@ -15,17 +15,6 @@
     <% end %>
   </div>
 
-  <% if params[:controller] == "games" && params[:action] == "show" %>
-    <% current_game = Game.find_by(id: params[:id]) %>
-    <% if current_game&.status == "ongoing" || "finish" %>
-      <div class="navbar-item refresh-icon">
-        <%= link_to update_runs_game_path(current_game), data: { turbo_method: :post } do %>
-          <%= image_tag("refresh.svg", alt: "Refresh", size: "30x30") %>
-        <% end %>
-      </div>
-    <% end %>
-  <% end %>
-
   <div class="nav-logo">
     <%= link_to root_path, class: "navbar-logo" do %>
       <%= image_tag "logo_rn.svg", alt: "logo Icon", size: "40x40", class: "rounded-3" %>

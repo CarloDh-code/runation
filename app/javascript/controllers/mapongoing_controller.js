@@ -22,7 +22,7 @@ export default class extends Controller {
     const map = new mapboxgl.Map({
       container: mapId,
       center: [this.centroidValue.latitude, this.centroidValue.longitude], // Centre par défaut sur Paris
-      zoom: 12 // Niveau de zoom par défaut
+      zoom: 10 // Niveau de zoom par défaut
     });
 
     map.addControl(new mapboxgl.NavigationControl());
