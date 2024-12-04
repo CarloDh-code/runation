@@ -239,6 +239,47 @@ GamePlayer.create!(game: game_1, player: xavier)
 GamePlayer.create!(game: game_1, player: gustave)
 GamePlayer.create!(game: game_1, player: camille)
 
+
+battle_run_1_gus = Run.create!(
+  name: 'Calanques Run',
+  start_datetime: "2024-11-16 20:00:00",
+  end_datetime: "2024-11-16 21:00:00",
+  start_lat: 48.83043048328835,
+  end_lat: 48.83043048328835,
+  start_long: 2.3517822591304025,
+  end_long: 2.3517822591304025,
+  polyline:   "kqaiH_qeMg}@gDg~@qj@kMjk@yRlrA~CbpAxL|i@zw@fPba@qpB~e@}ZzIymA",
+  strava_activity_id: 123165781649128,
+  player: gustave
+)
+battle_run_1_cam = Run.create!(
+  name: 'Calanques Run',
+  start_datetime: "2024-11-16 20:00:00",
+  end_datetime: "2024-11-16 21:00:00",
+  start_lat: 48.83043048328835,
+  end_lat: 48.83043048328835,
+  start_long: 2.3517822591304025,
+  end_long: 2.3517822591304025,
+  polyline:   "}phiH_j_Mrt@}qBwhBqL|_@m|AgeAla@eUgMt@ml@eYcB`SfqAn[|cBbUdVl`A|j@",
+  strava_activity_id: 123165781649128,
+  player: camille
+)
+
+battle_run_1_taib = Run.create!(
+  name: 'Calanques Run',
+  start_datetime: "2024-11-16 22:10:00",
+  end_datetime: "2024-11-16 23:20:00",
+  start_lat: 48.83043048328835,
+  end_lat: 48.83043048328835,
+  start_long: 2.3517822591304025,
+  end_long: 2.3517822591304025,
+  polyline:   "ubaiHcnpMmpA_bBur@~]sQcm@w`@t`@jG|u@cgB|wB`j@bV|lAcu@dwA`c@`gAocB",
+  strava_activity_id: 123165781649128,
+  player: carlos
+)
+
+
+
 game_1_1 = Game.create!(
   name: "Who rules Paris?",
   map_polyline: "}|ciHmkxLaMuF_CgBz@HqFoBE_@uHeEiCs@}FuEqB]_CoBmCcBoLwGwAOk@wAyD}A}AqBuAe@gEgEe@AaNkMkI_GoBc@_H{G]VOw@qBqB{Dm@gJuK{C_FuA_FgBgKgCgC_D}DmD_GeFkKcBqFeCcEsDoJiG}LiDsImA}DeAuAsDi@mCvDu@S{AyEEgCoEgKwDuL{AwBeBuENq@}@kCiB}CcEyK^t@wDyH`AAsAeAi@G{@cCwAeKwCwDeAiJoBwFqBkHm@kEoDqJk@mDeAsBWeDRkBUuDNqBIwP_@eGXq@ByB[qCKiIFkM]aEBaEf@{Ci@eDa@eHHgITaJcAuGx@uCu@oMi@wn@o@_B@oC_@}BLkDQ{@|@s@AiM]wB\\qBOwC?}FRaHKgMSiD^uJa@_Dd@kJSwLc@qEb@{BEgB[yAO}FaAmAnAgFEoEe@_FF}Ee@qAAoAPiBFeFfCDf@|AzAo@McJ^yBn@gPnBqK|A{B|C_C`R_Dp@k@`Cd@OL~Q}ChBgAlFkAz@Np@m@nAVzAq@dEQv@{@n@P^aAfB{@dBaLv@{CbA_@vChB|AJfBgAxJoIt@cDeAeGrAkCt@qE~@kBvABxEoDlMmEjb@{BtPp@dBl@nB]]sAhCh@rDaAjAt@fMwBpGGnFgBlH@lI}AdBLpOcClIOtF_@pBf@p@t@lBExCdAxDTlA\\Xl@zJl@fBjAvGrBpBBnBpAfL`AjBf@xCxC`AXFtBbB~A`DzGdBrAn@jKzCvJ@v@rBlFn@xDjDlIpB~IJ~C~BrMfA~BnApFfLzZtAdAtApCn@jBEjAp@~@GtBvB|Q`DvF@~BzC~LfArDb@^hA|H\\\\dBxGdAlFUrAv@~BGhBr@d@~@nA@`B~AfEjAbHXvD`Ab@@dClAfBTlACjFs@|CV~Bi@vFk@zBgBjBcA`CoA~@e@~Sy@jH~CfL^|Cz@dCF~Cp@d@h@`BNlFOnI^|By@~B_Fp^{@xIi@jDkAfGGzCm@xD]XKzGe@xDDdDm@pAUbC}AxDGrA_AnCGjCiAnDSvF{@vF?vDqAdDk@xIy@xCBrDmAhBq@zG_DlQi@pJcA~Ee@v@?hCiA~FNZcBjDNzL_ApBeA`FOzDqAzEiBbN_CtI_A`GyB~GsBlDuAfHq@v@SvBNnB}BpCmHvUs@hFcAnC}@dFs@jHWZOrDk@jCIhG_EtMo@tGwAzAkAzD]vCqLvWu@`FiBfDKxD{@FM|CmAzDaAlCiAKeAlC}@QoDhCcFPmAl@",
@@ -364,6 +405,46 @@ game_4 = Game.create!(
   longitude: 3.0573
 )
 
+lille_antoine_1 = Run.create!(
+  name: 'inside loop',
+  start_datetime: "2024-10-12 18:00:00",
+  end_datetime: "2024-10-12 19:00:00",
+  start_lat: 48.83043048328835,
+  end_lat: 48.83043048328835,
+  start_long: 2.3517822591304025,
+  end_long: 2.3517822591304025,
+  polyline:   "mbatHgfsQlu@xx@dVwz@qRyx@gNoLtEp~@op@tH",
+  strava_activity_id: 123165781649128,
+  player: antoine
+)
+
+lille_mickael_1 = Run.create!(
+  name: 'inside loop',
+  start_datetime: "2024-10-12 19:00:00",
+  end_datetime: "2024-10-12 20:00:00",
+  start_lat: 48.83043048328835,
+  end_lat: 48.83043048328835,
+  start_long: 2.3517822591304025,
+  end_long: 2.3517822591304025,
+  polyline:   "s{`tHogqQlv@ho@fi@uGnO_gDmg@wgB_hBx|@eHhsBlg@~u@",
+  strava_activity_id: 123165781649128,
+  player: antoine
+)
+
+lille_paul_1 = Run.create!(
+  name: 'inside loop',
+  start_datetime: "2024-10-12 19:10:00",
+  end_datetime: "2024-10-12 20:20:00",
+  start_lat: 48.83043048328835,
+  end_lat: 48.83043048328835,
+  start_long: 2.3517822591304025,
+  end_long: 2.3517822591304025,
+  polyline:   "at}sHitsQ}BmfB{pAsW}a@~qBzdAx{Azq@wnA",
+  strava_activity_id: 123165781649128,
+  player: paul
+)
+
+
 # Association des joueurs pour le jeu 4
 GamePlayer.create!(game: game_4, player: carlos)
 GamePlayer.create!(game: game_4, player: mickael)
@@ -394,17 +475,44 @@ game_6 = Game.create!(
   name: "Rilly-sur-Loire Run 1",
   map_polyline: "oxm`H}hdEfdCajA~oCgtFxbAcrL{d@}cS_tAmrGotFcZ{lHz{AypB`yAkhB~hQzx@baM~^rrC|}BjeEh`DlbCfdDlE",
   nb_of_players: 2,
-  start_date: "2022-12-10",
-  end_date: "2024-01-15",
-  duration: 93,
+  start_date: "2022-10-10",
+  end_date: "2024-11-10",
+  duration: 30,
   status: 'finish',
   latitude: 47.3705,
   longitude: 0.8355
 )
 
+
+rilly_carlos_1 = Run.create!(
+  name: 'inside loop',
+  start_datetime: "2024-10-12 17:00:00",
+  end_datetime: "2024-10-12 18:00:00",
+  start_lat: 48.83043048328835,
+  end_lat: 48.83043048328835,
+  start_long: 2.3517822591304025,
+  end_long: 2.3517822591304025,
+  polyline:   "mot`HwcyEvuAxYgxAimFf|Bi}AqbAqiAqu@l[sxAzkA~wA`rG",
+  strava_activity_id: 123165781649128,
+  player: carlos
+)
+
+rilly_antoine_1 = Run.create!(
+  name: 'inside loop',
+  start_datetime: "2024-10-12 18:00:00",
+  end_datetime: "2024-10-12 19:00:00",
+  start_lat: 48.83043048328835,
+  end_lat: 48.83043048328835,
+  start_long: 2.3517822591304025,
+  end_long: 2.3517822591304025,
+  polyline:   "gkm`H{p~ExtAipHoR_rAw}BokAksBprDyr@bSrcFbhG",
+  strava_activity_id: 123165781649128,
+  player: antoine
+)
+
 # Association des joueurs pour le jeu 6
 GamePlayer.create!(game: game_6, player: carlos)
-GamePlayer.create!(game: game_6, player: mickael)
+GamePlayer.create!(game: game_6, player: antoine)
 
 
 
