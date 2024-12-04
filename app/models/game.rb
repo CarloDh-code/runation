@@ -20,9 +20,20 @@ class Game < ApplicationRecord
         "Rilly-sur-Loire" => "oxm`H}hdEfdCajA~oCgtFxbAcrL{d@}cS_tAmrGotFcZ{lHz{AypB`yAkhB~hQzx@baM~^rrC|}BjeEh`DlbCfdDlE"
       }
 
+  def days_left
+    if status == "ongoing"
+      (self.end_date - Date.today).to_i
+    elsif status == "pending"
+      self.duration
+    else
+      nil
+    end
+  end
+
+
   def check_and_update_status!
     if status == "pending" && players.size == nb_of_players
-      update!(status: "ongoing", start_date: Date.today, end_date: Date.today + duration.days)
+      update!(status: "ongoing", start_date: Date.today, end_date: Date.today + self.ex.days)
     end
   end
 
@@ -131,5 +142,4 @@ class Game < ApplicationRecord
     location_name = MAP_POLYLINES.key(self.map_polyline)
     location_name || "Unknown"  # Retourne "Unknown" si aucune correspondance n'est trouvée
   end
-
 end
