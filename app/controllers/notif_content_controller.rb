@@ -1,2 +1,0 @@
-class NotifContentController < ApplicationController
-end
