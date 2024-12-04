@@ -35,7 +35,7 @@ class Games::ComputeRunsLayers
       @layers << {
         coordinates: run.coordinate_layer,  # Assurez-vous que run.coordinate_layer existe
         player_id: player_id,
-        player_name: run.player.name || "Joueur inconnu",  # Nom du joueur
+        player_name: run.player.nickname || "Joueur inconnu",  # Nom du joueur
         color: color # Couleur associée
       }
     end

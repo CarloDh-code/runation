@@ -86,7 +86,7 @@ export default class extends Controller {
       map.on("click", `layer-fill-${index}`, (e) => {
         new mapboxgl.Popup()
           .setLngLat(e.lngLat)
-          .setHTML(`<strong>Player:</strong> ${playerName}`)
+          .setHTML(`<strong>Owned by</strong> ${playerName}`)
           .addTo(map);
       });
 
