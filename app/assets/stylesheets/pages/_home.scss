@@ -9,7 +9,7 @@ body {
 }
 
 .card {
-  width: 90%;
+  width: 95%;
   height: auto;
   background-color: white;
   border-radius: 12px;
@@ -116,26 +116,47 @@ body {
   display: flex;
   flex-wrap: wrap; /* Allows wrapping of items to form multiple rows */
   gap: 10px; /* Adds space between items */
-  justify-content: center; /* Centers items horizontally */
+  justify-content: space-evenly; /* Centers items horizontally */
   margin-top: 5px; /* Optional: Adjust spacing around the container */
+  flex-direction: row;
+  align-content: stretch;
+  align-items: center;
+  padding: 0px 20px;
 }
 
 .infox .truc {
   flex: 0 1 calc(50% - 10px); /* Ensures each item takes up 50% of the width minus the gap */
-  text-align: center; /* Centers the text */
+  text-align: left; /* Aligns content to the left */
 }
 
+.infox .trucpending {
+  flex: 0 1 calc(50% - 10px); /* Ensures each item takes up 50% of the width minus the gap */
+  text-align: center; /* Aligns content to the left */
+}
 .nami {
-  font-size: 12px;
+  font-size: 14px;
   margin: 0px;
   color: rgb(88, 88, 88);
 }
 
 .namip {
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: stretch;
   margin: 0px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
+  display: flex; /* Enables flex layout */
+  align-items: center; /* Vertically centers icon and text */
+  gap: 8px; /* Space between the icon and text */
 }
+
+.iconx {
+  flex-shrink: 0; /* Prevents the icon from resizing */
+  height: 20px;
+  width: 20px;
+}
+
 
 .leaderboard {
   padding: 10px;
@@ -190,18 +211,22 @@ body {
 
 
 .rankings {
-  margin-top: 10px;
+  margin: 10px;
 }
 
 .rank {
   display: flex;
   justify-content: space-between;
+  align-content: center;
   padding: 5px 10px;
   background: #f9f9f9;
   margin-bottom: 5px;
   border-radius: 5px;
-  font-size: 0.9em;
+  font-size: 16px;
   color: #555;
+  height: 44px;
+  flex-wrap: wrap;
+
 }
 
 // .rankongoing {
@@ -250,6 +275,9 @@ body {
 .rank span {
   flex: 1;
   text-align: center;
+
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .btncard {
@@ -365,21 +393,18 @@ a.game-title-link {
 }
 
 .btn.skip-button {
-  display: inline-block;
-  background-color: transparent; /* Fond transparent pour correspondre au background */
-  color: white; /* Texte en blanc */
-  font-size: 8px; /* Taille du texte */
-  font-weight: bold; /* Texte en gras */
-  padding: 10px 20px; /* Espacement interne */
-  border: 2px solid white; /* Bordure blanche pour démarquer */
-  border-radius: 25px; /* Coins arrondis */
-  text-transform: uppercase; /* Mettre le texte en majuscules */
-  text-align: center; /* Centrer le texte */
-  text-decoration: none; /* Supprime les soulignements */
-  cursor: pointer; /* Change le curseur en mode "cliquable" */
-  transition: all 0.3s ease; /* Animation fluide */
-  box-shadow: none; /* Supprime l'ombre */
-  margin-top: 30px; /* Ajoute un espacement supérieur */
+  display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 190px;
+      padding: 8px;
+      background: transparent;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      border: 2px solid white;
+      border-radius: 50px;
+      margin-bottom: 8px;
 }
 
 .btn.skip-button:hover {
@@ -391,4 +416,21 @@ a.game-title-link {
 .btn.skip-button:active {
   transform: translateY(0); /* Supprime l'élévation lorsqu'on clique */
   box-shadow: none; /* Réduit l'ombre */
+}
+
+
+button.refreshhh {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  padding: 8px;
+  background: $orangy;
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  margin-bottom: 8px;
+
 }

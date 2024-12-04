@@ -66,9 +66,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
-  color: white;
-  font-size: 1.2em;
+  border-radius: 50px;
+  color: rgb(236, 236, 236);
+  font-size: 28px;
 }
 
 .stat-value {
@@ -81,19 +81,25 @@
   font-size: 16px;
 }
 .red {
-  background-color: $blouclaire;
+  background-color: #00163e;
 }
 .orange {
-  background-color: $orangy;
+  background-color: #002d80 ;
 }
 .black {
-  background-color: #333333;
+  background-color: #0053eb;
 }
 .blue {
-  background-color: $blou;
+  background-color: #3f77dd;
 }
 
 .rounded-circle {
   height: 100px;
   width: 100px;
+}
+
+
+.iconx {
+  height: 30px;
+  width: 30px;
 }
