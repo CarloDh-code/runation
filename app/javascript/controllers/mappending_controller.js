@@ -21,7 +21,7 @@ export default class extends Controller {
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v10",
       center: [centroid.latitude, centroid.longitude], // Inverser la latitude et la longitude ici
-      zoom: 11
+      zoom: 10
     });
 
     // Lorsque la carte est chargée, ajoutez les sources et le polygone

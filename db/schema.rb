@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_03_161215) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_03_145712) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -68,8 +68,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_03_161215) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "score"
-    t.integer "nb_territory_conquered", default: 0
-    t.float "total_gained_area", default: 0.0
     t.index ["game_id"], name: "index_game_players_on_game_id"
     t.index ["player_id"], name: "index_game_players_on_player_id"
   end

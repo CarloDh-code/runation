@@ -38,7 +38,7 @@ form {
   border-color: $blou; /* Bootstrap primary color */
   outline: none; /* Remove default outline */
   box-shadow: 0 0 4px rgba(0, 45, 128, 0.5); /* Subtle glow effect */
-  background-color: rgb(199, 248, 255)
+  background-color: rgba(72, 139, 255, 0.342);
 }
 
 /* Buttons */
@@ -78,7 +78,7 @@ form {
   border-color: $blou;
   outline: none;
   box-shadow: 0 0 4px rgba(0, 45, 128, 0.5); /* Subtle glow effect */
-  background-color: rgb(199, 248, 255);
+  background-color: rgba(72, 139, 255, 0.342);
 }
 
 /* Optional: Custom styling for the dropdown's arrow */
