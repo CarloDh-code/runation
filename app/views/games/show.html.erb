@@ -13,22 +13,22 @@
     </div>
     <div class="details">
       <div class="infox">
-        <div class="truc">
+        <div class="trucpending">
           <p class="nami">Number of players</p>
           <p class="namip"><%= @game.players.count %> / <%= @game.nb_of_players %> </p>
         </div>
 
-        <div class="truc">
+        <div class="trucpending">
           <p class="nami">Map size</p>
           <p class="namip"><%= @game.surface_in_km2 %> km²</p>
         </div>
 
-        <div class="truc">
+        <div class="trucpending">
           <p class="nami">Duration</p>
           <p class="namip"><%= @game.duration %> days</p>
         </div>
 
-        <div class="truc">
+        <div class="trucpending">
           <p class="nami">Status</p>
           <p class="namip">Pending</p>
         </div>
@@ -44,7 +44,7 @@
               <% if @game_players[i] %> <!-- Si un joueur est inscrit à cette position -->
                 <%= @game_players[i].player.nickname %> <!-- Affiche son pseudo -->
               <% else %>
-                Player <%= i + 1 %> <!-- Sinon, affiche un pseudo générique -->
+                Player <%= i + 1 %></span> <!-- Sinon, affiche un pseudo générique -->
               <% end %>
             </span>
             <span>0 runs</span> <!-- Nombre de runs à 0 -->
@@ -77,45 +77,27 @@
     <div class="details">
       <div class="infox">
         <div class="truc">
-          <p class="nami">Players</p>
-          <p class="namip"><%= @game.nb_of_players %> </p>
+
+          <p class="namip"><img src="/images/players.svg" alt="User Icon" class="iconx"><%= @game.nb_of_players %> </p>
         </div>
 
         <div class="truc">
-          <p class="nami">Surface covered</p>
-          <p class="namip"><%= @game.covered_surface_percentage %> %</p>
+
+          <p class="namip"><img src="/images/players.svg" alt="User Icon" class="iconx"><%= @game.covered_surface_percentage %> %</p>
         </div>
 
         <div class="truc">
-          <p class="nami">Time left</p>
-          <p class="namip"><%= (@game.end_date - Date.today).to_i %> days</p>
+
+          <p class="namip"><img src="/images/sablier.svg" alt="User Icon" class="iconx"><%= (@game.end_date - Date.today).to_i %> days</p>
         </div>
 
         <div class="truc">
-          <p class="nami">Number of runs</p>
-          <p class="namip"><%= Game.total_runs(@game.id) %> </p>
+
+          <p class="namip"><img src="/images/your_runs.svg" alt="User Icon" class="iconx"> <%= Game.total_runs(@game.id) %> </p>
         </div>
       </div>
     </div>
 
-    <div class="player-icons">
-      <% top_players = @game_players.take(3) %> <!-- Prendre les 3 premiers joueurs -->
-
-      <div class="player second">
-        <img src="/images/avatar1.svg" alt="avatar" class="playerimgsecond">
-        <span><%= top_players[1]&.player&.nickname || 'No nickname' %></span>
-      </div>
-
-      <div class="player first">
-        <img src="/images/avatar1.svg" alt="avatar" class="playerimgfirst">
-        <span><%= top_players[0]&.player&.nickname || 'No nickname' %></span>
-      </div>
-
-      <div class="player third">
-        <img src="/images/avatar1.svg" alt="avatar" class="playerimgthird">
-        <span><%= top_players[2]&.player&.nickname || 'No nickname' %></span>
-      </div>
-    </div>
 
     <div class="rankings">
       <% @game_players.each_with_index do |game_player, index| %>
@@ -131,6 +113,7 @@
         </div>
       <% end %>
     </div>
+    <%= button_to "IMPORT YOUR RUNS", update_runs_game_path(@game), data: { turbo_method: :post }, class: "refreshhh" %>
   </div>
 <% end %>
 
