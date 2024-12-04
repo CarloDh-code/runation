@@ -21,6 +21,7 @@
 .notif-icon {
   display: flex;
   align-items: center;
+  position: relative;
 
   img {
     margin-left: 10px; /* Espace pour séparer les icônes */
@@ -29,4 +30,26 @@
 
 .refresh-icon {
   margin-left: 10px;
+}
+
+
+
+#notification-badge {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  transform: translate(50%, -50%);
+  background-color: #F5564E;
+  color: white;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 18px;
+  border-radius: 50%;
+  border: 2px solid white;
+  display: flex;
+  align-items: center; /* Centre verticalement */
+  justify-content: center; /* Centre horizontalement */
+  text-align: center;
 }

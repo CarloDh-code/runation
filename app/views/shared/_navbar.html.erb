@@ -40,9 +40,15 @@
     </div>
   <% end %>
 
-  <div class="notif-icon">
-    <%= link_to notifications_path,  class: "nav-link" do %>
+  <div class="notif-icon position-relative">
+    <%= link_to notifications_path, class: "nav-link" do %>
       <%= image_tag("notif.svg", alt: "Notif Icon", size: "30x30") %>
+    <% end %>
+
+    <% if current_player && current_player.notifications.count > 0 %>
+      <span id="notification-badge" class="badge badge-danger position-absolute">
+        <%= current_player.notifications.count %>
+      </span>
     <% end %>
   </div>
 </nav>

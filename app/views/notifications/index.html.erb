@@ -17,7 +17,7 @@
           </div>
           <!-- Action Section -->
           <div class="ms-auto h-5 w-5">
-              <%= link_to notification_path(notification), data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr ?" } do %>
+              <%= link_to notification_path(notification), data: { turbo_method: :delete} do %>
                 <i class="fas fa-times" style="font-size: 26px;"></i>
               <% end %>
           </div>
