@@ -2,9 +2,14 @@
 .chat-page {
   display: flex;
   justify-content: center;
+  align-items: center; /* Centre la carte verticalement */
   padding: 20px;
+  min-height: 100vh;
+  flex-direction: column; /* Permet de superposer les éléments */
+  position: relative; /* Permet à l'élément fixe de ne pas affecter la structure */
 }
 
+/* Conteneur de la carte du chat */
 .chat-card {
   width: 80%;
   max-width: 600px;
@@ -12,13 +17,15 @@
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  flex-grow: 1; /* Permet à la carte de prendre tout l'espace disponible sauf pour le formulaire */
+  margin-bottom: 60px; /* Garder un espace pour le formulaire */
 }
 
 /* Conteneur des messages */
 #messages {
   max-height: 400px;
   overflow-y: auto;
-  margin-bottom: 20px;
+  margin-bottom: 60px; /* Laisse de l'espace pour le formulaire */
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -61,10 +68,19 @@
   margin-bottom: 5px;
 }
 
-/* Zone du formulaire d'envoi */
+/* Zone du formulaire d'envoi - Fixer en bas */
 form.new-comment {
   display: flex;
   gap: 10px;
+  position: fixed;
+  bottom: 20px; /* Espace depuis le bas de l'écran */
+  left: 20px; /* Espacement sur la gauche */
+  width: calc(100% - 40px); /* Occupe toute la largeur avec des marges */
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Ombre pour un peu de séparation */
+  z-index: 1000; /* Assure que le formulaire soit au-dessus du contenu */
 }
 
 form.new-comment input {
@@ -83,3 +99,5 @@ form.new-comment button {
   color: white;
   font-weight: bold;
 }
+
+
