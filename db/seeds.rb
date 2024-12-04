@@ -300,7 +300,7 @@ marseille_carlos_1 = Run.create!(
   end_lat: 48.83043048328835,
   start_long: 2.3517822591304025,
   end_long: 2.3517822591304025,
-  polyline:   "mr~_@yhcgGqsAunBji@i`AjcBidAloCpZ`h@r|@guAnOvElf@v`CpKzZdn@wkBjdAatE}Z",
+  polyline:   "ucdgGmbv_@`bAsjBjyBik@leCdsA`u@quE{KgfFqaCitAhOluGy{BeaBgvA{Q}n@|}BoQ|sCtZr`D",
   strava_activity_id: 123165781649128,
   player: carlos
 )
@@ -313,7 +313,7 @@ marseille_anto_1 = Run.create!(
   end_lat: 48.83043048328835,
   start_long: 2.3517822591304025,
   end_long: 2.3517822591304025,
-  polyline:   "aye`@icfgGgfAcl@qLe{@hq@ew@fhA}ZxtCh]rbD`f@|k@pa@ekFyk@|uAnmAqb@xr@isE?",
+  polyline:   "azigGgay_@_rA}DijAzP_g@qtArE}w@aAghAyb@dzAhU~nCzgAvm@ls@m^xk@qa@bd@cK",
   strava_activity_id: 123165781649128,
   player: antoine
 )
@@ -326,11 +326,23 @@ marseille_taib_1 = Run.create!(
   end_lat: 48.83043048328835,
   start_long: 2.3517822591304025,
   end_long: 2.3517822591304025,
-  polyline:   "mbv_@ucdgGsjB`bAik@jyBdsAleCquE`u@gfF{KitAqaCluGhOeaBy{B{QgvA|}B}n@|sCoQr`DtZ",
+  polyline:   "iwhgGk~~_@iL}kAuEsg@sh@pIog@nFkZ?xSra@hYdc@jM~lCfAppB~aA}Xg@}gE",
   strava_activity_id: 123165781649128,
   player: taib
 )
 
+marseille_micka_1 = Run.create!(
+  name: 'Calanques Run',
+  start_datetime: "2024-11-09 20:00:00",
+  end_datetime: "2024-11-09 21:00:00",
+  start_lat: 48.83043048328835,
+  end_lat: 48.83043048328835,
+  start_long: 2.3517822591304025,
+  end_long: 2.3517822591304025,
+  polyline:   "wadgGu`{_@t`@t]~oAaDhnAoxAcSsgB}kBkN_dAtgA`CdnB",
+  strava_activity_id: 123165781649128,
+  player: mickael
+)
 
 # Association des joueurs pour le jeu 3
 GamePlayer.create!(game: game_3, player: carlos)
