@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_03_145712) do
+
+ActiveRecord::Schema[7.1].define(version: 2024_12_02_140839) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -86,13 +88,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_03_145712) do
     t.integer "duration"
   end
 
-  create_table "notif_contents", force: :cascade do |t|
-    t.bigint "notification_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["notification_id"], name: "index_notif_contents_on_notification_id"
-  end
-
   create_table "notifications", force: :cascade do |t|
     t.string "title", null: false
     t.text "content"
@@ -145,7 +140,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_03_145712) do
   add_foreign_key "game_player_runs", "runs"
   add_foreign_key "game_players", "games"
   add_foreign_key "game_players", "players"
-  add_foreign_key "notif_contents", "notifications"
   add_foreign_key "notifications", "players"
   add_foreign_key "runs", "players"
 end
