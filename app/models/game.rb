@@ -34,6 +34,7 @@ class Game < ApplicationRecord
   def check_and_update_status!
     if status == "pending" && players.size == nb_of_players
       update!(status: "ongoing", start_date: Date.today, end_date: Date.today + self.duration)
+      send_notifications_to_all_players
     end
   end
 
@@ -141,5 +142,27 @@ class Game < ApplicationRecord
   def location
     location_name = MAP_POLYLINES.key(self.map_polyline)
     location_name || "Unknown"  # Retourne "Unknown" si aucune correspondance n'est trouvée
+  end
+
+  private
+
+  def send_notifications_to_all_players
+    self.players.each do |player|
+      Notification.create!(
+        title: "Game Notification",
+        player: player,
+        content: "The game #{self.name} has started"
+      )
+    end
+
+    # if game.end_date == game.duration.days || game.status == 'finished'
+    #   self.players.each do |player|
+    #     Notification.create!(
+    #       title: "Game-end notification",
+    #       player: player,
+    #       content: "The game #{self.name} has ended, your rank is "
+    #     )
+    #   end
+    # end
   end
 end

@@ -11,20 +11,20 @@ class GamePlayer < ApplicationRecord
 
 
   def update_ranking
-    
+
   end
 
   private
 
-  def notification_message
-    if @current_player.game.include?
-      Notification.create!(
-        player: game_player_run.player,
-        content: "Vous avez été ajouté à la partie '#{game.name}' par #{game_player.player_id}"
-      )
-    end
-    Notification.save
-  end
+  # def notification_message
+  #   if @current_player.game.include?
+  #     Notification.create!(
+  #       player: game_player_run.player,
+  #       content: "Vous avez été ajouté à la partie '#{game.name}' par #{game_player.player_id}"
+  #     )
+  #   end
+  #   Notification.save
+  # end
 
   def check_game_status
     game.check_and_update_status!
