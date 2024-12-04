@@ -364,6 +364,32 @@ game_4 = Game.create!(
   longitude: 3.0573
 )
 
+lille_micka_1 = Run.create!(
+  name: 'Calanques Run',
+  start_datetime: "2024-11-09 20:00:00",
+  end_datetime: "2024-11-09 21:00:00",
+  start_lat: 48.83043048328835,
+  end_lat: 48.83043048328835,
+  start_long: 2.3517822591304025,
+  end_long: 2.3517822591304025,
+  polyline:   "at}sHitsQ}BmfB{pAsW}a@~qBzdAx{Azq@wnA",
+  strava_activity_id: 123165781649128,
+  player: antoine
+)
+lille_taib_1 = Run.create!(
+  name: 'Calanques Run',
+  start_datetime: "2024-11-09 20:00:00",
+  end_datetime: "2024-11-09 21:00:00",
+  start_lat: 48.83043048328835,
+  end_lat: 48.83043048328835,
+  start_long: 2.3517822591304025,
+  end_long: 2.3517822591304025,
+  polyline:   "og~sHgtqQlSabDol@}Xsz@jLcv@tl@e@v_B~c@zs@jx@b`@rm@ys@",
+  strava_activity_id: 123165781649128,
+  player: antoine
+)
+
+
 # Association des joueurs pour le jeu 4
 GamePlayer.create!(game: game_4, player: carlos)
 GamePlayer.create!(game: game_4, player: mickael)
