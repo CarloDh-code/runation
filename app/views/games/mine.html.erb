@@ -39,11 +39,11 @@
         </div>
         <% if game.duration.present? %>
           <div>
-            <img src="/images/sablier.svg" alt="Timer Icon" class="icon"> <span><%= game.duration %> days</span>
+            <img src="/images/sablier.svg" alt="Timer Icon" class="icon"> <span><%= (game.end_date - Date.today).to_i %>  days</span>
           </div>
         <% else %>
           <div>
-            <img src="/images/msg.svg" alt="Timer Icon" class="icon"> <span>Duration unknown</span>
+            <img src="/images/sablier.svg" alt="Timer Icon" class="icon"> <span>Duration unknown</span>
           </div>
         <% end %>
       </div>
@@ -99,7 +99,7 @@
           </div>
         <% else %>
           <div>
-            <img src="/images/msg.svg" alt="Timer Icon" class="icon"> <span>Duration unknown</span>
+            <img src="/images/sablier.svg" alt="Timer Icon" class="icon"> <span>Duration unknown</span>
           </div>
         <% end %>
       </div> <!-- Fermeture de .status -->
@@ -138,7 +138,7 @@
           </div>
         <% else %>
           <div>
-            <img src="/images/msg.svg" alt="Timer Icon" class="icon"> <span>Duration unknown</span>
+            <img src="/images/sablier.svg" alt="Timer Icon" class="icon"> <span>Duration unknown</span>
           </div>
         <% end %>
       </div>

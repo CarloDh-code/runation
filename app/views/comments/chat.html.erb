@@ -1,12 +1,11 @@
-<div class="chat-page">
+ <div class="chat-page">
   <div class="chat-card">
     <!-- Bouton "X" pour fermer -->
     <div class="close-button">
       <%= link_to "✖", game_path(@game), class: "btn-close" %>
     </div>
 
-    <!-- Titre du chat -->
-    <h2>Chat for <%= @game.name %></h2>
+    <h2><%= @game.name %></h2>
 
     <!-- Messages -->
     <div id="messages">

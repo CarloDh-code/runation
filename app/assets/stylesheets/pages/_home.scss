@@ -134,7 +134,7 @@ body {
   text-align: center; /* Aligns content to the left */
 }
 .nami {
-  font-size: 12px;
+  font-size: 14px;
   margin: 0px;
   color: rgb(88, 88, 88);
 }
@@ -222,10 +222,11 @@ body {
   background: #f9f9f9;
   margin-bottom: 5px;
   border-radius: 5px;
-  font-size: 0.9em;
+  font-size: 16px;
   color: #555;
   height: 44px;
   flex-wrap: wrap;
+
 }
 
 // .rankongoing {
@@ -274,6 +275,7 @@ body {
 .rank span {
   flex: 1;
   text-align: center;
+
   font-size: 16px;
   font-weight: bold;
 }
