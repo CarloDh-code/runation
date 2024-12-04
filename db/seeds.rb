@@ -355,7 +355,7 @@ GamePlayer.create!(game: game_3, player: paul)
 game_4 = Game.create!(
   name: "Courir se mettre au chaud",
   map_polyline: "qu~sH{dnQnm@eeBrEerB?kjByk@gf@maAsAkuAvp@}WdgC|\\jlCnjChf@",
-  nb_of_players: 6,
+  nb_of_players: 3,
   start_date: "2024-08-01",
   end_date: "2024-11-20",
   duration: 109,
@@ -364,7 +364,7 @@ game_4 = Game.create!(
   longitude: 3.0573
 )
 
-lille_micka_1 = Run.create!(
+lille_ant_1 = Run.create!(
   name: 'Calanques Run',
   start_datetime: "2024-11-09 20:00:00",
   end_datetime: "2024-11-09 21:00:00",
@@ -376,8 +376,8 @@ lille_micka_1 = Run.create!(
   strava_activity_id: 123165781649128,
   player: antoine
 )
-lille_taib_1 = Run.create!(
-  name: 'Calanques Run',
+lille_mick_1 = Run.create!(
+  name: 'Training Lille',
   start_datetime: "2024-11-09 20:00:00",
   end_datetime: "2024-11-09 21:00:00",
   start_lat: 48.83043048328835,
@@ -386,7 +386,20 @@ lille_taib_1 = Run.create!(
   end_long: 2.3517822591304025,
   polyline:   "og~sHgtqQlSabDol@}Xsz@jLcv@tl@e@v_B~c@zs@jx@b`@rm@ys@",
   strava_activity_id: 123165781649128,
-  player: antoine
+  player: mickael
+)
+
+lille_karl_1 = Run.create!(
+  name: 'Petit EF Run',
+  start_datetime: "2024-11-09 20:20:00",
+  end_datetime: "2024-11-09 21:10:00",
+  start_lat: 48.83043048328835,
+  end_lat: 48.83043048328835,
+  start_long: 2.3517822591304025,
+  end_long: 2.3517822591304025,
+  polyline:   "ye~sHgipQ`P}PkJ}a@si@uReQcXqXwI|BydAwf@_Q{ZzY}Frd@|Jrm@xIwI~[wIvI|{@x^jUp\\?l[hV",
+  strava_activity_id: 1231657816491238,
+  player: carlos
 )
 
 
@@ -394,9 +407,7 @@ lille_taib_1 = Run.create!(
 GamePlayer.create!(game: game_4, player: carlos)
 GamePlayer.create!(game: game_4, player: mickael)
 GamePlayer.create!(game: game_4, player: antoine)
-GamePlayer.create!(game: game_4, player: taib)
-GamePlayer.create!(game: game_4, player: paul)
-GamePlayer.create!(game: game_4, player: xavier)
+
 
 # Jeu 5 : Toulouse
 game_5 = Game.create!(

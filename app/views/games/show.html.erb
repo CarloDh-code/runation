@@ -108,12 +108,16 @@
         <div class="rank <%= 'player first' if index == 0 %>" style="background-color: <%= player_color %>; color: <%= text_color %>;">
           <span><%= index + 1 %></span> <!-- Affiche le classement (1, 2, 3, ...) -->
           <span><%= game_player.player.nickname || 'No nickname' %></span> <!-- Affiche le nickname ou "No nickname" -->
+          <% if game_player.game_player_runs.count > 1  %>
           <span><%= game_player.game_player_runs.count %> runs</span> <!-- Affiche le nombre de runs du joueur -->
+          <% else %>
+          <span><%= game_player.game_player_runs.count %> run</span>
+          <% end %>
           <span><%= ((game_player.score.to_f / @game.surface.to_f) * 100).round %>%</span> <!-- Affiche le score divisé par la surface -->
         </div>
       <% end %>
     </div>
-    <%= button_to "IMPORT YOUR RUNS", update_runs_game_path(@game), data: { turbo_method: :post }, class: "refreshhh" %>
+    <%= button_to "IMPORT RUNS", update_runs_game_path(@game), data: { turbo_method: :post }, class: "refreshhh" %>
   </div>
 <% end %>
 
@@ -145,7 +149,7 @@
 
         <div class="truc">
 
-          <p class="namip"><img src="/images/sablier.svg" alt="User Icon" class="iconx"><%= (@game.end_date - Date.today).to_i %> days</p>
+          <p class="namip"><img src="/images/sablier.svg" alt="User Icon" class="iconx"><%= @game.duration %> days</p>
         </div>
 
         <div class="truc">
@@ -184,12 +188,16 @@
           <div class="rank <%= 'player first' if index == 0 %>" style="background-color: <%= player_color %>; color: <%= text_color %>;">
             <span><%= index + 1 %></span> <!-- Affiche le classement (1, 2, 3, ...) -->
             <span><%= game_player.player.nickname || 'No nickname' %></span> <!-- Affiche le nickname ou "No nickname" -->
-            <span><%= game_player.game_player_runs.count %> runs</span> <!-- Affiche le nombre de runs du joueur -->
+            <% if game_player.game_player_runs.count > 1  %>
+              <span><%= game_player.game_player_runs.count %> runs</span> <!-- Affiche le nombre de runs du joueur -->
+            <% else %>
+              <span><%= game_player.game_player_runs.count %> run</span>
+            <% end %>
             <span><%= ((game_player.score.to_f / @game.surface.to_f) * 100).round %>%</span> <!-- Affiche le score divisé par la surface -->
           </div>
         <% end %>
       </div>
     </div>
-    <%= button_to "IMPORT YOUR RUNS", update_runs_game_path(@game), data: { turbo_method: :post }, class: "refreshhh" %>
+    <%= button_to "IMPORT RUNS", update_runs_game_path(@game), data: { turbo_method: :post }, class: "refreshhh" %>
   </div>
 <% end %>
