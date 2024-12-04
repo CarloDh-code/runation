@@ -132,25 +132,25 @@
       </div>
     </div>
     <div class="details">
-      <div class="infox">
+        <div class="infox">
         <div class="truc">
-          <p class="nami">Players</p>
-          <p class="namip"><%= @game.nb_of_players %></p>
+
+          <p class="namip"><img src="/images/players.svg" alt="User Icon" class="iconx"><%= @game.nb_of_players %> </p>
         </div>
 
         <div class="truc">
-          <p class="nami">Surface covered</p>
-          <p class="namip"><%= @game.covered_surface_percentage %> %</p>
+
+          <p class="namip"><img src="/images/pacman.svg" alt="User Icon" class="iconx"><%= @game.covered_surface_percentage %> %</p>
         </div>
 
         <div class="truc">
-          <p class="nami">Finished</p>
-          <p class="namip"><%= -((Date.today - @game.end_date)).to_i %> days ago</p>
+
+          <p class="namip"><img src="/images/sablier.svg" alt="User Icon" class="iconx"><%= (@game.end_date - Date.today).to_i %> days</p>
         </div>
 
         <div class="truc">
-          <p class="nami">Number of runs</p>
-          <p class="namip"><%= Game.total_runs(@game.id) %> </p>
+
+          <p class="namip"><img src="/images/your_runs.svg" alt="User Icon" class="iconx"> <%= Game.total_runs(@game.id) %> </p>
         </div>
       </div>
     </div>
@@ -190,6 +190,5 @@
         <% end %>
       </div>
     </div>
-     <%= button_to "IMPORT YOUR RUNS", update_runs_game_path(@game), data: { turbo_method: :post }, class: "refreshhh" %>
   </div>
 <% end %>
