@@ -33,12 +33,8 @@ class Game < ApplicationRecord
 
   def check_and_update_status!
     if status == "pending" && players.size == nb_of_players
-<<<<<<< HEAD
-      update!(status: "ongoing", start_date: Date.today, end_date: Date.today + duration.days)
-      send_notifications_to_all_players
-=======
       update!(status: "ongoing", start_date: Date.today, end_date: Date.today + self.duration)
->>>>>>> master
+      send_notifications_to_all_players
     end
   end
 
@@ -147,7 +143,6 @@ class Game < ApplicationRecord
     location_name = MAP_POLYLINES.key(self.map_polyline)
     location_name || "Unknown"  # Retourne "Unknown" si aucune correspondance n'est trouvée
   end
-<<<<<<< HEAD
 
   private
 
@@ -170,6 +165,4 @@ class Game < ApplicationRecord
     #   end
     # end
   end
-=======
->>>>>>> master
 end
