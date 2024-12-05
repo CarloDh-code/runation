@@ -631,7 +631,7 @@ run_seven = Run.create!(
 run_wagon_xav_1 = Run.create!(
   name: 'run seven',
   start_datetime: "2024-12-02 14:00:00",
-  end_datetime: "2024-12-02 15:00:00",
+  end_datetime: "2024-12-02r 15:00:00",
   start_lat: 48.87619586661458,
   end_lat: 48.876970605924726,
   start_long: 2.332328511402011,
