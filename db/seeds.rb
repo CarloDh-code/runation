@@ -630,8 +630,8 @@ run_seven = Run.create!(
 
 run_wagon_xav_1 = Run.create!(
   name: 'run seven',
-  start_datetime: "2024-12-09 14:00:00",
-  end_datetime: "2024-12-09 15:00:00",
+  start_datetime: "2024-12-02 14:00:00",
+  end_datetime: "2024-12-02 15:00:00",
   start_lat: 48.87619586661458,
   end_lat: 48.876970605924726,
   start_long: 2.332328511402011,
@@ -700,8 +700,8 @@ essai_sud = Run.create!(
 
 inside_loop = Run.create!(
   name: 'inside loop',
-  start_datetime: "2024-12-09 17:00:00",
-  end_datetime: "2024-12-09 18:00:00",
+  start_datetime: "2024-12-01 17:00:00",
+  end_datetime: "2024-12-01 18:00:00",
   start_lat: 48.83043048328835,
   end_lat: 48.83043048328835,
   start_long: 2.3517822591304025,
