@@ -163,9 +163,9 @@
     <!-- Joueur en deuxième position -->
     <div class="player second">
       <% if top_players[1]&.player&.photo&.attached? %>
-        <%= image_tag top_players[1].player.photo, alt: "avatar", class: "playerimgsecond" %>
+        <%= cl_image_tag top_players[1].player.photo.key, alt: "avatar", class: "playerimgsecond" %>
       <% else %>
-        <%= image_tag "/images/avatar1.svg", alt: "avatar", class: "playerimgsecond" %>
+        <%= cl_image_tag "/images/avatar1.svg", alt: "avatar", class: "playerimgsecond" %>
       <% end %>
       <span><%= top_players[1]&.player&.nickname || 'No nickname' %></span>
     </div>
@@ -173,9 +173,9 @@
     <!-- Joueur en première position -->
     <div class="player first">
       <% if top_players[0]&.player&.photo&.attached? %>
-        <%= image_tag top_players[0].player.photo, alt: "avatar", class: "playerimgfirst" %>
+        <%= cl_image_tag top_players[0].player.photo.key, alt: "avatar", class: "playerimgfirst" %>
       <% else %>
-        <%= image_tag "/images/avatar1.svg", alt: "avatar", class: "playerimgfirst" %>
+        <%= cl_image_tag "/images/avatar1.svg", alt: "avatar", class: "playerimgfirst" %>
       <% end %>
       <span><%= top_players[0]&.player&.nickname || 'No nickname' %></span>
     </div>
@@ -183,9 +183,9 @@
     <!-- Joueur en troisième position -->
     <div class="player third">
       <% if top_players[2]&.player&.photo&.attached? %>
-        <%= image_tag top_players[2].player.photo, alt: "avatar", class: "playerimgthird" %>
+        <%= cl_image_tag top_players[2].player.photo.key, alt: "avatar", class: "playerimgthird" %>
       <% else %>
-        <%= image_tag "/images/avatar1.svg", alt: "avatar", class: "playerimgthird" %>
+        <%= cl_image_tag "/images/avatar1.svg", alt: "avatar", class: "playerimgthird" %>
       <% end %>
       <span><%= top_players[2]&.player&.nickname || 'No nickname' %></span>
     </div>
