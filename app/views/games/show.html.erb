@@ -12,26 +12,23 @@
       </div>
     </div>
     <div class="details">
-      <div class="infox">
-        <div class="trucpending">
-          <p class="nami">Number of players</p>
-          <p class="namip"><%= @game.players.count %> / <%= @game.nb_of_players %> </p>
+
+    <div class="infox">
+        <div class="truc">
+
+          <p class="namip"><img src="/images/players.svg" alt="User Icon" class="iconx"><%= @game.players.count %> / <%= @game.nb_of_players %> </p>
         </div>
 
-        <div class="trucpending">
-          <p class="nami">Map size</p>
-          <p class="namip"><%= @game.surface_in_km2 %> km²</p>
+        <div class="truc">
+
+          <p class="namip"><img src="/images/pacman.svg" alt="User Icon" class="iconx"><%= @game.surface_in_km2 %> km²</p>
         </div>
 
-        <div class="trucpending">
-          <p class="nami">Duration</p>
-          <p class="namip"><%= @game.duration %> days</p>
+        <div class="truc">
+
+          <p class="namip"><img src="/images/sablier.svg" alt="User Icon" class="iconx"><%= @game.duration %> d</p>
         </div>
 
-        <div class="trucpending">
-          <p class="nami">Status</p>
-          <p class="namip">Pending</p>
-        </div>
       </div>
     </div>
 
@@ -89,7 +86,7 @@
 
         <div class="truc">
 
-          <p class="namip"><img src="/images/sablier.svg" alt="User Icon" class="iconx"><%= (@game.end_date - Date.today).to_i %> days</p>
+          <p class="namip"><img src="/images/sablier.svg" alt="User Icon" class="iconx"><%= (@game.end_date - Date.today).to_i %> d</p>
         </div>
 
         <div class="truc">

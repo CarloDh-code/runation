@@ -195,23 +195,23 @@ gp4 = GamePlayer.create!(game: le_wagon_run, player: antoine, ranking: 4)
 
 puts "#{Game.count} jeux créés !"
 
-# Jeu a 4 joueurs sur 5 à join pendant la demo
-gp1 = GamePlayer.create!(game: panam_running , player: antoine, ranking: 1)
-gp2 = GamePlayer.create!(game: panam_running , player: mickael, ranking: 2)
-gp3 = GamePlayer.create!(game: panam_running , player: xavier, ranking: 3)
-gp4 = GamePlayer.create!(game: panam_running , player: paul, ranking: 4)
+# # Jeu a 4 joueurs sur 5 à join pendant la demo
+# gp1 = GamePlayer.create!(game: panam_running , player: antoine, ranking: 1)
+# gp2 = GamePlayer.create!(game: panam_running , player: mickael, ranking: 2)
+# gp3 = GamePlayer.create!(game: panam_running , player: xavier, ranking: 3)
+# gp4 = GamePlayer.create!(game: panam_running , player: paul, ranking: 4)
 
 
-# Autres jeux
-gp5 = GamePlayer.create!(game: city_marathon, player: antoine, ranking: 1)
-gp6 = GamePlayer.create!(game: city_marathon, player: mickael, ranking: 2)
-gp7 = GamePlayer.create!(game: city_marathon, player: xavier, ranking: 3)
-gp9 = GamePlayer.create!(game: city_marathon, player: paul, ranking: 4)
+# # Autres jeux
+# gp5 = GamePlayer.create!(game: city_marathon, player: antoine, ranking: 1)
+# gp6 = GamePlayer.create!(game: city_marathon, player: mickael, ranking: 2)
+# gp7 = GamePlayer.create!(game: city_marathon, player: xavier, ranking: 3)
+# gp9 = GamePlayer.create!(game: city_marathon, player: paul, ranking: 4)
 
-gp10 = GamePlayer.create!(game: beach_running , player: taib, ranking: 1)
+# gp10 = GamePlayer.create!(game: beach_running , player: taib, ranking: 1)
 
-gp11 = GamePlayer.create!(game: antourun , player: antoine, ranking: 1)
-gp12 = GamePlayer.create!(game: antourun , player: carlos, ranking: 1)
+# gp11 = GamePlayer.create!(game: antourun , player: antoine, ranking: 1)
+# gp12 = GamePlayer.create!(game: antourun , player: carlos, ranking: 1)
 
 
 

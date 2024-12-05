@@ -24,6 +24,12 @@
           <%= image_tag("msg.svg", alt: "msg Icon", size: "30x30") %>
         <% end %>
       </div>
+      <% else %>
+       <div class="chat-icon d-none">
+        <%= link_to chat_game_comments_path(current_game), class: "nav-link" do %>
+          <%= image_tag("msg.svg", alt: "msg Icon", size: "30x30") %>
+        <% end %>
+      </div>
     <% end %>
   <% end %>
 
