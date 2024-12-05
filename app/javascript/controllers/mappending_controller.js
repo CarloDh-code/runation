@@ -15,14 +15,17 @@ export default class extends Controller {
     // Récupérer les coordonnées du polygone et le centroid
     const centroid = JSON.parse(this.centroidValue); // Le centroid est un objet avec latitude et longitude
     const coordinates = JSON.parse(this.coordinatesValue); // Le polygone est un tableau de coordonnées
-
-    // Initialiser la carte centrée sur le centroid
-    const map = new mapboxgl.Map({
+    const options = {
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v10",
       center: [centroid.latitude, centroid.longitude], // Inverser la latitude et la longitude ici
       zoom: 10
-    });
+    }
+    if (window.location.pathname == "/games/mine") {
+      options.interactive = false
+    }
+    // Initialiser la carte centrée sur le centroid
+    const map = new mapboxgl.Map(options);
 
     // Lorsque la carte est chargée, ajoutez les sources et le polygone
     map.on('load', () => {
