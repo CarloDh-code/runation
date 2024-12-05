@@ -17,13 +17,19 @@ export default class extends Controller {
     // Set Mapbox access token
     mapboxgl.accessToken = this.apiKeyValue;
 
+
     // Extract the map container ID
     const mapId = this.element.id;
-    const map = new mapboxgl.Map({
+    const options = {
       container: mapId,
       center: [this.centroidValue.latitude, this.centroidValue.longitude], // Centre par défaut sur Paris
       zoom: 10 // Niveau de zoom par défaut
-    });
+    }
+    if (window.location.pathname == '/games/mine'){
+      console.log('truc')
+      options.interactive = false
+    }
+    const map = new mapboxgl.Map(options);
 
     map.addControl(new mapboxgl.NavigationControl());
 
