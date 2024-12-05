@@ -114,7 +114,7 @@ body {
 
 .infox {
   display: flex;
-  flex-wrap: wrap; /* Allows wrapping of items to form multiple rows */
+  flex-wrap: nowrap; /* Allows wrapping of items to form multiple rows */
   gap: 10px; /* Adds space between items */
   justify-content: space-evenly; /* Centers items horizontally */
   margin-top: 5px; /* Optional: Adjust spacing around the container */
@@ -424,7 +424,7 @@ button.refreshhh {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 100%;
   padding: 8px;
   background: $orangy;
   color: white;
@@ -432,6 +432,6 @@ button.refreshhh {
   font-weight: bold;
   border: none;
   border-radius: 50px;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 
 }
