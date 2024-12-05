@@ -85,7 +85,7 @@ julien = Player.create!(
   email: "julien@test.test",
   password: "123456",
   name: "Julien",
-  nickname: "Julien DS"
+  nickname: "Jul DS"
 )
 
 thomas = Player.create!(
