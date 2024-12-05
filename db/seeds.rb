@@ -319,7 +319,22 @@ marseille_carlos_1 = Run.create!(
   end_long: 2.3517822591304025,
   polyline:   "ucdgGmbv_@`bAsjBjyBik@leCdsA`u@quE{KgfFqaCitAhOluGy{BeaBgvA{Q}n@|}BoQ|sCtZr`D",
   strava_activity_id: 123165781649128,
-  player: carlos
+  player: taib
+)
+
+
+
+marseille_polo_1 = Run.create!(
+  name: 'vieux port',
+  start_datetime: "2024-12-09 17:20:00",
+  end_datetime: "2024-12-09 18:20:00",
+  start_lat: 48.83043048328835,
+  end_lat: 48.83043048328835,
+  start_long: 2.3517822591304025,
+  end_long: 2.3517822591304025,
+  polyline:   "uoggG_sw_@tC_k@|PcAfPxeAzMd_@tUCeb@qmCio@e`@yf@fmAwK|i@b[rHn]yJ",
+  strava_activity_id: 123165781649128,
+  player: paul
 )
 
 marseille_anto_1 = Run.create!(
@@ -345,7 +360,7 @@ marseille_taib_1 = Run.create!(
   end_long: 2.3517822591304025,
   polyline:   "iwhgGk~~_@iL}kAuEsg@sh@pIog@nFkZ?xSra@hYdc@jM~lCfAppB~aA}Xg@}gE",
   strava_activity_id: 123165781649128,
-  player: taib
+  player: mickael
 )
 
 marseille_micka_1 = Run.create!(
@@ -358,7 +373,7 @@ marseille_micka_1 = Run.create!(
   end_long: 2.3517822591304025,
   polyline:   "wadgGu`{_@t`@t]~oAaDhnAoxAcSsgB}kBkN_dAtgA`CdnB",
   strava_activity_id: 123165781649128,
-  player: mickael
+  player: carlos
 )
 ########
 game_19 = Game.create!(
@@ -608,10 +623,37 @@ run_seven = Run.create!(
   end_lat: 48.876970605924726,
   start_long: 2.332328511402011,
   end_long: 2.333370130509138,
-  polyline:   "e}hiHsofMn@{@bAOp@g@bA?p@QRAh@SzAiAPJ@ZLB`@Ab@Rd@JJh@JVdA[h@Nf@X\\V`@HNALJ`@RJJ`@JTLFO^Yb@QD@P`@Zf@`@`AZHHJTZz@fBh@l@tApB^L^Yh@t@h@Vr@Pj@H~@xAXp@T^lA~@\\f@X|@NXf@Nj@|@d@`@PGN?@DKIH{@HeB^kBbBcHFQJMpAuGXw@f@T`@HZb@f@h@T?`@RtA`@l@h@n@z@\\\\r@`@`@\\n@TJKNGVoATi@DAR[RmAj@uFZeCPcBf@mCj@eEF[N_@J_@ZoBJcALuDp@kHJuBDSAe@Fy@VoAX{Ct@sGRqAlBaJZiBJsARqA\\{A`@y@j@iEXaBVo@zCcMN[`@oBRi@TcBP]RgAh@aBf@yBh@iBX[B?JHdArA~@^TLJAHW\\iBn@kCHs@`@eB^{BJWb@{@JwAx@cDJg@n@yBt@_Bl@c@j@Of@FZV[~AOj@Kt@Mj@Up@If@]hAO^]vAQb@Ip@a@jBW\\Op@Iv@g@`BWp@Af@[z@Ub@Mn@AJQn@KJENCVBt@Hb@Dd@RfAFj@AFIDc@NaBXaAX_@Rk@l@iA~@y@nAQh@Yh@UJ{B{AQGSl@_Av@Wt@QdA{@`DAPm@~CIx@K^ILUB[Im@m@a@Yg@O_@[k@[kACmBg@_@FMCKKIWUYe@MUAIMy@o@OCg@WYSk@[e@DKEU_@[M]YMUKCGDKBUK][m@Ie@WYa@g@Ug@e@I?_@TK?OQc@Wu@{@ECc@F_@Kc@[g@m@c@YOCi@@g@_@q@s@cAu@i@Jo@m@k@c@c@Ia@Ba@SYY[Kk@i@mAOsByAQ?IK[E_@Sy@JONUp@YpDSrAm@zCSp@Iv@Ml@OjASt@QlAEf@Cn@QbAE`AQdAG`AKl@u@GW@]GmBHg@Co@@e@IW@QES?s@DcBWi@@EHG?gAU}@I_@?oAK}@Ug@Cs@|Ag@t@i@~AUXQj@QNCN?ZNr@Ht@Mv@S|DBZFNCb@BrAItACbBBvAUhEP~@EnB@PAh@I|A@ZAR]~AF\\@ZItA?`AJtBHv@DHAh@Kz@BXIN",
+  polyline:   "i{hiHqi_M_Smr@}D{^zZugAys@A~I_n@yb@j`@cAzpA|Tnl@z_@h]~U~J",
   strava_activity_id: 123165781647,
   player: mickael
 )
+
+run_wagon_xav_1 = Run.create!(
+  name: 'run seven',
+  start_datetime: "2024-12-09 14:00:00",
+  end_datetime: "2024-12-09 15:00:00",
+  start_lat: 48.87619586661458,
+  end_lat: 48.876970605924726,
+  start_long: 2.332328511402011,
+  end_long: 2.333370130509138,
+  polyline:   "_gaiHmhcM}f@fN}^x{@~CllA~Tro@|Tur@|_@yaB_Isr@",
+  strava_activity_id: 123165781647,
+  player: xavier
+)
+
+run_wagon_xav_2 = Run.create!(
+  name: 'run seven',
+  start_datetime: "2024-12-09 14:10:00",
+  end_datetime: "2024-12-09 15:20:00",
+  start_lat: 48.87619586661458,
+  end_lat: 48.876970605924726,
+  start_long: 2.332328511402011,
+  end_long: 2.333370130509138,
+  polyline:   "sggiHqrpM|^k]xfAwCyq@qsAyc@vi@cO|kA",
+  strava_activity_id: 123165781647,
+  player: xavier
+)
+
 
 run_eleven = Run.create!(
   name: 'run eleven',
