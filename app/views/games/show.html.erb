@@ -74,6 +74,7 @@
           data-mapongoing-coordinate-layer-value="<%= @game.coordinate_layer.to_json %>">
       </div>
     </div>
+    <%= button_to "IMPORT RUNS", update_runs_game_path(@game), data: { turbo_method: :post }, class: "refreshhh" %>
     <div class="details">
       <div class="infox">
         <div class="truc">
@@ -117,7 +118,6 @@
         </div>
       <% end %>
     </div>
-    <%= button_to "IMPORT RUNS", update_runs_game_path(@game), data: { turbo_method: :post }, class: "refreshhh" %>
   </div>
 <% end %>
 
@@ -149,7 +149,7 @@
 
         <div class="truc">
 
-          <p class="namip"><img src="/images/sablier.svg" alt="User Icon" class="iconx"><%= @game.duration %> days</p>
+          <p class="namip"><img src="/images/sablier.svg" alt="User Icon" class="iconx"><%= @game.duration %> D</p>
         </div>
 
         <div class="truc">
