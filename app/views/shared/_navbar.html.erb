@@ -10,6 +10,12 @@
     <% end %>
   </div>
 
+  <div class="chat-icon opacity-0">
+    <%# <%= link_to chat_game_comments_path(current_game), class: "nav-link" do %>
+      <%= image_tag("msg.svg", alt: "msg Icon", size: "30x30") %>
+    <%# <% end %>
+  </div>
+
   <div class="nav-logo">
     <%= link_to root_path, class: "navbar-logo" do %>
       <%= image_tag "logo_rn.svg", alt: "logo Icon", size: "40x40", class: "rounded-3" %>
@@ -24,13 +30,13 @@
           <%= image_tag("msg.svg", alt: "msg Icon", size: "30x30") %>
         <% end %>
       </div>
-      <% else %>
-       <div class="chat-icon d-none">
-        <%= link_to chat_game_comments_path(current_game), class: "nav-link" do %>
-          <%= image_tag("msg.svg", alt: "msg Icon", size: "30x30") %>
-        <% end %>
-      </div>
     <% end %>
+  <% else %>
+    <div class="chat-icon opacity-0">
+      <%# <%= link_to chat_game_comments_path(current_game), class: "nav-link" do %>
+        <%= image_tag("msg.svg", alt: "msg Icon", size: "30x30") %>
+      <%# <% end %>
+    </div>
   <% end %>
 
   <% if false %>
