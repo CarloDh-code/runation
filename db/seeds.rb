@@ -1,5 +1,6 @@
 # Suppression dans le bon ordre pour éviter des conflits de FK
 
+Notification.destroy_all
 GamePlayerRun.destroy_all
 GamePlayer.destroy_all
 Run.destroy_all
