@@ -31,6 +31,7 @@ gem "jbuilder"
 gem "geocoder"
 
 gem 'strava-ruby-client'
+# jrbeirb
 
 gem 'rgeo-geojson'
 
